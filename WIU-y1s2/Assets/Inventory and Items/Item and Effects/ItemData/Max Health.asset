@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aeae9a2b74885645aeae9f254313f24, type: 3}
+  m_Name: Max Health
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: Max Health
+  animationFrames:
+  - {fileID: -7212785955650792343, guid: 7c48642f9437b3446ab05b8b8965f3c5, type: 3}
+  - {fileID: -122134785385147581, guid: cca5d4e0fa5701443aca4a685f32a0e0, type: 3}
+  - {fileID: -6443483352298565540, guid: ff0b9446af7b7ab4683cbe7737da13fe, type: 3}
+  - {fileID: 6939621758169781207, guid: 4c1ee8bf5efb7b54b8d2898316a66d20, type: 3}
+  - {fileID: -8991427672902580367, guid: d91a1d3523686aa4383adb66d9ed64c7, type: 3}
+  - {fileID: -6090598050479059595, guid: 95440addb36ca564782b35e1fb2b633a, type: 3}
+  - {fileID: 2798780304813749294, guid: ca86761cdf0878b41a572ab92b164cd3, type: 3}
+  - {fileID: -8312393826647017351, guid: fbbe1ee5d2dc38c45be669639ad93f76, type: 3}
+  - {fileID: -3421664517259042624, guid: e3f33a6316406d049aa51a91c5c25d21, type: 3}
+  - {fileID: 3285136472412302155, guid: 2597643ec513681469ad6ab129150e9d, type: 3}
+  - {fileID: -2985865305950020009, guid: 5875c2909ec8a1a4b8113ba917c21379, type: 3}
+  - {fileID: -4007989788016159589, guid: 54e05c67733a3324392e8c0ed6528a29, type: 3}
+  - {fileID: 1310241353346214994, guid: f33fc141962fc6c47a815db9ccdc3420, type: 3}
+  frameRate: 4.5
+  effect: {fileID: 11400000, guid: 4b2317226b879b04b97722c73e46548b, type: 2}

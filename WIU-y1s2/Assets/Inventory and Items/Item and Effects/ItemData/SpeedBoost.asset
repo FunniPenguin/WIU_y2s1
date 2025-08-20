@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aeae9a2b74885645aeae9f254313f24, type: 3}
+  m_Name: SpeedBoost
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: Speed Boost
+  animationFrames:
+  - {fileID: 862379016836818256, guid: 264cc0b8b44f07145b814a251f2b2028, type: 3}
+  - {fileID: -2186691371062046714, guid: 6b1ec96a41fa86b42b5ce512f3900ff4, type: 3}
+  - {fileID: -7322167469960500290, guid: 0df2af606d98bfb469221f7de9badab2, type: 3}
+  - {fileID: -3808658141420958500, guid: cf7a72d7133e40d4cad624ddcffa6242, type: 3}
+  - {fileID: -4007507522514654717, guid: d6d21e462767b8d429f9ce194b2e3ddd, type: 3}
+  - {fileID: -3994048629351927266, guid: 13e5fa7b7fe54cf4eba35d0515bcac7e, type: 3}
+  - {fileID: 5451744497469562431, guid: b46d708e0875a774e89b85d8c7d81932, type: 3}
+  - {fileID: -79735994268927885, guid: c98bdc8db1db2094c967dd18ed48cf3b, type: 3}
+  - {fileID: -79173844613154321, guid: 5ef5872c5dc270440a7a3318888df886, type: 3}
+  - {fileID: -5333633726142258371, guid: 1588a04b627625945b20074bc8fdfddf, type: 3}
+  - {fileID: -3619495418961705422, guid: 4a6539608f665b04bba2aaa5acff7fbc, type: 3}
+  - {fileID: -4801490263080232081, guid: 81862e6eb5b70c84bb81003b59c20e36, type: 3}
+  frameRate: 5
+  effect: {fileID: 11400000, guid: 92889562b2ba9544da2ec661d2fadf1f, type: 2}
