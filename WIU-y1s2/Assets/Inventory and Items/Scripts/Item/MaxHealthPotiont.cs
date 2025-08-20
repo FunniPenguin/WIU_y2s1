@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MaxHealthPotiont", menuName = "Effect/MaxHealthPotiont")]
+[CreateAssetMenu(fileName = "MaxHealthPotion", menuName = "Effect/MaxHealthPotion")]
 public class MaxHealthPotion : ItemEffect
 {
     public override void Use(GameObject user)
@@ -8,7 +8,7 @@ public class MaxHealthPotion : ItemEffect
         HealthSystem healthSystem = user.GetComponent<HealthSystem>();
         if (healthSystem != null)
         {
-            healthSystem.health.health = healthSystem.health.maxhealth;
+            healthSystem.RestoreFullHealth();
         }
     }
 }

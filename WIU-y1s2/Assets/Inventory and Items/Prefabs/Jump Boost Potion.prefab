@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 962347279292575161}
   - component: {fileID: 1967757142353714897}
   - component: {fileID: 6356052040996709629}
+  - component: {fileID: 8502917198106364525}
   m_Layer: 0
   m_Name: Jump Boost Potion
   m_TagString: Untagged
@@ -168,3 +169,16 @@ PolygonCollider2D:
       - {x: 0.1875, y: 0.0390625}
       - {x: 0.140625, y: 0.3046875}
   m_UseDelaunayMesh: 0
+--- !u!114 &8502917198106364525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780134186248319712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1d7e73fea98d14a8e898c75f5ad83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  itemData: {fileID: 11400000, guid: d1530ac8664323d40beff66e33427a18, type: 2}

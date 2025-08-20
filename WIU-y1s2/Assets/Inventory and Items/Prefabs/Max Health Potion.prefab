@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7359388535196824515}
   - component: {fileID: 2754672605149309989}
   - component: {fileID: 6792053644297825261}
+  - component: {fileID: -7790960534568368617}
   m_Layer: 0
   m_Name: Max Health Potion
   m_TagString: Untagged
@@ -169,3 +170,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7790960534568368617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6936053218105056675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1d7e73fea98d14a8e898c75f5ad83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  itemData: {fileID: 11400000, guid: 13975719ca2af07449984220c8e5710d, type: 2}

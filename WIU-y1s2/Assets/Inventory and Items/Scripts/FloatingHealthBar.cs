@@ -17,6 +17,9 @@ public class FloatingHealthBar : MonoBehaviour
     public void UpdateHealthBar(float currentValue, float maxValue)
     {
         if (healthbar != null)
+        {
             healthbar.value = currentValue / maxValue;
+            Debug.Log("Updating Health Bar: " + healthbar.value);
+        }
     }
 }

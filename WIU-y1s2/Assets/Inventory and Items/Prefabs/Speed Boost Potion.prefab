@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3835846272795039719}
   - component: {fileID: 3157170526382768225}
   - component: {fileID: 2341280237371970943}
+  - component: {fileID: 4133032187071130341}
   m_Layer: 0
   m_Name: Speed Boost Potion
   m_TagString: Untagged
@@ -168,3 +169,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4133032187071130341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4791617071265445032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1d7e73fea98d14a8e898c75f5ad83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  itemData: {fileID: 11400000, guid: be8ef628248ecba439e32729b76b939f, type: 2}

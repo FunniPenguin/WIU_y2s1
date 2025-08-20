@@ -8,4 +8,14 @@ public class ItemData : ScriptableObject
     public float frameRate = 10f;
 
     public ItemEffect effect;
+
+    public Sprite Icon
+    {
+        get
+        {
+            if (animationFrames != null && animationFrames.Length > 0)
+                return animationFrames[0];
+            return null;
+        }
+    }
 }

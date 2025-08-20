@@ -11,14 +11,16 @@ public class InvincibilityEffect : ItemEffect
         HealthSystem healthSystem = user.GetComponent<HealthSystem>();
         if (healthSystem != null)
         {
-            user.GetComponent<MonoBehaviour>().StartCoroutine(ApplyInvincibility(healthSystem));
+            healthSystem.StartCoroutine(ApplyInvincibility(healthSystem));
         }
     }
 
-    private IEnumerator ApplyInvincibility (HealthSystem healthSystem)
+    private IEnumerator ApplyInvincibility(HealthSystem healthSystem)
     {
-        healthSystem.enabled = false;
+        healthSystem.isInvincible = true;
+        Debug.Log("Invincible!");
         yield return new WaitForSeconds(duration);
-        healthSystem.enabled = true;
+        healthSystem.isInvincible = false;
+        Debug.Log("No longer invincible!");
     }
 }

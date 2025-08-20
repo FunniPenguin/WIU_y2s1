@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7010036324287304896}
   - component: {fileID: 9186897898716774488}
   - component: {fileID: 6057393360169201084}
+  - component: {fileID: 3464651449732319099}
   m_Layer: 0
   m_Name: Invincibility Potion
   m_TagString: Untagged
@@ -168,3 +169,16 @@ PolygonCollider2D:
       - {x: 0.1875, y: 0.0390625}
       - {x: 0.140625, y: 0.3046875}
   m_UseDelaunayMesh: 0
+--- !u!114 &3464651449732319099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732095724699305498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1d7e73fea98d14a8e898c75f5ad83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  itemData: {fileID: 11400000, guid: 881b6b8885d72084b96500b2f0bb1d33, type: 2}
