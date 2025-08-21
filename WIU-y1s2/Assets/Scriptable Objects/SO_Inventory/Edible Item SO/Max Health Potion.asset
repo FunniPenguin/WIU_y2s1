@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef8dae7d5f545847b87c460ff97e468, type: 3}
+  m_Name: Max Health Potion
+  m_EditorClassIdentifier: Assembly-CSharp::_Inventory.Model.EdibleItemSO
+  <IsStackable>k__BackingField: 0
+  <MaxStackSize>k__BackingField: 1
+  <Name>k__BackingField: 
+  <Description>k__BackingField: Restores Health to Full
+  <ItemImage>k__BackingField: {fileID: -7212785955650792343, guid: 7c48642f9437b3446ab05b8b8965f3c5, type: 3}
+  modifiersData:
+  - statModifer: {fileID: 11400000, guid: 4e9e24fc1d5eb5d49883d1e34a80976f, type: 2}
+    value: 100
