@@ -33,7 +33,7 @@ public class GameSceneManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetButtonUp("O"))
+        if (Input.GetKeyUp(KeyCode.O))
         {
             SceneManager.LoadScene(_startingLevelIndex);
         }
@@ -54,8 +54,10 @@ public class GameSceneManager : MonoBehaviour
     {
         //To load a map and change the current map index so that the save file knows which map to return to
         //UnloadMenu();
+        Debug.Log($"Loading scene: {sceneIndex}");
         SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
         _currMapIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log($"current map index: {_currMapIndex}");
     }
 
     public void LoadMap(string sceneName)

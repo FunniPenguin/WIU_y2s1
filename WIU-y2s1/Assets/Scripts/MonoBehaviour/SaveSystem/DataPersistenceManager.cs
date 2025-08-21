@@ -53,12 +53,8 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.Log("Generating new game data");
             NewGame();
         }
-        Debug.Log("Preparing to switch scenes");
-        //initialise variables from load
-        GameSceneManager.Instance.LoadMap(_gameData._currMapIndex);
         //Load all the objects which contain data to be saved
         this._DataPersistenceObjects = FindAllDataPersistenceObjects();
-        Debug.Log("Successfully switched scenes");
         foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
         {
             dataPersistenceObj.LoadData(_gameData);
@@ -66,13 +62,16 @@ public class DataPersistenceManager : MonoBehaviour
         Debug.Log("End of load game operation");
     }
     public void SaveGame() {
-        foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
+        if (_DataPersistenceObjects != null)
         {
-            //Ref will pass the game data into the save data function by reference.
-            dataPersistenceObj.SaveData(ref _gameData);
+            foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
+            {
+                //Ref will pass the game data into the save data function by reference.
+                dataPersistenceObj.SaveData(ref _gameData);
+            }
+            _gameData._currMapIndex = GameSceneManager.Instance.GetCurrentMapIndex();
+            _fileManager.Save(_gameData);
         }
-        _gameData._currMapIndex = GameSceneManager.Instance.GetCurrentMapIndex();
-        _fileManager.Save(_gameData);
     }
 
 
