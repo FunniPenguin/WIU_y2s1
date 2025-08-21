@@ -35,27 +35,38 @@ namespace _Inventory.UI
         // Reset the item slot to its initial state
         public void ResetData()
         {
-            itemImage.gameObject.SetActive(false); // Hide the item image
+            if (itemImage != null)
+                itemImage.gameObject.SetActive(false); // Hide the item image
             empty = true; // Mark the item slot as empty
         }
 
         // Deselect the item slot by hiding the border
         public void Deselect()
         {
-            borderImage.enabled = false; // Hide the border image
+            if (borderImage != null)
+                borderImage.enabled = false; // Hide the border image
         }
 
         // Fills the item slot with data, shows the item image and quantity text.
         public void SetData(Sprite sprite, int quantity)
         {
-            itemImage.gameObject.SetActive(true);
-            itemImage.sprite = sprite;
-            quantityText.text = quantity + "";
+            if (itemImage != null)
+            {
+                itemImage.gameObject.SetActive(true);
+                itemImage.sprite = sprite;
+            }
+
+            if (quantityText != null)
+            {
+                quantityText.text = quantity.ToString();
+            }
+
             empty = false;
         }
         public void Select()
         {
-            borderImage.enabled = true;
+            if (borderImage != null)
+                borderImage.enabled = true;
         }
 
 
