@@ -1,0 +1,108 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\assets\\decisions\\d_isinaggrorange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|solutionrelative:assets\\decisions\\d_isinaggrorange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\assets\\actions\\attack_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|solutionrelative:assets\\actions\\attack_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|c:\\users\\wilson c\\wiu_y2s1\\wiu1\\assets\\actions\\chase_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|solutionrelative:assets\\actions\\chase_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\assets\\actions\\idle_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|solutionrelative:assets\\actions\\idle_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\StateAction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|solutionrelative:Assets\\StateAction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "idle_action.cs",
+              "DocumentMoniker": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\idle_action.cs",
+              "RelativeDocumentMoniker": "Assets\\actions\\idle_action.cs",
+              "ToolTip": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\idle_action.cs",
+              "RelativeToolTip": "Assets\\actions\\idle_action.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAQwAkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T06:27:23.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "chase_action.cs",
+              "DocumentMoniker": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\chase_action.cs",
+              "RelativeDocumentMoniker": "Assets\\actions\\chase_action.cs",
+              "ToolTip": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\chase_action.cs",
+              "RelativeToolTip": "Assets\\actions\\chase_action.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwCMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T06:24:40.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "d_isInAggroRange.cs",
+              "DocumentMoniker": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\decisions\\d_isInAggroRange.cs",
+              "RelativeDocumentMoniker": "Assets\\decisions\\d_isInAggroRange.cs",
+              "ToolTip": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\decisions\\d_isInAggroRange.cs",
+              "RelativeToolTip": "Assets\\decisions\\d_isInAggroRange.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T06:22:26.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "attack_action.cs",
+              "DocumentMoniker": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\attack_action.cs",
+              "RelativeDocumentMoniker": "Assets\\actions\\attack_action.cs",
+              "ToolTip": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\attack_action.cs",
+              "RelativeToolTip": "Assets\\actions\\attack_action.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T06:18:28.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StateAction.cs",
+              "DocumentMoniker": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\StateAction.cs",
+              "RelativeDocumentMoniker": "Assets\\StateAction.cs",
+              "ToolTip": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\StateAction.cs",
+              "RelativeToolTip": "Assets\\StateAction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T02:18:38.646Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
