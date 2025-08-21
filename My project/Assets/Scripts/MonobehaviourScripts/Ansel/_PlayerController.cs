@@ -14,7 +14,13 @@ public class _PlayerController : MonoBehaviour
     private float speed;
     private float jumpHeight = 10;
 
+    [Header("Gravity")]
+    public float baseGravity = 2f;
+    public float MaxfallSpeed = 20f;
+    public float fallSpeedMultiplier = 2f;
+
     public bool IsGrounded { get; set; }
+    public float _lastSavedDirection = 0;
 
     void Awake()
     {
@@ -37,6 +43,7 @@ public class _PlayerController : MonoBehaviour
         {
             //Moving action
             moveDirection = ctx.ReadValue<Vector2>();
+            _lastSavedDirection = moveDirection.x;
 
             if (moveDirection.x < 0)
                 transform.localScale = new Vector3(-2, 2, 2);
@@ -55,6 +62,11 @@ public class _PlayerController : MonoBehaviour
 
             animator.SetBool("IsMoving", false);
         };
+    }
+
+    private void Update()
+    {
+        Gravity();
     }
 
     void FixedUpdate()
@@ -109,4 +121,18 @@ public class _PlayerController : MonoBehaviour
             //Put codes here
         };
     }
+
+    private void Gravity()
+    {
+        if (body.linearVelocity.y < 0)
+        {
+            body.gravityScale = baseGravity * fallSpeedMultiplier;
+            body.linearVelocity = new Vector2(body.linearVelocity.x, Mathf.Max(body.linearVelocity.y, -MaxfallSpeed));
+        }
+        else
+        {
+            body.gravityScale = baseGravity;
+        }
+    }
+
 }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8882255052929888672}
   - component: {fileID: 5165099528982465740}
   - component: {fileID: 7914351124992047845}
+  - component: {fileID: 6568965065574642748}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -75,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29df7b0aef9f2443b9e7440138faa11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lastSavedDirection: 0
 --- !u!61 &8996561544616806990
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -223,6 +225,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackEventHandler
   attackPoint: {fileID: 8311325422529062125}
+--- !u!114 &6568965065574642748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3868035439176965045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfebcaba05fc43c4e9d401d8d9556cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityController
+  _activeAbility: {fileID: 11400000, guid: ee179f146c29021488b17142c405b1f7, type: 2}
 --- !u!1 &7681286833082237393
 GameObject:
   m_ObjectHideFlags: 0
