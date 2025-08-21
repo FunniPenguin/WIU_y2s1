@@ -56,6 +56,7 @@ public class FileManager
             //Using block ensures that the memory is disposed off even if there is an exception thrown
             using (FileStream stream = new FileStream(fullPathName, FileMode.Create))
             {
+                Debug.Log(fullPathName);
                 //What i understand is that streamwriter gets refernce to the file at the param location and can edit its contents
                 using (StreamWriter writer = new StreamWriter(stream))
                 {

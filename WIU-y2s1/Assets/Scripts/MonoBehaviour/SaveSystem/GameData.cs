@@ -7,11 +7,11 @@ public class GameData
 {
     //int _saveIndex;
 
-    Vector2 _playerPosition;
+    public Vector2 _playerPosition;
     public int _currMapIndex;
 
-    SerializableDictionary<string, bool> mapGameObjects; //string is the guid, bool is whether the object is active
-    SerializableDictionary<string, int> inventoryItems; //string is the item name, int is the quantity
+    public SerializableDictionary<string, bool> mapGameObjects; //string is the guid, bool is whether the object is active
+    public SerializableDictionary<string, int> inventoryItems; //string is the item name, int is the quantity
 
     public GameData()
     {

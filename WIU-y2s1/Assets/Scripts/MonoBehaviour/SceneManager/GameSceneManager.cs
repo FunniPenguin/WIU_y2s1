@@ -55,8 +55,10 @@ public class GameSceneManager : MonoBehaviour
         //To load a map and change the current map index so that the save file knows which map to return to
         //UnloadMenu();
         Debug.Log($"Loading scene: {sceneIndex}");
+
         SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
-        _currMapIndex = SceneManager.GetActiveScene().buildIndex;
+        _currMapIndex = sceneIndex;
+        DataPersistenceManager.Instance.LoadMapObjs();
         Debug.Log($"current map index: {_currMapIndex}");
     }
 
@@ -64,7 +66,7 @@ public class GameSceneManager : MonoBehaviour
     {
         //UnloadMenu();
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-        _currMapIndex = SceneManager.GetActiveScene().buildIndex;
+        _currMapIndex = SceneManager.GetSceneByName(sceneName).buildIndex;
     }
     public void LoadMenu(int index)
     {

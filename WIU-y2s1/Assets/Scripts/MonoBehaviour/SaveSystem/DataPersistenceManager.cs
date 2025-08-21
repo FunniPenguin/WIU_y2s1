@@ -31,21 +31,22 @@ public class DataPersistenceManager : MonoBehaviour
     private void Start()
     { 
         this._fileManager = new FileManager(Application.persistentDataPath, _fileName);
-        //LoadGame();
-    }
-    private void OnApplicationQuit()
-    {
-        SaveGame();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            SaveGame();
+        }
+    }
     public void NewGame()
     {
         //Todo: Add a way to have multiple different playthroughs as current implementation only supports one playthrough
         _gameData = new GameData();
     }
     public void LoadGame()
-    {
-        Debug.Log("load game called");
+    {        
         //try to load the file, if not then create a new game
         this._gameData = _fileManager.Load();
         if (_gameData == null)
@@ -54,24 +55,31 @@ public class DataPersistenceManager : MonoBehaviour
             NewGame();
         }
         //Load all the objects which contain data to be saved
+        //this._DataPersistenceObjects = FindAllDataPersistenceObjects();
+        //foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
+        //{
+        //    dataPersistenceObj.LoadData(_gameData);
+        //}
+        LoadMapObjs();
+    }
+    public void LoadMapObjs()
+    {
+        //Load all the objects which contain data to be saved
         this._DataPersistenceObjects = FindAllDataPersistenceObjects();
         foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
         {
             dataPersistenceObj.LoadData(_gameData);
         }
-        Debug.Log("End of load game operation");
     }
     public void SaveGame() {
-        if (_DataPersistenceObjects != null)
+        Debug.Log("Saving game data");
+        foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
         {
-            foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
-            {
-                //Ref will pass the game data into the save data function by reference.
-                dataPersistenceObj.SaveData(ref _gameData);
-            }
-            _gameData._currMapIndex = GameSceneManager.Instance.GetCurrentMapIndex();
-            _fileManager.Save(_gameData);
+            //Ref will pass the game data into the save data function by reference.
+            dataPersistenceObj.SaveData(ref _gameData);
         }
+        _gameData._currMapIndex = GameSceneManager.Instance.GetCurrentMapIndex();
+        _fileManager.Save(_gameData);
     }
 
 
