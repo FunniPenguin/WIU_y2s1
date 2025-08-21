@@ -69,6 +69,7 @@
     <Compile Include="Assets\actions\attack_action.cs" />
     <Compile Include="Assets\states\State.cs" />
     <Compile Include="Assets\actions\chase_action.cs" />
+    <Compile Include="Assets\actions\prime_action.cs" />
     <Compile Include="Assets\StateAction.cs" />
   </ItemGroup>
   <ItemGroup>

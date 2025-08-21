@@ -453,6 +453,7 @@
 "Assets/actions/attack_action.cs"
 "Assets/actions/chase_action.cs"
 "Assets/actions/idle_action.cs"
+"Assets/actions/prime_action.cs"
 "Assets/decisions/d_isInAggroRange.cs"
 "Assets/decisions/StateDecision.cs"
 "Assets/StateAction.cs"

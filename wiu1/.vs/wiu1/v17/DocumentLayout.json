@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|c:\\users\\wilson c\\wiu_y2s1\\wiu1\\assets\\actions\\prime_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|solutionrelative:assets\\actions\\prime_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\assets\\actions\\idle_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|solutionrelative:assets\\actions\\idle_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|c:\\users\\wilson c\\wiu_y2s1\\wiu1\\assets\\decisions\\d_isinaggrorange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\assets\\decisions\\d_isinaggrorange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|solutionrelative:assets\\decisions\\d_isinaggrorange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\assets\\actions\\attack_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|solutionrelative:assets\\actions\\attack_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\assets\\actions\\chase_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|solutionrelative:assets\\actions\\chase_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\assets\\actions\\attack_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|solutionrelative:assets\\actions\\attack_action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCFF6634-36C4-0F64-E0DC-B54BE71143F3}|Assembly-CSharp.csproj|C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\StateAction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,15 +43,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "prime_action.cs",
+              "DocumentMoniker": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\prime_action.cs",
+              "RelativeDocumentMoniker": "Assets\\actions\\prime_action.cs",
+              "ToolTip": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\prime_action.cs",
+              "RelativeToolTip": "Assets\\actions\\prime_action.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T02:07:43.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "idle_action.cs",
               "DocumentMoniker": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\idle_action.cs",
               "RelativeDocumentMoniker": "Assets\\actions\\idle_action.cs",
               "ToolTip": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\idle_action.cs",
               "RelativeToolTip": "Assets\\actions\\idle_action.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T06:27:23.137Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T06:27:23.137Z"
             },
             {
               "$type": "Document",
@@ -57,13 +73,13 @@
               "RelativeDocumentMoniker": "Assets\\actions\\chase_action.cs",
               "ToolTip": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\chase_action.cs",
               "RelativeToolTip": "Assets\\actions\\chase_action.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAQwCMAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-20T06:24:40.805Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "d_isInAggroRange.cs",
               "DocumentMoniker": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\decisions\\d_isInAggroRange.cs",
               "RelativeDocumentMoniker": "Assets\\decisions\\d_isInAggroRange.cs",
@@ -71,12 +87,11 @@
               "RelativeToolTip": "Assets\\decisions\\d_isInAggroRange.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T06:22:26.775Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T06:22:26.775Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "attack_action.cs",
               "DocumentMoniker": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\actions\\attack_action.cs",
               "RelativeDocumentMoniker": "Assets\\actions\\attack_action.cs",
@@ -88,7 +103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "StateAction.cs",
               "DocumentMoniker": "C:\\Users\\Wilson C\\WIU_y2s1\\wiu1\\Assets\\StateAction.cs",
               "RelativeDocumentMoniker": "Assets\\StateAction.cs",
