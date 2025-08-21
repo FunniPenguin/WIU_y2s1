@@ -662,7 +662,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 418258168}
         m_TargetAssemblyTypeName: GameSceneManager, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadMap
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

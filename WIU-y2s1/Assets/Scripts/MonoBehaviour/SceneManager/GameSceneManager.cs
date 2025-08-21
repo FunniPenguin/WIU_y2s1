@@ -22,14 +22,12 @@ public class GameSceneManager : MonoBehaviour
 
     private int _currMapIndex; //identitify the build index of the level that the player is currently on
     private int _additiveSceneIndex; //track the current additive scene menu opened such as pause menu so that can destroy
-    private string _additiveSceneName; //track the current additive scene menu opened such as pause menu so that can destroy
     [SerializeField] private int _startingLevelIndex; //stores the starting level so that save file knows which starting level to load
     
     private void Start()
     {
         _currMapIndex = 0;
         _additiveSceneIndex = -1;
-        _additiveSceneName = "";
     }
     private void Update()
     {
@@ -50,23 +48,19 @@ public class GameSceneManager : MonoBehaviour
         UnloadMenu();
         SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
     }
-    public void LoadMap(int sceneIndex)
+    public void SwitchMap(int mapIndex)
+    {
+        LoadMap(SceneManager.GetActiveScene().buildIndex, mapIndex);
+    }
+    public void LoadMap(int currentSceneIndex, int nextSceneIndex)
     {
         //To load a map and change the current map index so that the save file knows which map to return to
         //UnloadMenu();
-        Debug.Log($"Loading scene: {sceneIndex}");
+        Debug.Log($"Loading scene: {nextSceneIndex}");
 
-        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
-        _currMapIndex = sceneIndex;
-        DataPersistenceManager.Instance.LoadMapObjs();
+        SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
+        _currMapIndex = nextSceneIndex;
         Debug.Log($"current map index: {_currMapIndex}");
-    }
-
-    public void LoadMap(string sceneName)
-    {
-        //UnloadMenu();
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-        _currMapIndex = SceneManager.GetSceneByName(sceneName).buildIndex;
     }
     public void LoadMenu(int index)
     {
@@ -79,15 +73,6 @@ public class GameSceneManager : MonoBehaviour
         //track the additive scene
         _additiveSceneIndex = index;
     }
-    public void LoadMenu(string sceneName)
-    {
-        if (SceneManager.loadedSceneCount != 1)
-        {
-            return;
-        }
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-        _additiveSceneName = sceneName;
-    }
     public void UnloadMenu()
     {
         //checks whether build index or name was used to add the additive scene and unloads scene based on that
@@ -96,10 +81,6 @@ public class GameSceneManager : MonoBehaviour
         {
             SceneManager.UnloadSceneAsync(_additiveSceneIndex);
             _additiveSceneIndex = -1;
-        }
-        if (_additiveSceneName != "") {
-            SceneManager.UnloadSceneAsync(_additiveSceneName);
-            _additiveSceneName = "";
         }
     }
     public void ReloadCurrentScene()

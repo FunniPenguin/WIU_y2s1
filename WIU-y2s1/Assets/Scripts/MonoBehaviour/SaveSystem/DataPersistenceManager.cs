@@ -31,6 +31,14 @@ public class DataPersistenceManager : MonoBehaviour
     private void Start()
     { 
         this._fileManager = new FileManager(Application.persistentDataPath, _fileName);
+        //try to load the file, if not then create a new game
+        this._gameData = _fileManager.Load();
+        if (_gameData == null)
+        {
+            Debug.Log("Generating new game data");
+            NewGame();
+        }
+        LoadMapObjs();
     }
 
     private void Update()
@@ -44,23 +52,6 @@ public class DataPersistenceManager : MonoBehaviour
     {
         //Todo: Add a way to have multiple different playthroughs as current implementation only supports one playthrough
         _gameData = new GameData();
-    }
-    public void LoadGame()
-    {        
-        //try to load the file, if not then create a new game
-        this._gameData = _fileManager.Load();
-        if (_gameData == null)
-        {
-            Debug.Log("Generating new game data");
-            NewGame();
-        }
-        //Load all the objects which contain data to be saved
-        //this._DataPersistenceObjects = FindAllDataPersistenceObjects();
-        //foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
-        //{
-        //    dataPersistenceObj.LoadData(_gameData);
-        //}
-        LoadMapObjs();
     }
     public void LoadMapObjs()
     {
@@ -94,7 +85,6 @@ public class DataPersistenceManager : MonoBehaviour
         else
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject); //Ensures this singleton will be in every scene
         }
     }
     //Ensure that no more instances once scene ends
