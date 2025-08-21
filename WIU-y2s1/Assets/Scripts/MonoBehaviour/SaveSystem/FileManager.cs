@@ -33,7 +33,9 @@ public class FileManager
                 //reads from the Json file and stores it back into GameData obj, which we then assign to loaded data and return
                 LoadedData = JsonUtility.FromJson<GameData>(dataToLoad);
             }
-            catch (Exception e){ }
+            catch (Exception e){ 
+                Debug.LogError($"Error loading Json file at {fullPathName}\n{e}");
+            }
         }
         return LoadedData;
     }
@@ -68,3 +70,5 @@ public class FileManager
         }
     }
 }
+
+//This class is done by Yap Jun Hong Dylan

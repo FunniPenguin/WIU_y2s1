@@ -2,67 +2,114 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameSceneManager : MonoBehaviour
 {
-    [SerializeField] private int loadingSceneIndex = 1;
-    private AsyncOperation currOperation = null;
-    private void Update()
+    //Start of singleton
+    private static GameSceneManager _instance;
+    public static GameSceneManager Instance {  get { return _instance; } }
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (_instance != null && _instance != this)
         {
-            QuitGame();
+            Destroy(this.gameObject);
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            SceneManager.LoadSceneAsync("PauseMenu");
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //Warning: code below can crash and freeze unity
-            //SwitchScene("StartScene");
-        }
-    }
-    public void SwitchScene(int sceneIndex)
-    {
-
-        SceneManager.LoadSceneAsync(sceneIndex);
-    }
-
-    public bool SwitchScene(string sceneName)
-    {
-        //Todo: Fix a bug that causes unity to freeze and not shutdown
-        if (currOperation == null)
-            currOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
         else
-            return false;
-        currOperation.allowSceneActivation = false;
-        SceneManager.LoadScene(loadingSceneIndex, LoadSceneMode.Additive);
-        while (!currOperation.isDone)
         {
-            if (currOperation.isDone)
-            {
-                UnloadAdditiveScene(loadingSceneIndex);
-                currOperation.allowSceneActivation = true;
-                currOperation = null;
-            }
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        return true;
+    }
+    private void OnDestroy() { if (this == _instance) { _instance = null; } }
+    //End of singleton
 
+    private int _currMapIndex; //identitify the build index of the level that the player is currently on
+    private int _additiveSceneIndex; //track the current additive scene menu opened such as pause menu so that can destroy
+    private string _additiveSceneName; //track the current additive scene menu opened such as pause menu so that can destroy
+    [SerializeField] private int _startingLevelIndex; //stores the starting level so that save file knows which starting level to load
+    
+    private void Start()
+    {
+        _currMapIndex = 0;
+        _additiveSceneIndex = -1;
+        _additiveSceneName = "";
+    }
+    public void LoadScene(int sceneIndex)
+    {
+        //Loads a scene while removing any pause menu,
+        //calling scenemanager normally may result in additive scene variables not being reset
+        UnloadMenu();
+        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+    }
+    public void LoadScene(string sceneIndex)
+    {
+        UnloadMenu();
+        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+    }
+    public void LoadMap(int sceneIndex)
+    {
+        //To load a map and change the current map index so that the save file knows which map to return to
+        //UnloadMenu();
+        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+        _currMapIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
+    public void LoadMap(string sceneName)
+    {
+        //UnloadMenu();
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        _currMapIndex = SceneManager.GetActiveScene().buildIndex;
+    }
+    public void LoadMenu(int index)
+    {
+        //check that no other additive scenes have been loaded 
+        if (SceneManager.loadedSceneCount != 1)
+        {
+            return;
+        }
+        SceneManager.LoadScene(index, LoadSceneMode.Additive);
+        //track the additive scene
+        _additiveSceneIndex = index;
+    }
+    public void LoadMenu(string sceneName)
+    {
+        if (SceneManager.loadedSceneCount != 1)
+        {
+            return;
+        }
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+        _additiveSceneName = sceneName;
+    }
+    public void UnloadMenu()
+    {
+        //checks whether build index or name was used to add the additive scene and unloads scene based on that
+        //resets the value to ensure that additive scene can be loaded
+        if (_additiveSceneIndex != -1)
+        {
+            SceneManager.UnloadSceneAsync(_additiveSceneIndex);
+            _additiveSceneIndex = -1;
+        }
+        if (_additiveSceneName != "") {
+            SceneManager.UnloadSceneAsync(_additiveSceneName);
+            _additiveSceneName = "";
+        }
+    }
     public void ReloadCurrentScene()
     {
+        //reload scene useful in restarting the level
+        //to be used in unity events
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void UnloadAdditiveScene(int SceneIndex)
-    {
-        SceneManager.UnloadSceneAsync(SceneIndex);
-    }
-    public void UnloadAdditive(string SceneName)
-    {
-        SceneManager.UnloadSceneAsync(SceneName);
     }
     public void QuitGame()
     {
+        //for ending the game, to be used in unity events
         Application.Quit();
     }
+    public int GetCurrentMapIndex()
+    {
+        return _currMapIndex; 
+    }
+    public int GetStartingLevelIndex()
+    {
+        return _startingLevelIndex;
+    }
 }
+
+//This class is done by Yap Jun Hong Dylan
