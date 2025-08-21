@@ -29,39 +29,47 @@ public class DataPersistenceManager : MonoBehaviour
      * Mod this such that game is saved only when player enters save menu to save and new game and load are handled in start
      **************************************************************************************************************/
     private void Start()
-    {
-        this._DataPersistenceObjects = FindAllDataPersistenceObjects();
+    { 
         this._fileManager = new FileManager(Application.persistentDataPath, _fileName);
-        LoadGame();
-    }
-    private void OnApplicationQuit()
-    {
-        SaveGame();
+        //try to load the file, if not then create a new game
+        this._gameData = _fileManager.Load();
+        if (_gameData == null)
+        {
+            Debug.Log("Generating new game data");
+            NewGame();
+        }
+        LoadMapObjs();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            SaveGame();
+        }
+    }
     public void NewGame()
     {
         //Todo: Add a way to have multiple different playthroughs as current implementation only supports one playthrough
         _gameData = new GameData();
     }
-    public void LoadGame()
+    public void LoadMapObjs()
     {
-        this._gameData = _fileManager.Load();
-        if (_gameData == null)
-        {
-            NewGame();
-        }
+        //Load all the objects which contain data to be saved
+        this._DataPersistenceObjects = FindAllDataPersistenceObjects();
         foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
         {
             dataPersistenceObj.LoadData(_gameData);
         }
     }
     public void SaveGame() {
+        Debug.Log("Saving game data");
         foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
         {
             //Ref will pass the game data into the save data function by reference.
             dataPersistenceObj.SaveData(ref _gameData);
         }
+        _gameData._currMapIndex = GameSceneManager.Instance.GetCurrentMapIndex();
         _fileManager.Save(_gameData);
     }
 
@@ -83,8 +91,11 @@ public class DataPersistenceManager : MonoBehaviour
     private void OnDestroy() { if (this == _instance) { _instance = null; } }
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
-        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
+        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IDataPersistence>();
 
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
 }
+
+
+//This class is done by Yap Jun Hong Dylan
