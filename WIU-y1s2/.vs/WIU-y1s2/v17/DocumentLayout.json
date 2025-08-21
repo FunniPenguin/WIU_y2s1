@@ -1,0 +1,51 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jovpr\\Downloads\\WIU_y2s1\\WIU-y1s2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9606DEBC-C4B5-7648-4D76-DD635C434C74}|Assembly-CSharp.csproj|c:\\users\\jovpr\\downloads\\wiu_y2s1\\wiu-y1s2\\assets\\scripts\\monobehaviour\\jovan\\inventoryui\\uiinventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9606DEBC-C4B5-7648-4D76-DD635C434C74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\monobehaviour\\jovan\\inventoryui\\uiinventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UIInventoryItem.cs",
+              "DocumentMoniker": "C:\\Users\\jovpr\\Downloads\\WIU_y2s1\\WIU-y1s2\\Assets\\Scripts\\MonoBehaviour\\Jovan\\InventoryUI\\UIInventoryItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MonoBehaviour\\Jovan\\InventoryUI\\UIInventoryItem.cs",
+              "ToolTip": "C:\\Users\\jovpr\\Downloads\\WIU_y2s1\\WIU-y1s2\\Assets\\Scripts\\MonoBehaviour\\Jovan\\InventoryUI\\UIInventoryItem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MonoBehaviour\\Jovan\\InventoryUI\\UIInventoryItem.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T09:13:00.588Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 21,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
