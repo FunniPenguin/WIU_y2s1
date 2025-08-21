@@ -31,6 +31,13 @@ public class GameSceneManager : MonoBehaviour
         _additiveSceneIndex = -1;
         _additiveSceneName = "";
     }
+    private void Update()
+    {
+        if (Input.GetButtonUp("O"))
+        {
+            SceneManager.LoadScene(_startingLevelIndex);
+        }
+    }
     public void LoadScene(int sceneIndex)
     {
         //Loads a scene while removing any pause menu,
