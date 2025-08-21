@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef8dae7d5f545847b87c460ff97e468, type: 3}
+  m_Name: Speed Boost Potion
+  m_EditorClassIdentifier: Assembly-CSharp::_Inventory.Model.EdibleItemSO
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 99
+  <Name>k__BackingField: Speed Boost Potion
+  <Description>k__BackingField: Increases your speed for 5 seconds
+  <ItemImage>k__BackingField: {fileID: 862379016836818256, guid: 264cc0b8b44f07145b814a251f2b2028, type: 3}
+  modifiersData:
+  - statModifer: {fileID: 11400000, guid: 5525dbbd284725445b28e3642d7e7cef, type: 2}
+    value: 2

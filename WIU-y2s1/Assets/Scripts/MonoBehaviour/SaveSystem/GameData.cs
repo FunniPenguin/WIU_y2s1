@@ -8,7 +8,7 @@ public class GameData
     //int _saveIndex;
 
     //Do not save player position as player should spawn at player spawn point
-    //public Vector2 _playerPosition;
+    public Vector2 _playerPosition;
     public int _currMapIndex;
 
     public SerializableDictionary<string, bool> mapGameObjects; //string is the guid, bool is whether the object is active
@@ -17,7 +17,7 @@ public class GameData
     public GameData()
     {
         //_saveIndex = -1;
-        //_playerPosition = Vector2.zero;
+        _playerPosition = Vector2.zero;
         _currMapIndex = GameSceneManager.Instance.GetStartingLevelIndex();
         mapGameObjects = new SerializableDictionary<string, bool>();
         inventoryItems = new SerializableDictionary<string, int>();
