@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class CharacterStatInvicibilityModifier : CharacterStatModiferSO
+public class CharacterStatInvicibilityModifierSO : CharacterStatModiferSO
 {
     public float duration = 5f;
     public override void AffectCharacter(GameObject character, float val)

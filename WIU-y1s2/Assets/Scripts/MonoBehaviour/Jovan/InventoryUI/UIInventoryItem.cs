@@ -6,33 +6,46 @@ using UnityEngine.UI;
 
 namespace _Inventory.UI
 {
+    /// <summary>
+    /// This class represents a single inventory item in the UI.
+    /// It will handle user interactions such as clicking, dragging,dropping
+    /// </summary>
     public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
     {
-        [SerializeField] private Image itemImage;
-        [SerializeField] private TMP_Text quantityText;
-        [SerializeField] private Image borderImage;
+        [SerializeField] private Image itemImage; // Image icon
+        [SerializeField] private TMP_Text quantityText; // quantiy text
+        [SerializeField] private Image borderImage; // border to show when selected
 
+        // Events based on user interactions:
+        // Left click to select slot.
+        // Right click for item actions.
+        // Begin drag to start dragging the item.
+        // End drag to stop dragging the item.
+        // Drop to drop the item on another slot.
         public event Action<UIInventoryItem> OnItemClicked, OnItemDroppedOn, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick;
 
-        private bool empty = true;
+        private bool empty = true; // Check if item slot is empty
 
         private void Awake()
         {
-            ResetData();
-            Deselect();
+            ResetData(); // Initialize the item slot as empty
+            Deselect(); // Ensure the item is not selected by default
         }
 
+        // Reset the item slot to its initial state
         public void ResetData()
         {
-            itemImage.gameObject.SetActive(false);
-            empty = true;
+            itemImage.gameObject.SetActive(false); // Hide the item image
+            empty = true; // Mark the item slot as empty
         }
 
+        // Deselect the item slot by hiding the border
         public void Deselect()
         {
-            borderImage.enabled = false;
+            borderImage.enabled = false; // Hide the border image
         }
 
+        // Fills the item slot with data, shows the item image and quantity text.
         public void SetData(Sprite sprite, int quantity)
         {
             itemImage.gameObject.SetActive(true);
@@ -80,3 +93,6 @@ namespace _Inventory.UI
         }
     }
 }
+
+// Made by Jovan Yeo Kaisheng
+// This code is part of the _Inventory system.
