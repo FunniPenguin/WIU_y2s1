@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class _StateController : MonoBehaviour
+public class StateController : MonoBehaviour
 {
-    public _State currentState;
-    public _State remainState;
+    public State currentState;
+    public State remainState;
 
     // Update is called once per frame
     void Update()
@@ -11,7 +11,7 @@ public class _StateController : MonoBehaviour
         currentState.UpdateState(this);
     }
 
-    public void TransitionToState(_State nextstate)
+    public void TransitionToState(State nextstate)
     {
         if (nextstate != remainState)
         {
