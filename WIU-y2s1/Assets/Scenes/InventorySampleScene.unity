@@ -2318,6 +2318,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1060725410110765332, guid: 7bdd343addfe06142af050b4843d27c3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 465550c66bb742240a2de8326203d492, type: 2}
     - target: {fileID: 2280285169968051486, guid: 7bdd343addfe06142af050b4843d27c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.7495184
@@ -2366,7 +2370,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fan
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4838059935343735043, guid: 7bdd343addfe06142af050b4843d27c3, type: 3}
+    - {fileID: 8076803918800462487, guid: 7bdd343addfe06142af050b4843d27c3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

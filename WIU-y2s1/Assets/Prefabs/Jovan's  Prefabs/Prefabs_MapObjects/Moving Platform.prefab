@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 8299455341899047455}
   - component: {fileID: 3145507401191075857}
   - component: {fileID: 5286219555352933123}
-  - component: {fileID: 184193437251801356}
+  - component: {fileID: 9148624524643191575}
   m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
@@ -125,8 +125,8 @@ Transform:
   m_GameObject: {fileID: 5735823377804235712}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1202, y: 0, z: 0}
-  m_LocalScale: {x: 5.459006, y: 1, z: 1}
+  m_LocalPosition: {x: -1.3735, y: 0, z: 0}
+  m_LocalScale: {x: 2.1393845, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3829983575468522461}
@@ -223,7 +223,7 @@ MonoBehaviour:
   pointA: {fileID: 29140392606180473}
   pointB: {fileID: 23907366848419840}
   moveSpeed: 2
---- !u!61 &184193437251801356
+--- !u!61 &9148624524643191575
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,11 +261,11 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.40625, y: 0.4375}
+    oldSize: {x: 0.9, y: 0.28}
     newSize: {x: 1.40625, y: 0.4375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.40625, y: 0.4375}
+  m_Size: {x: 0.9, y: 0.28}
   m_EdgeRadius: 0
