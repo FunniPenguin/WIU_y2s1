@@ -1,8 +1,10 @@
 using _Inventory.Model;
 using System.Collections;
+using UnityEditor;
+using UnityEditor.Overlays;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, IDataPersistence
 {
     [field: SerializeField]
     public ItemSO InventoryItem { get; private set; } // The item data, which includes properties like name, description, image, etc.
@@ -15,6 +17,8 @@ public class Item : MonoBehaviour
 
     [SerializeField]
     private float duration = 0.3f; // Duration of the pickup animation, default is 0.3 seconds
+
+    [SerializeField] private string GUID = "";
 
     private void Start()
     {
@@ -43,6 +47,21 @@ public class Item : MonoBehaviour
         } 
 
         gameObject.SetActive(false);
+    }
+    public void SaveData(ref GameData data)
+    {
+        if (data.mapGameObjects.ContainsKey(GUID))
+        {
+            data.mapGameObjects.Remove(GUID);
+        }
+        data.mapGameObjects.Add(GUID, gameObject.activeInHierarchy);
+    }
+    public void LoadData(GameData data) {
+        bool isActive = true;
+        if (data.mapGameObjects.TryGetValue(GUID, out isActive))
+            gameObject.SetActive(isActive);
+        else
+            gameObject.SetActive(true);
     }
 }
 // Made by Jovan Yeo Kaisheng
