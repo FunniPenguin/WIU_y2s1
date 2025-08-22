@@ -71,6 +71,7 @@
     <Compile Include="Assets\actions\chase_action.cs" />
     <Compile Include="Assets\actions\prime_action.cs" />
     <Compile Include="Assets\StateAction.cs" />
+    <Compile Include="Assets\actions\postage_action.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
