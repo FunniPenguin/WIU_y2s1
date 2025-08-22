@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 [CreateAssetMenu(fileName = "postage_action", menuName = "Scriptable Objects/postage_action")]
 public class postage_action : StateAction
@@ -14,7 +15,7 @@ public class postage_action : StateAction
     private Vector2 toPlayer = Vector2.zero;
     private Rigidbody2D rb;
 
-    private float eneSpeed = 2f;
+    private float eneSpeed = 4f;
     private float jumpPower = 10f;
     private float jumpThreshold = 5f;
     
@@ -33,6 +34,7 @@ public class postage_action : StateAction
         if (toPlayer.y > jumpThreshold)
         {
             _JUMP = true;
+            Debug.Log("JUMP CALLED");
         }
 
         handleMovement();
@@ -44,6 +46,9 @@ public class postage_action : StateAction
     {
         float moveDir = 0;
 
+        RaycastHit2D hitResult = Physics2D.Raycast(enemyToTag.transform.position, Vector2.down, 1, LayerMask.GetMask("Ground"));
+        isGrounded = hitResult.collider != null;
+
         if (_LEFT) moveDir = 1;
         if (_RIGHT) moveDir = -1;
 
@@ -54,10 +59,5 @@ public class postage_action : StateAction
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
             isGrounded = false;
         }
-    }
-
-    void OnCollisionStay2D(Collision collision)
-    {
-        isGrounded = true;
     }
 }
