@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+//THIS IS JUST A SAMPLE PLAYER MOVEMENT SCRIPT FOR TESTING PURPOSES
 public class SamplePlayerMovement : MonoBehaviour
 {
     [Header("Player-Related-stuff")]
@@ -82,3 +84,4 @@ public class SamplePlayerMovement : MonoBehaviour
         if (groundCheckPosition) Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
     }
 }
+// Made by Jovan Yeo Kaisheng

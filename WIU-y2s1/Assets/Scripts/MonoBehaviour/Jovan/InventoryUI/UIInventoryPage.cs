@@ -7,22 +7,22 @@ namespace _Inventory.UI
     public class UIInventory : MonoBehaviour
     {
         [SerializeField]
-        private UIInventoryItem itemPrefab;
+        private UIInventoryItem itemPrefab; // Prefab for each inventory item UI
 
         [SerializeField]
-        private RectTransform contentPanel;
+        private RectTransform contentPanel; // Panel that holds all inventory items
 
         [SerializeField]
-        private UIInventoryDescription itemDescription;
+        private UIInventoryDescription itemDescription; // UI component for displaying item descriptions
 
-        [SerializeField] private MouseFollower mouseFollower;
+        [SerializeField] private MouseFollower mouseFollower; // Follower for the item being dragged
 
-        List<UIInventoryItem> ListofUIItems = new List<UIInventoryItem>();
+        List<UIInventoryItem> ListofUIItems = new List<UIInventoryItem>(); // List to hold all UI inventory items
 
-        private int currentlyDraggedItemIndex = -1;
+        private int currentlyDraggedItemIndex = -1; // Index of the currently dragged item, -1 if none is being dragged
 
-        public event Action<int> OnDescriptionRequested, OnItemActionRequested, OnStartDragging;
-        public event Action<int, int> OnSwapItems;
+        public event Action<int> OnDescriptionRequested, OnItemActionRequested, OnStartDragging; // Event for when an item description is requested, item action is requested, or dragging starts
+        public event Action<int, int> OnSwapItems; // Event for when two items are swapped in the inventory
 
         private void Awake()
         {
@@ -30,27 +30,30 @@ namespace _Inventory.UI
             mouseFollower.Toggle(false);
             itemDescription.ResetDescription();
         }
+
+        // setting up the inventory UI with a specified size
         public void InitializeInventoryUI(int inventorysize)
         {
             for (int i = 0; i < inventorysize; i++)
             {
-                UIInventoryItem uiItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
-                uiItem.transform.SetParent(contentPanel);
-                ListofUIItems.Add(uiItem);
+                UIInventoryItem uiItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity); // Create a new UIInventoryItem instance
+                uiItem.transform.SetParent(contentPanel); // Set its parent to the content panel
+                ListofUIItems.Add(uiItem); // Add it to the list of UI items
 
-                uiItem.OnItemClicked += HandleItemSelection;
-                uiItem.OnItemBeginDrag += HandleBeginDrag;
-                uiItem.OnItemDroppedOn += HandleSwap;
-                uiItem.OnItemEndDrag += HandleEndDrag;
-                uiItem.OnRightMouseBtnClick += HandleShowItemActions;
+                uiItem.OnItemClicked += HandleItemSelection; // Subscribe to item click event to handle selection
+                uiItem.OnItemBeginDrag += HandleBeginDrag; // Subscribe to item begin drag event to handle dragging
+                uiItem.OnItemDroppedOn += HandleSwap; // Subscribe to item drop event to handle swapping items
+                uiItem.OnItemEndDrag += HandleEndDrag; // Subscribe to item end drag event to reset the dragged item
+                uiItem.OnRightMouseBtnClick += HandleShowItemActions; // Subscribe to right mouse button click event to use item
             }
         }
 
+        // update the UI for a specific item index with new data
         public void UpdateData(int itemIndex, Sprite itemImage, int itemQuantity)
         {
             if (ListofUIItems.Count > itemIndex)
             {
-                ListofUIItems[itemIndex].SetData(itemImage, itemQuantity);
+                ListofUIItems[itemIndex].SetData(itemImage, itemQuantity); // Set the data for the UI item at the specified index
             }
         }
 
@@ -155,3 +158,5 @@ namespace _Inventory.UI
         }
     }
 }
+// Made by Jovan Yeo Kaisheng
+// This code is part of the _Inventory system.

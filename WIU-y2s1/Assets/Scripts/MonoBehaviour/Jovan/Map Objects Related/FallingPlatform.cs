@@ -26,12 +26,11 @@ public class FallingPlatform : MonoBehaviour
     {
         isFalling = true;
         yield return new WaitForSeconds(fallWait);
-
-        rb.bodyType = RigidbodyType2D.Dynamic;
-
+        rb.bodyType = RigidbodyType2D.Dynamic; // Change the platform to dynamic so it can fall
         yield return new WaitForSeconds(destroyWait);
-
-        yield return null;
-        gameObject.SetActive(false);
+        yield return null; // Wait for the end of the frame to ensure the platform has fallen: null checker
+        gameObject.SetActive(false);// Deactivate the platform after it has fallen and waited
     }
 }
+
+// Made by Jovan Yeo Kaisheng

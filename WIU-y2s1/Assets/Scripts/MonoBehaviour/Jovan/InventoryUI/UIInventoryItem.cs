@@ -63,13 +63,15 @@ namespace _Inventory.UI
 
             empty = false;
         }
+
+        // Select the item slot by showing the border
         public void Select()
         {
             if (borderImage != null)
                 borderImage.enabled = true;
         }
 
-
+        // Handle pointer click events for the item slot
         public void OnPointerClick(PointerEventData pointerData)
         {
             if (pointerData.button == PointerEventData.InputButton.Right)
