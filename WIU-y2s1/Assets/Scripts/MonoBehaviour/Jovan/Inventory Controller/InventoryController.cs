@@ -1,0 +1,169 @@
+using _Inventory.Model;
+using _Inventory.UI;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace _Inventory
+{
+    /// <summary>
+    /// Handles the connection between the inventory data (InventorySO)
+    /// and the UI (UIInventory). Responsible for initializing, updating,
+    /// and responding to player input for inventory management.
+    /// </summary>
+
+    public class InventoryController : MonoBehaviour
+    {
+        [SerializeField]
+        private UIInventory inventoryUI; // It will refer to the UI component displaying inventory slots
+
+        [SerializeField]
+        private InventorySO inventoryData; // ScriptableObject that holds the inventory data, including items and their quantities.
+
+        public List<InventoryItem> initialItems = new List<InventoryItem>(); // Optional items to pre-load at start: use it for giving player starting items like health potions, and base weapons.
+
+        private void Start()
+        {
+            PrepareUI(); //set up the UI for the inventory
+            PrepareInventoryData(); //initialize the inventory data and load initial items
+        }
+
+
+        // Initializes the inventory data, subscribes to updates,
+        // and adds any predefined starting items.
+        private void PrepareInventoryData()
+        {
+            inventoryData.Initialize(); // Reset/initialize inventory
+            inventoryData.OnInventoryUpdated += UpdateInventoryUI; // Subscribe to inventory updates to refresh the UI when items change
+
+            // Add starting items (if any)
+            foreach (InventoryItem item in initialItems)
+            {
+                if (item.IsEmpty)
+                    continue;
+
+                inventoryData.AddItem(item);
+            }
+        }
+
+        // Updates the UI whenever the inventory data changes.
+        // Resets and redraws all slots to reflect current state.
+        private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
+        {
+            inventoryUI.ResetAllItems();
+            foreach (var item in inventoryState)
+            {
+                // Slot index is the key, itemImage is the sprite for the item, and quantity is how many of that item are in the slot (stack size basically)
+                inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
+            }   
+        }
+
+        // Prepares the UI by setting up its size and event subscriptions.
+        private void PrepareUI()
+        {
+            // Match the UI slots to the inventory data size
+            inventoryUI.InitializeInventoryUI(inventoryData.Size);
+
+            // Subscribe to UI events to handle user interactions
+            inventoryUI.OnDescriptionRequested += HandleDescriptionRequest;
+            inventoryUI.OnSwapItems += HandleSwapItems;
+            inventoryUI.OnStartDragging += HandleDragging;
+            inventoryUI.OnItemActionRequested += HandleItemActionRequest;
+        }
+
+        // Handles user input for item selection, dragging, and actions.
+        private void HandleItemActionRequest(int itemIndex)
+        {
+            InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
+            if (inventoryItem.IsEmpty)
+                return;
+
+            // Check if the item has an action like consume or equip
+            IItemAction itemAction = inventoryItem.item as IItemAction;
+            if (itemAction != null)
+            {
+                itemAction.PerformAction(gameObject);
+            }
+
+            // If the item is destroyable, remove it from the inventory
+            IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
+            if (destroyableItem != null)
+            {
+                inventoryData.RemoveItem(itemIndex, 1);
+            }
+        }
+
+        // Called when the player starts dragging an item, will display the item being dragged, with the alpha being lowwered
+        private void HandleDragging(int itemIndex)
+        {
+            InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
+            if (inventoryItem.IsEmpty)
+                return;
+
+            inventoryUI.CreateDraggedItem(inventoryItem.item.ItemImage, inventoryItem.quantity);
+        }
+
+        // Will handle the swapping of items in the inventory between 2 inventory slots.
+        private void HandleSwapItems(int itemIndex_1, int itemIndex_2)
+        {
+            inventoryData.SwapItems(itemIndex_1, itemIndex_2);
+        }
+
+        // Displays the item's description when the player selects an item.
+        private void HandleDescriptionRequest(int itemIndex)
+        {
+            InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
+
+            // If the item is empty, reset the description UI and return
+            if (inventoryItem.IsEmpty)
+            {
+                inventoryUI.ResetSelection();
+                return;
+            }
+
+            // Update the description UI with the item's details
+            ItemSO item = inventoryItem.item;
+            inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.name, item.Description);
+
+        }
+
+
+        // Handles the player's input for togglin the Inventory UI.
+        public void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.I))
+            {
+                if (inventoryUI.isActiveAndEnabled == false)
+                {
+                    // Show inventory and sync current data
+                    inventoryUI.Show();
+                    foreach (var item in inventoryData.GetCurrentInventoryState())
+                    {
+                        inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
+                    }
+                }
+                else
+                {
+                    // Hide inventory
+                    inventoryUI.Hide();
+                }
+            }
+        }
+    }
+}
+
+// Made by Jovan Yeo Kaisheng
+// This code is part of the _Inventory system.
+
+/// <summary>
+/// Pre-knowledge needed: Event Subscription.
+/// Event refers to the process where a method or function registers itself to be notified and executed when a specific event occurs.
+/// Benefits:  Decoupling:
+/// Events promote loose coupling, meaning classes don't need direct knowledge of each other to communicate.
+/// Modularity:
+/// Code becomes more modular and reusable, as components can be easily added or removed without affecting other parts of the system.
+/// Flexibility:
+/// Multiple methods can subscribe to the same event, and event handling logic can be easily modified or extended.
+/// 
+/// To subscribe to an event, you typically use the += operator with the event name and the method you want to execute when the event occurs.
+/// To unsubscribe from an event, you use the -= operator with the event name and the method you want to stop executing when the event occurs.
+/// </summary>
