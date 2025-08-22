@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.IO;
+using System.Linq;
 
 public class FileManager
 {
@@ -32,8 +33,14 @@ public class FileManager
                 }
                 //reads from the Json file and stores it back into GameData obj, which we then assign to loaded data and return
                 LoadedData = JsonUtility.FromJson<GameData>(dataToLoad);
+                foreach (KeyValuePair<string, bool> keyValuePair in LoadedData.mapGameObjects)
+                {
+                    Debug.Log($"Game object {keyValuePair.Key} has been loaded as {keyValuePair.Value}");
+                }
             }
-            catch (Exception e){ }
+            catch (Exception e){ 
+                Debug.LogError($"Error loading Json file at {fullPathName}\n{e}");
+            }
         }
         return LoadedData;
     }
@@ -54,6 +61,7 @@ public class FileManager
             //Using block ensures that the memory is disposed off even if there is an exception thrown
             using (FileStream stream = new FileStream(fullPathName, FileMode.Create))
             {
+                Debug.Log(fullPathName);
                 //What i understand is that streamwriter gets refernce to the file at the param location and can edit its contents
                 using (StreamWriter writer = new StreamWriter(stream))
                 {
@@ -68,3 +76,5 @@ public class FileManager
         }
     }
 }
+
+//This class is done by Yap Jun Hong Dylan
