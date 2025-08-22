@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638911699618661118
-    m_Hash: 1407872802
+      ticks: 638914368247039277
+    m_Hash: 729495326
   m_LockFileStatus:
     m_FilePath: C:/Users/Wilson C/WIU_y2s1/wiu1/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638911699618686575
-    m_Hash: 1219331205
+      ticks: 638914368247039277
+    m_Hash: 1825709086
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:

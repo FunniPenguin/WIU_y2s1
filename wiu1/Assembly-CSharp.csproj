@@ -62,16 +62,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\decisions\StateDecision.cs" />
-    <Compile Include="Assets\StateController.cs" />
-    <Compile Include="Assets\StateTransition.cs" />
+    <Compile Include="Assets\states\stateTemplateScripts\StateTransition.cs" />
+    <Compile Include="Assets\states\stateTemplateScripts\StateController.cs" />
+    <Compile Include="Assets\actions\actionScripts\attack_action.cs" />
     <Compile Include="Assets\decisions\d_isInAggroRange.cs" />
-    <Compile Include="Assets\actions\idle_action.cs" />
-    <Compile Include="Assets\actions\attack_action.cs" />
-    <Compile Include="Assets\states\State.cs" />
-    <Compile Include="Assets\actions\chase_action.cs" />
-    <Compile Include="Assets\actions\prime_action.cs" />
-    <Compile Include="Assets\StateAction.cs" />
-    <Compile Include="Assets\actions\postage_action.cs" />
+    <Compile Include="Assets\actions\actionScripts\chase_action.cs" />
+    <Compile Include="Assets\states\stateTemplateScripts\State.cs" />
+    <Compile Include="Assets\actions\actionScripts\prime_action.cs" />
+    <Compile Include="Assets\actions\actionScripts\idle_action.cs" />
+    <Compile Include="Assets\states\stateTemplateScripts\StateAction.cs" />
+    <Compile Include="Assets\actions\actionScripts\postage_action.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
