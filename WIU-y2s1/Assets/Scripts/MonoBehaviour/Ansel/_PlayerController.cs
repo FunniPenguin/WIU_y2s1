@@ -20,6 +20,7 @@ public class _PlayerController : MonoBehaviour
     public float fallSpeedMultiplier = 2f;
 
     public bool IsGrounded { get; set; }
+    public bool IsClimbing { get; set; }
     public float _lastSavedDirection = 0;
 
     void Awake()
@@ -41,6 +42,12 @@ public class _PlayerController : MonoBehaviour
         var moveAction = InputSystem.actions.FindAction("Move");
         moveAction.performed += ctx =>
         {
+            //Climbing action
+            if (IsClimbing) 
+            {
+
+            }
+
             //Moving action
             moveDirection = ctx.ReadValue<Vector2>();
             _lastSavedDirection = moveDirection.x;
