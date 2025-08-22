@@ -47,7 +47,7 @@ public class attack_action : StateAction
         }
     }
 
-    void OnCollisionStay2D(Collision collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
         isGrounded = true;
     }
