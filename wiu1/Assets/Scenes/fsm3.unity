@@ -265,6 +265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 5814094362128086398, guid: 28e5b8073582afd4282a296457fc7d85, type: 3}
+      propertyPath: m_TagString
+      value: player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -278,6 +282,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2849750522730901943, guid: 3d4718f26559a0f44ac625fa73e65bca, type: 3}
+      propertyPath: currentState
+      value: 
+      objectReference: {fileID: 11400000, guid: a5b61b4be9c194a4ea9a5661afd8ee0f, type: 2}
     - target: {fileID: 3634991411780596024, guid: 3d4718f26559a0f44ac625fa73e65bca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.59
@@ -320,6 +328,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6429494442907318114, guid: 3d4718f26559a0f44ac625fa73e65bca, type: 3}
       propertyPath: m_Name
+      value: ene1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429494442907318114, guid: 3d4718f26559a0f44ac625fa73e65bca, type: 3}
+      propertyPath: m_TagString
       value: ene1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

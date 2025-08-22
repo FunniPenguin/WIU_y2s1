@@ -27,8 +27,8 @@ public class postage_action : StateAction
         toPlayer = playerInScene.transform.position - enemyInScene.transform.position;
 
         Debug.Log("POSTAGE");
-        _LEFT = !(toPlayer.x > 0);
-        _RIGHT = toPlayer.x > 0;
+        _RIGHT = !(toPlayer.x > 0);
+        _LEFT = toPlayer.x > 0;
 
         if (toPlayer.y > jumpThreshold)
         {
