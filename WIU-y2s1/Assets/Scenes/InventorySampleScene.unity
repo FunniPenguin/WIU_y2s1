@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &93164696
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 382078198827468919, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.922106
+      objectReference: {fileID: 0}
+    - target: {fileID: 382078198827468919, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.7336204
+      objectReference: {fileID: 0}
+    - target: {fileID: 382078198827468919, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 382078198827468919, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 382078198827468919, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 382078198827468919, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 382078198827468919, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 382078198827468919, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 382078198827468919, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 382078198827468919, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8639911629858855770, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: m_Name
+      value: Annoying Flying Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
 --- !u!1 &237721680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,3 +2218,4 @@ SceneRoots:
   - {fileID: 1218168256}
   - {fileID: 280370979}
   - {fileID: 1103405719}
+  - {fileID: 93164696}

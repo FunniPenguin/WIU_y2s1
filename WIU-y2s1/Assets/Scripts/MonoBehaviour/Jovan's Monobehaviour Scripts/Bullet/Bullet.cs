@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // TODO: deal damage here
+            // TODO: deal damage here - let the player handle it
             Destroy(gameObject);
         }
     }
