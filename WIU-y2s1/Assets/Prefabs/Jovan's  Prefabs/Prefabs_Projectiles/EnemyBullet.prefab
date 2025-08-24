@@ -169,5 +169,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   speed: 20
+  forwardDuration: 0.5
   lifetime: 3
-  rotationSpeed: 360

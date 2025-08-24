@@ -13,9 +13,11 @@ public class BurstAttackAction : StateAction
 
             for (int i = -2; i <= 2; i++)
             {
-                float angleOffset = i * 20f;
+                float angleOffset = i * 10f;
                 Quaternion rot = Quaternion.Euler(0, 0, data.aimAngle + angleOffset);
-                GameObject.Instantiate(bulletPrefab, data.firePoint.position, rot);
+                GameObject bullet = GameObject.Instantiate(bulletPrefab, data.firePoint.position, rot);
+
+                bullet.GetComponent<Bullet>().Initialize(controller.transform);
             }
 
             data.StartCooldown();
