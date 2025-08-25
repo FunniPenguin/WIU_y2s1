@@ -1,6 +1,8 @@
 using _Inventory.Model;
 using _Inventory.UI;
+using System;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace _Inventory
@@ -20,6 +22,10 @@ namespace _Inventory
         private InventorySO inventoryData; // ScriptableObject that holds the inventory data, including items and their quantities.
 
         public List<InventoryItem> initialItems = new List<InventoryItem>(); // Optional items to pre-load at start: use it for giving player starting items like health potions, and base weapons.
+
+        [SerializeField] private AudioSource audioSource; // Audio source for playing item action sound effects
+
+        [SerializeField] private AudioClip dropClip; // Sound effect for dropping an item
 
         private void Start()
         {
@@ -81,8 +87,29 @@ namespace _Inventory
             IItemAction itemAction = inventoryItem.item as IItemAction;
             if (itemAction != null)
             {
-                itemAction.PerformAction(gameObject);
+                inventoryUI.ShowItemAction(itemIndex);
+                inventoryUI.AddAction(itemAction.ActionName, () => PerformAction(itemIndex));
             }
+            // If the item is destroyable, remove it from the inventory
+            IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
+            if (destroyableItem != null)
+            {
+                inventoryUI.AddAction("Discard", () => DropItem(itemIndex, inventoryItem.quantity));
+            }
+        }
+
+        private void DropItem(int itemIndex, int quantity)
+        {
+            inventoryData.RemoveItem(itemIndex, quantity);
+            inventoryUI.ResetSelection();
+            audioSource.PlayOneShot(dropClip);
+        }
+
+        public void PerformAction(int itemIndex)
+        {
+            InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
+            if (inventoryItem.IsEmpty)
+                return;
 
             // If the item is destroyable, remove it from the inventory
             IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
@@ -90,7 +117,22 @@ namespace _Inventory
             {
                 inventoryData.RemoveItem(itemIndex, 1);
             }
+
+            // Check if the item has an action like consume or equip
+            IItemAction itemAction = inventoryItem.item as IItemAction;
+            if (itemAction != null)
+            {
+                itemAction.PerformAction(gameObject, inventoryItem.itemState);
+                audioSource.PlayOneShot(itemAction.actionSFX);
+                if (inventoryData.GetItemAt(itemIndex).IsEmpty)
+                {
+                    inventoryUI.ResetSelection();
+                }
+            }
         }
+
+
+
 
         // Called when the player starts dragging an item, will display the item being dragged, with the alpha being lowwered
         private void HandleDragging(int itemIndex)
@@ -122,8 +164,24 @@ namespace _Inventory
 
             // Update the description UI with the item's details
             ItemSO item = inventoryItem.item;
-            inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.name, item.Description);
+            string description = PrepareDescription(inventoryItem);
+            inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.name, description);
 
+        }
+
+        private string PrepareDescription(InventoryItem inventoryItem)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(inventoryItem.item.Description);
+            sb.AppendLine();
+            for (int i = 0; i < inventoryItem.itemState.Count; i++)
+            {
+                sb.AppendLine($"Durability{inventoryItem.itemState[i].itemParameter.ParameterName} "
+                    + $": {inventoryItem.itemState[i].value} / " 
+                    + $"{inventoryItem.item.DefaultParameterList[i].value}");
+                sb.AppendLine();
+            }
+            return sb.ToString();
         }
 
 

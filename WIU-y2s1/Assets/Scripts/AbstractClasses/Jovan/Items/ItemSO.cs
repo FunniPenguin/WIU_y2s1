@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace _Inventory.Model
@@ -38,6 +40,21 @@ namespace _Inventory.Model
         // The image of the item that will be displayed in the inventory UI.
         [field: SerializeField]
         public Sprite ItemImage { get; set; }
+
+        [field: SerializeField]
+        public List<ItemParameter> DefaultParameterList { get; set; }
+    }
+
+    [Serializable]
+    public struct ItemParameter : IEquatable<ItemParameter>
+    {
+        public ItemParameterSO itemParameter;
+        public float value;
+
+        public bool Equals(ItemParameter other)
+        {
+            return other.itemParameter == itemParameter;
+        }
     }
 }
 
