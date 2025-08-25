@@ -22,25 +22,25 @@ public class EntityStatistics : MonoBehaviour
     }
 
     //For adding and removing health
-    void AddHealth(float addedHealth)
+    public void AddHealth(float addedHealth)
     {
         health += addedHealth;
     }
 
     //For adding and removing damage
-    void AddDamage(float addedDamage)
+    public void AddDamage(float addedDamage)
     {
         damage += addedDamage;
     }
 
     //For adding and removing speed
-    void AddSpeed(float addedSpeed)
+    public void AddSpeed(float addedSpeed)
     { 
         speed += addedSpeed;
     }
 
     //For adding and removing jumpPower
-    void AddJumpPower(float addedJumpPower)
+    public void AddJumpPower(float addedJumpPower)
     {
         jumpPower += addedJumpPower;
     }

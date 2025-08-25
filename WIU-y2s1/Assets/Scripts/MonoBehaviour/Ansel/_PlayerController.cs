@@ -2,15 +2,15 @@ using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class _PlayerController : MonoBehaviour, IDataPersistence
+public class _PlayerController : MonoBehaviour
 {
     private EntityStatistics _statistics;
     private Animator animator;
     private Rigidbody2D body;
     private Vector2 moveDirection;
 
-    private float speed;
-    private float jumpHeight = 10;
+    public float speed;
+    public float jumpHeight = 10;
 
     [Header("Ground Check")]
     public Transform groundCheckPosition;
@@ -23,6 +23,7 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
     public float fallSpeedMultiplier = 2f;
 
     public bool IsGrounded { get; set; }
+    public bool IsDead { get; set; }
     public bool IsClimbing { get; set; }
     public float _lastSavedDirection = 0;
 
@@ -52,52 +53,23 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
         jumpHeight = _statistics.jumpPower;
 
         animator.SetBool("IsGrounded", false);
+        animator.SetBool("IsDead", false);
 
         var moveAction = InputSystem.actions.FindAction("Move");
 
-        if (moveAction != null)
-        {
-            moveAction.performed += ctx =>
-            {
-                //Climbing action
-                if (IsClimbing)
-                {
-
-                }
-
-                //Moving action
-                moveDirection = ctx.ReadValue<Vector2>();
-                _lastSavedDirection = moveDirection.x;
-
-                if (moveDirection.x < 0)
-                    transform.localScale = new Vector3(-2, 2, 2);
-                else
-                    transform.localScale = new Vector3(2, 2, 2); 
-
-                body.linearVelocityX = moveDirection.x * speed;
-
-                animator.SetBool("IsMoving", true);
-            };
-            moveAction.canceled += ctx =>
-            {
-                moveDirection = Vector2.zero;
-
-                body.linearVelocityX = 0;
-
-                animator.SetBool("IsMoving", false);
-            };
-        }
     }
 
     private void Update()
     {
         Gravity();
         GroundCheck();
+
     }
 
     void FixedUpdate()
     {
-        if (GetComponent<_HealthSystem>().health.health <= 0) 
+
+        if (GetComponent<HealthSystem>().healthData.maxHealth <= 0)
         {
             _statistics.uponDeath.Invoke();
         }
@@ -117,44 +89,7 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
         }
 
         animator.SetBool("IsGrounded", IsGrounded);
-
-        var attackAction = InputSystem.actions.FindAction("Attack");
-        if (attackAction != null)
-        {
-            attackAction.started += ctx =>
-            {
-                animator.SetTrigger("IsAttacking");
-            };
-        }
-
-        //Jumping action
-        var jumpAction = InputSystem.actions.FindAction("Jump");
-        if (jumpAction != null)
-        {
-            jumpAction.performed += ctx =>
-            {
-                if (animator.GetBool("IsGrounded"))
-                {
-                    body.linearVelocityY = jumpHeight;
-                    animator.SetTrigger("IsJumping");
-                }
-            };
-            jumpAction.canceled += ctx =>
-            {
-                body.linearVelocityY *= 0.5f;
-                animator.SetBool("IsJumping", false);
-            };
-        }
-
-        //Interact
-        var interactAction = InputSystem.actions.FindAction("Interact");
-        if (interactAction != null)
-        {
-            interactAction.started += ctx =>
-            {
-                //Put codes here
-            };
-        }
+        animator.SetBool("IsDead", IsDead);
     }
 
     private void Gravity()
@@ -169,13 +104,6 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
             body.gravityScale = baseGravity;
         }
     }
-    public void SaveData(ref GameData data)
-    {
-        data._playerPosition = transform.position;
-    }
-    public void LoadData(GameData data)
-    {
-        transform.position = data._playerPosition;
 
     //OnMove function
     public void OnMove(InputAction.CallbackContext ctx)

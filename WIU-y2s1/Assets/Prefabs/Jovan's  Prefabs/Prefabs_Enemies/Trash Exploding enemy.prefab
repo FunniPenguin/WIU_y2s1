@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 2204606789547483915}
   m_Layer: 0
   m_Name: Trash Exploding enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 3416114422830545706}
   - {fileID: 7063371565795994117}
+  damage: 5
   currentWaypoint: 0
   aimTimer: 0
   attackTimer: 0
