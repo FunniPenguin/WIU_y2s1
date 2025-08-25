@@ -4,8 +4,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 [CreateAssetMenu(fileName = "idle_action", menuName = "Scriptable Objects/idle_action")]
 public class idle_action : StateAction
 {
-    //public GameObject enemyToTag;
-    private bool isFacingLeft = true;
+    public bool isFacingLeft;
     private Vector2 toPlayer = Vector2.zero;
     public Rigidbody2D rb;
     private Animator animator;

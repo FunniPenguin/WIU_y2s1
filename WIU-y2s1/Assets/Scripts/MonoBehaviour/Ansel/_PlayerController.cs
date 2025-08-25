@@ -105,8 +105,6 @@ public class _PlayerController : MonoBehaviour
         }
     }
 
-    }
-
         //OnMove function
         public void OnMove(InputAction.CallbackContext ctx)
         {
