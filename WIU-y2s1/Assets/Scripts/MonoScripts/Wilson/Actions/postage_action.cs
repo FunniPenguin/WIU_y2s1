@@ -33,15 +33,15 @@ public class postage_action : StateAction
 
         toPlayer = playerInScene.transform.position - enemyInScene.transform.position;
 
-        Debug.Log("POSTAGE");
+        //Debug.Log("POSTAGE");
         _RIGHT = !(toPlayer.x > 0);
         _LEFT = toPlayer.x > 0;
 
-        Debug.Log("ISGROUNDED:" + isGrounded);
+        //Debug.Log("ISGROUNDED:" + isGrounded);
         if (toPlayer.y > jumpThreshold)
         {
             _JUMP = true;
-            Debug.Log("JUMP CALLED");
+            //Debug.Log("JUMP CALLED");
         }
         RaycastHit2D hitResult = Physics2D.Raycast(enemyInScene.transform.position, Vector2.down, 0.5f, LayerMask.GetMask("Ground"));
         isGrounded = hitResult.collider != null;

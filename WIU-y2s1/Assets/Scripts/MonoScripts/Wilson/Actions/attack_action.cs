@@ -27,11 +27,11 @@ public class attack_action : StateAction
         animator = enemyInScene.GetComponent<Animator>();
         toPlayer = playerInScene.transform.position - enemyInScene.transform.position;
         enemyInScene.transform.localScale = new Vector3(Mathf.Sign(toPlayer.x) * 2, 2, 2);
-        Debug.Log("ATTACK");
+        //Debug.Log("ATTACK");
         _LEFT = !(toPlayer.x > 0);
         _RIGHT = toPlayer.x > 0;
 
-        Debug.Log(toPlayer.magnitude);
+        //Debug.Log(toPlayer.magnitude);
         if (toPlayer.magnitude < 2.5f)
         {
             animator.SetTrigger("isAttacking");

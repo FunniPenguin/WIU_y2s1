@@ -40,8 +40,8 @@ public class chase_action : StateAction
         eneCSpeed = 2;
         if (_LEFT) moveDir = 1;
         if (_RIGHT) moveDir = -1;
-        Debug.Log("CHASE");
+        //Debug.Log("CHASE");
         rb.linearVelocity = new Vector2(moveDir * eneCSpeed, rb.linearVelocity.y);
-        Debug.Log(eneCSpeed);
+        //Debug.Log(eneCSpeed);
     }
 }
