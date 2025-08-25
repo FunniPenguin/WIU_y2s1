@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: s_attack
   m_EditorClassIdentifier: Assembly-CSharp::State
   actions:
-  - {fileID: 11400000, guid: c7962e3a8fbf4614f86ed89b3744bb62, type: 2}
+  - {fileID: 11400000, guid: 2007d19b02f93754b8b668d5bb3c070f, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: be4fbd668938c194d846c2deb25f471a, type: 2}
+  - decision: {fileID: 11400000, guid: 2617f402534358746b3b36ae0ed1367d, type: 2}
     truestate: {fileID: 11400000}
     falsestate: {fileID: 11400000, guid: 1390253c333c0954880212d561ee7781, type: 2}

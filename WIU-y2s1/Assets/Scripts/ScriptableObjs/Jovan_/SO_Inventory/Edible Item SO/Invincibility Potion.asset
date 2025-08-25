@@ -17,6 +17,8 @@ MonoBehaviour:
   <Name>k__BackingField: Invincibility Potion
   <Description>k__BackingField: Immune to any source of damage for 5 seconds
   <ItemImage>k__BackingField: {fileID: -2813856677056305451, guid: 8bdbbb691823cab4fb8974a49598eaf5, type: 3}
+  <DefaultParameterList>k__BackingField: []
   modifiersData:
   - statModifer: {fileID: 11400000, guid: 27229567f5fe59b4c9bfb19b24c86dd0, type: 2}
     value: 1
+  <actionSFX>k__BackingField: {fileID: 8300000, guid: 94dff79df84e0f8438fc0aa43dae90f6, type: 3}

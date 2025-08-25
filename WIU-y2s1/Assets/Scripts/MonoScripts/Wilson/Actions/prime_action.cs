@@ -4,10 +4,11 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 [CreateAssetMenu(fileName = "prime_action", menuName = "Scriptable Objects/prime_action")]
 public class prime_action : StateAction
 {
-    public GameObject enemyToTag;
-    public GameObject playerToTag;
+    //public GameObject enemyToTag;
+    //public GameObject playerToTag;
     
     private Rigidbody2D rb;
+    private Animator animator;
 
     public Vector2 turretAimDirection = Vector2.zero;
 
@@ -19,9 +20,6 @@ public class prime_action : StateAction
     private Vector2 dispVec = Vector2.zero;
     private float offensiveAim = 0f;
     private float discriminant = 0;
-
-   
-
     private int validAngles = 0;
 
     
@@ -33,10 +31,11 @@ public class prime_action : StateAction
 
     public override void Act(StateController controller)
     {
-        Debug.Log("ACRTDJ76RT5TTETYUIOYTRFG");
-        var enemyInScene = GameObject.FindGameObjectWithTag("ene1");
-        var playerInScene = GameObject.FindGameObjectWithTag("player");
+        var enemyInScene = GameObject.FindGameObjectWithTag("Enemy2");
+        var playerInScene = GameObject.FindGameObjectWithTag("Player");
         rb = enemyInScene.GetComponent<Rigidbody2D>();
+        animator = enemyInScene.GetComponent<Animator>();
+        animator.SetBool("isAttacking", true);
 
         dispVec = (Vector2)(playerInScene.transform.position - enemyInScene.transform.position);
         discriminant = (Mathf.Pow(projectileVel, 4)) - (gravity * ((gravity * dispVec.x * dispVec.x) + (2 * (dispVec.y * projectileVel * projectileVel))));

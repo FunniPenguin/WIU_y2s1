@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3147ab1ba50d74e8708a0d16aa1161, type: 3}
+  m_Name: AimState2
+  m_EditorClassIdentifier: Assembly-CSharp::State
+  actions:
+  - {fileID: 11400000, guid: 22e9e5f7813bc8d47934bafe2205c099, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 8fdd67362599a2b4fa999db2ee79c26a, type: 2}
+    truestate: {fileID: 11400000, guid: 44a3038bd39a79441892f89851da4ead, type: 2}
+    falsestate: {fileID: 11400000}

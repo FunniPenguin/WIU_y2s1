@@ -5,8 +5,8 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 [CreateAssetMenu(fileName = "postage_action", menuName = "Scriptable Objects/postage_action")]
 public class postage_action : StateAction
 {
-    public GameObject enemyToTag;
-    public GameObject playerToTag;
+    //public GameObject enemyToTag;
+    //public GameObject playerToTag;
     public Vector2 origin;
     private bool _LEFT = false;
     private bool _RIGHT = false;
@@ -16,28 +16,38 @@ public class postage_action : StateAction
     private Rigidbody2D rb;
 
     private float eneSpeed = 4f;
-    private float jumpPower = 10f;
-    private float jumpThreshold = 5f;
+    private float jumpPower = 4f;
+    private float jumpThreshold = 0.5f;
+
+    private Animator animator;
     
 
     public override void Act(StateController controller)
     {
-        var enemyInScene = GameObject.FindGameObjectWithTag("ene1");
-        var playerInScene = GameObject.FindGameObjectWithTag("player");
+        jumpThreshold = 0.5f;
+        jumpPower = 4f;
+        var enemyInScene = GameObject.FindGameObjectWithTag("Enemy3");
+        var playerInScene = GameObject.FindGameObjectWithTag("Player");
         rb = enemyInScene.GetComponent<Rigidbody2D>();
+        animator = enemyInScene.GetComponent<Animator>();
+
         toPlayer = playerInScene.transform.position - enemyInScene.transform.position;
 
-        Debug.Log("POSTAGE");
+        //Debug.Log("POSTAGE");
         _RIGHT = !(toPlayer.x > 0);
         _LEFT = toPlayer.x > 0;
 
+        //Debug.Log("ISGROUNDED:" + isGrounded);
         if (toPlayer.y > jumpThreshold)
         {
             _JUMP = true;
-            Debug.Log("JUMP CALLED");
+            //Debug.Log("JUMP CALLED");
         }
-
+        RaycastHit2D hitResult = Physics2D.Raycast(enemyInScene.transform.position, Vector2.down, 0.5f, LayerMask.GetMask("Ground"));
+        isGrounded = hitResult.collider != null;
         handleMovement();
+
+        animator.SetBool("isMobile", _LEFT || _RIGHT);
 
         rb.linearVelocity = new Vector3(rb.linearVelocity.x * 0.95f, rb.linearVelocity.y * 1, 0);
     }
@@ -45,9 +55,6 @@ public class postage_action : StateAction
     private void handleMovement()
     {
         float moveDir = 0;
-
-        RaycastHit2D hitResult = Physics2D.Raycast(enemyToTag.transform.position, Vector2.down, 1, LayerMask.GetMask("Ground"));
-        isGrounded = hitResult.collider != null;
 
         if (_LEFT) moveDir = 1;
         if (_RIGHT) moveDir = -1;

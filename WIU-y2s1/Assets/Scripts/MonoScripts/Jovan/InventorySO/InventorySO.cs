@@ -25,7 +25,7 @@ namespace _Inventory.Model
             }
         }
 
-        public int AddItem(ItemSO item, int quantity)
+        public int AddItem(ItemSO item, int quantity, List<ItemParameter> itemState = null)
         {
             // Check if the item is null or quantity is less than or equal to zero, and also check if the item is not stackable
             if (item.IsStackable == false)
@@ -34,7 +34,7 @@ namespace _Inventory.Model
                 {
                     while (quantity > 0 && IsInventoryFull() == false)
                     {
-                        quantity -= AddItemToFirstFreeSlot(item, 1); // Add the item to the first free slot in the inventory aka the next empty slot
+                        quantity -= AddItemToFirstFreeSlot(item, 1, itemState); // Add the item to the first free slot in the inventory aka the next empty slot
                     }
                 }
                 InformAboutChange(); // Notify listeners that the inventory has been updated
@@ -45,13 +45,14 @@ namespace _Inventory.Model
             return quantity; // Return the remaining quantity that could not be added
         }
 
-        private int AddItemToFirstFreeSlot(ItemSO item, int quantity)
+        private int AddItemToFirstFreeSlot(ItemSO item, int quantity, List<ItemParameter> itemState = null)
         {
             // Define a new InventoryItem with the provided item and quantity
             InventoryItem newItem = new InventoryItem
             {
                 item = item,
-                quantity = quantity
+                quantity = quantity,
+                itemState = new List<ItemParameter>(itemState == null ? item.DefaultParameterList : itemState) // Use provided itemState or default if null
             };
 
             // Iterate through the inventory items to find the first empty slot
@@ -182,16 +183,18 @@ namespace _Inventory.Model
     {
         public int quantity;
         public ItemSO item;
+        public List<ItemParameter> itemState;
         public bool IsEmpty => item == null; // Check if the item is empty by checking if the item is null
 
         // Changes the quantity of the item, returning a new InventoryItem with the updated quantity
         public InventoryItem ChangeQuantity(int newQuantity)
         {
             // Ensure that the new quantity is not negative
-            return new InventoryItem 
+            return new InventoryItem
             {
                 item = this.item, // Keep the same item
                 quantity = newQuantity, // Set the new quantity
+                itemState = new List<ItemParameter>(this.itemState) // Keep the same item state
             };
         }
 
@@ -201,6 +204,7 @@ namespace _Inventory.Model
             {
                 item = null, // No item assigned
                 quantity = 0, // Quantity is zero
+                itemState = new List<ItemParameter>()
             };
     }
 }

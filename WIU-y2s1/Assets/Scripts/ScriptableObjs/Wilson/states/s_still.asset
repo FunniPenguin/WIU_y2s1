@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3147ab1ba50d74e8708a0d16aa1161, type: 3}
   m_Name: s_still
   m_EditorClassIdentifier: Assembly-CSharp::State
-  actions: []
+  actions:
+  - {fileID: 11400000, guid: a71b9d178272ebb48aff0aca9a3a0fd9, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: e6f8a0e1069540c4fb92586a99a47e12, type: 2}
-    truestate: {fileID: 11400000, guid: b6e107de05d82504d9fa26e902ff10d7, type: 2}
-    falsestate: {fileID: 11400000}
+  - decision: {fileID: 11400000, guid: aad05bf736d3da24e9fa8ff392b5e79e, type: 2}
+    truestate: {fileID: 11400000}
+    falsestate: {fileID: 11400000, guid: b6e107de05d82504d9fa26e902ff10d7, type: 2}
