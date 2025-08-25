@@ -5,7 +5,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class idle_action : StateAction
 {
     //public GameObject enemyToTag;
-    private bool isFacingLeft = true;
+    //private bool isFacingLeft = true;
     private Vector2 toPlayer = Vector2.zero;
     public Rigidbody2D rb;
     private Animator animator;
@@ -30,7 +30,7 @@ public class idle_action : StateAction
         case 1:
                 _LEFT = true;
                 _RIGHT = false;
-                isFacingLeft = true;
+                //isFacingLeft = true;
                 animator.SetBool("isMobile", true);
                 break;
         case 2:
@@ -41,7 +41,7 @@ public class idle_action : StateAction
         case 3:
                 _LEFT = false;
                 _RIGHT = true;
-                isFacingLeft = false;
+                //isFacingLeft = false;
                 animator.SetBool("isMobile", true);
                 break;
         case 4:
@@ -70,7 +70,7 @@ public class idle_action : StateAction
 
     private void handleMovement()
     {
-        Debug.Log("IDLE");
+        //Debug.Log("IDLE");
         if (!(_LEFT && _RIGHT))
         {
             if (_LEFT)

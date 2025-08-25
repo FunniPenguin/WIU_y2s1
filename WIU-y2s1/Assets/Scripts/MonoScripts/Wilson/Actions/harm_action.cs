@@ -20,7 +20,7 @@ public class harm_action : StateAction
         var playerInScene = GameObject.FindGameObjectWithTag("Player");
         rb = enemyInScene.GetComponent<Rigidbody2D>();
         animator = enemyInScene.GetComponent<Animator>();
-        Debug.Log("HARM");
+        //Debug.Log("HARM");
         toPlayer = playerInScene.transform.position - enemyInScene.transform.position;
 
         if (toPlayer.magnitude >= 5f)

@@ -10,6 +10,6 @@ public class still_action : StateAction
         var playerInScene = GameObject.FindGameObjectWithTag("Player");
         animator = enemyInScene.GetComponent<Animator>();
         animator.SetBool("isMobile", false);
-        Debug.Log("Distance:" + (playerInScene.transform.position - enemyInScene.transform.position).magnitude.ToString());
+        //Debug.Log("Distance:" + (playerInScene.transform.position - enemyInScene.transform.position).magnitude.ToString());
     }
 }
