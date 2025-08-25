@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 8883590635e15e44a830489f7d4f5574
+guid: 38fdfd641eb26494b9f38913bc517b0c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -43529427860875883
-    second: aspidprojectilepixel_0
+      213: 2683817243547265685
+    second: Wasp_walk_0
+  - first:
+      213: 7446980697520744615
+    second: Wasp_walk_1
+  - first:
+      213: -1648168785453480976
+    second: Wasp_walk_2
+  - first:
+      213: 5256745742267454154
+    second: Wasp_walk_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: aspidprojectilepixel_0
+      name: Wasp_walk_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 6
-        height: 6
+        x: 4
+        y: 6
+        width: 45
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 595931b473a556ff0800000000000000
-      internalID: -43529427860875883
+      spriteID: 59ae3b34095de3520800000000000000
+      internalID: 2683817243547265685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_walk_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 6
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a82ae41d7df85760800000000000000
+      internalID: 7446980697520744615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_walk_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 7
+        width: 45
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f38825d8378029e0800000000000000
+      internalID: -1648168785453480976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wasp_walk_3
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 6
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac21662b666b3f840800000000000000
+      internalID: 5256745742267454154
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      aspidprojectilepixel_0: -43529427860875883
+      Wasp_walk_0: 2683817243547265685
+      Wasp_walk_1: 7446980697520744615
+      Wasp_walk_2: -1648168785453480976
+      Wasp_walk_3: 5256745742267454154
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

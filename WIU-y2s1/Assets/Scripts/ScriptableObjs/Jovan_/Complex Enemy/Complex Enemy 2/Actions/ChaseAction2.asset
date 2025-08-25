@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9890fc58eddba64c9c1ee0038107ef8, type: 3}
   m_Name: ChaseAction2
   m_EditorClassIdentifier: Assembly-CSharp::ChaseAction2
-  chaseSpeed: 3.5
+  chaseSpeed: 4

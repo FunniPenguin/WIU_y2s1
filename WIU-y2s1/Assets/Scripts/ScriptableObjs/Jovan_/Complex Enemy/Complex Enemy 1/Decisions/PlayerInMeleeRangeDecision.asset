@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e6d1cff8b0c33478e5d436e609ff74, type: 3}
   m_Name: PlayerInMeleeRangeDecision
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInMeleeRangeDecision
-  meleeRange: 2
+  meleeRange: 3

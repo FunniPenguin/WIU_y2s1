@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8dbe0a7437b87498f8cebbc7e2bc25, type: 3}
   m_Name: PatrolAction2
   m_EditorClassIdentifier: Assembly-CSharp::PatrolAction2
-  patrolSpeed: 2
+  patrolSpeed: 0.1

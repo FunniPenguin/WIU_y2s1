@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f33e7b8268f1146a0fee61c159de36, type: 3}
   m_Name: RecoverAction2
   m_EditorClassIdentifier: Assembly-CSharp::RecoverAction2
-  recoverSpeed: 2
+  recoverSpeed: 3

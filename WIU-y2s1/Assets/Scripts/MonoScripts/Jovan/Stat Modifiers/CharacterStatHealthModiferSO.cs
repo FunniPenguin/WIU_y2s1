@@ -10,7 +10,7 @@ public class CharacterStatHealthModiferSO : CharacterStatModiferSO
             if (healthSystem != null)
             {
                 healthSystem.Heal((int)val); // val is the amount to heal
-        }
+            }
     }
 }
 // Made by Jovan Yeo Kaisheng

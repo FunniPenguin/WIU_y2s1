@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a9b39fd0eba5e439e5aecfd9cf634f, type: 3}
   m_Name: PlayerInDetectRangeDecision
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInAttackRangeDecision
-  attackRange: 5
+  attackRange: 9

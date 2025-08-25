@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
     public float forwardDuration = 0.7f; // time flying forward before coming back
-    public float lifetime = 3f;          // total bullet lifetime
+    public float lifetime = 3f; // total bullet lifetime
 
     private float timer = 0f;
     private bool returning = false;
@@ -62,7 +63,12 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // deal damage both ways (forward & returning)
+            HealthSystem healthSystem = collision.GetComponent<HealthSystem>();
+            if (healthSystem != null)
+            {
+                healthSystem.Hurt(5); 
+            }
+
             Debug.Log("Player hit by bullet!");
             Destroy(gameObject);
         }
