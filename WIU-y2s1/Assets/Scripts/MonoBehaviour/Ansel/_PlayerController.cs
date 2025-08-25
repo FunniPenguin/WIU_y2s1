@@ -9,8 +9,8 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
     private Rigidbody2D body;
     private Vector2 moveDirection;
 
-    private float speed;
-    private float jumpHeight = 10;
+    public float speed;
+    public float jumpHeight = 10;
 
     [Header("Ground Check")]
     public Transform groundCheckPosition;
@@ -67,7 +67,7 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
 
     void FixedUpdate()
     {
-        if (GetComponent<_HealthSystem>().health.health <= 0) 
+        if (GetComponent<HealthSystem>().healthData.maxHealth <= 0) 
         {
             _statistics.uponDeath.Invoke();
         }
