@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251852618dfa5ad44b8a86ecf98a7494, type: 3}
   m_Name: d_recuperationRange
   m_EditorClassIdentifier: Assembly-CSharp::d_isInAggroRange
-  aggroRange: 5
+  aggroRange: 6
