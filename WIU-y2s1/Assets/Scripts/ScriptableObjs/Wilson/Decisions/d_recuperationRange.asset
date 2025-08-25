@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc273c1376aafa4195da8dfb656254a, type: 3}
+  m_Script: {fileID: 11500000, guid: 251852618dfa5ad44b8a86ecf98a7494, type: 3}
   m_Name: d_recuperationRange
   m_EditorClassIdentifier: Assembly-CSharp::d_isInAggroRange
-  enemyToTag: {fileID: 6429494442907318114, guid: 3d4718f26559a0f44ac625fa73e65bca, type: 3}
-  playerToTag: {fileID: 5814094362128086398, guid: 28e5b8073582afd4282a296457fc7d85, type: 3}
-  aggroRange: 3
+  aggroRange: 5

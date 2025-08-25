@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "d_isInAggroRange", menuName = "Scriptable Objects/d_isInAggroRange")]
 public class d_isInAggroRange : StateDecision
 {
-    public GameObject enemyToTag;
-    public GameObject playerToTag;
+    //public GameObject enemyToTag;
+    //public GameObject playerToTag;
     public float aggroRange = 5.0f;
 
     
@@ -12,8 +12,8 @@ public class d_isInAggroRange : StateDecision
 
     public override bool Decide(StateController controller)
     {
-        var enemyInScene = GameObject.FindGameObjectWithTag("ene1");
-        var playerInScene = GameObject.FindGameObjectWithTag("player");
+        var enemyInScene = GameObject.FindGameObjectWithTag("Enemy");
+        var playerInScene = GameObject.FindGameObjectWithTag("Player");
         toPlayer = playerInScene.transform.position - enemyInScene.transform.position;
         return (toPlayer.magnitude <= aggroRange);
     }

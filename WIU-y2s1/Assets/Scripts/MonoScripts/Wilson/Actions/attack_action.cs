@@ -4,8 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "attack_action", menuName = "Scriptable Objects/attack_action")]
 public class attack_action : StateAction
 {
-    public GameObject enemyToTag;
-    public GameObject playerToTag; 
+    //public GameObject enemyToTag;
+    //public GameObject playerToTag; 
     private bool _LEFT = false;
     private bool _RIGHT = false;
     private bool isGrounded = false;
