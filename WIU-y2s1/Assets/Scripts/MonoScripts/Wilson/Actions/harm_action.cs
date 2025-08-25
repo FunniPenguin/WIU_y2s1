@@ -12,7 +12,6 @@ public class harm_action : StateAction
 
     private float eneSpeed = 4f;
     private float jumpPower = 4f;
-    private float jumpThreshold = 0.5f;
 
     private Animator animator;
     public override void Act(StateController controller)

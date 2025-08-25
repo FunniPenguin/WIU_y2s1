@@ -8,7 +8,7 @@ public class chase_action : StateAction
     //public GameObject playerToTag;
     private bool _LEFT = false;
     private bool _RIGHT = false;
-    private bool isFacingLeft = true;
+    //private bool isFacingLeft = true;
     private Vector2 toPlayer = Vector2.zero;
     private Rigidbody2D rb;
     private Animator animator;
@@ -27,7 +27,7 @@ public class chase_action : StateAction
         _RIGHT = !(toPlayer.x > 0);
         _LEFT = toPlayer.x > 0;
 
-        isFacingLeft = !(toPlayer.x > 0);
+        //isFacingLeft = !(toPlayer.x > 0);
         enemyInScene.transform.localScale = new Vector3(((_LEFT && !_RIGHT) ? -2 : (_RIGHT && !_LEFT) ? 2 : (Mathf.Sign(toPlayer.x) * -2)), 2, 2);
         handleMovement();
         //rb.linearVelocity = new Vector3(rb.linearVelocity.x * 0.95f, rb.linearVelocity.y * 1, 0);
