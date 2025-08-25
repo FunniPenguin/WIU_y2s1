@@ -32,7 +32,7 @@ public class attack_action : StateAction
         _RIGHT = toPlayer.x > 0;
 
         Debug.Log(toPlayer.magnitude);
-        if (toPlayer.magnitude < 2.1f)
+        if (toPlayer.magnitude < 2.5f)
         {
             animator.SetTrigger("isAttacking");
         }
