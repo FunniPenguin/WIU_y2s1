@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c9d6063c23d1d6479b84b49614024ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 566551170009381429c0cdbe1cd040a0, type: 3}
   m_Name: a_prime
   m_EditorClassIdentifier: Assembly-CSharp::prime_action
-  enemyToTag: {fileID: 6429494442907318114, guid: 3d4718f26559a0f44ac625fa73e65bca, type: 3}
-  playerToTag: {fileID: 5814094362128086398, guid: 28e5b8073582afd4282a296457fc7d85, type: 3}
   turretAimDirection: {x: 0, y: 0}
-  _bulletPrefab: {fileID: 8018893424332967484, guid: 1418cbbbc475203448df03e8f0756b3a, type: 3}
+  _bulletPrefab: {fileID: 5465569971994279418, guid: 4b7edbc5fc5f7db46ad1348f4e7b9e38, type: 3}

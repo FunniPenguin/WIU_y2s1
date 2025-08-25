@@ -5,8 +5,8 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 [CreateAssetMenu(fileName = "postage_action", menuName = "Scriptable Objects/postage_action")]
 public class postage_action : StateAction
 {
-    public GameObject enemyToTag;
-    public GameObject playerToTag;
+    //public GameObject enemyToTag;
+    //public GameObject playerToTag;
     public Vector2 origin;
     private bool _LEFT = false;
     private bool _RIGHT = false;
@@ -36,7 +36,8 @@ public class postage_action : StateAction
             _JUMP = true;
             Debug.Log("JUMP CALLED");
         }
-
+        RaycastHit2D hitResult = Physics2D.Raycast(enemyInScene.transform.position, Vector2.down, 1, LayerMask.GetMask("Ground"));
+        isGrounded = hitResult.collider != null;
         handleMovement();
 
         rb.linearVelocity = new Vector3(rb.linearVelocity.x * 0.95f, rb.linearVelocity.y * 1, 0);
@@ -45,9 +46,6 @@ public class postage_action : StateAction
     private void handleMovement()
     {
         float moveDir = 0;
-
-        RaycastHit2D hitResult = Physics2D.Raycast(enemyToTag.transform.position, Vector2.down, 1, LayerMask.GetMask("Ground"));
-        isGrounded = hitResult.collider != null;
 
         if (_LEFT) moveDir = 1;
         if (_RIGHT) moveDir = -1;

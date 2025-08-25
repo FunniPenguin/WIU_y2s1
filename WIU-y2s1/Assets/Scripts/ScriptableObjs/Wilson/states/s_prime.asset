@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: s_prime
   m_EditorClassIdentifier: Assembly-CSharp::State
   actions:
-  - {fileID: 11400000, guid: 0c858fc828a9aa74197e31a418b4b79b, type: 2}
-  transitions: []
+  - {fileID: 11400000, guid: dbbc319836979e54aaa4a731db6dc84f, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: baba31c6aaa730c42ae3f603184ec6b6, type: 2}
+    truestate: {fileID: 11400000}
+    falsestate: {fileID: 11400000, guid: ac96a488b9d16904eaa744d1fb9d4d12, type: 2}
