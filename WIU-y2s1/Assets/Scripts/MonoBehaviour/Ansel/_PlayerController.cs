@@ -1,7 +1,5 @@
-using System;
-using Unity.VisualScripting;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class _PlayerController : MonoBehaviour, IDataPersistence
@@ -13,6 +11,11 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
 
     private float speed;
     private float jumpHeight = 10;
+
+    [Header("Ground Check")]
+    public Transform groundCheckPosition;
+    public Vector2 groundCheckSize = new Vector2(0.5f, 0.5f);
+    public LayerMask groundLayer;
 
     [Header("Gravity")]
     public float baseGravity = 2f;
@@ -30,6 +33,17 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
         body = GetComponent<Rigidbody2D>();
         _statistics = GetComponent<EntityStatistics>();
     }
+    private void GroundCheck()
+    {
+        if (Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0, groundLayer))
+        {
+            IsGrounded = true;
+        }
+        else
+        {
+            IsGrounded = false;
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,40 +54,45 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
         animator.SetBool("IsGrounded", false);
 
         var moveAction = InputSystem.actions.FindAction("Move");
-        moveAction.performed += ctx =>
+
+        if (moveAction != null)
         {
-            //Climbing action
-            if (IsClimbing) 
+            moveAction.performed += ctx =>
             {
+                //Climbing action
+                if (IsClimbing)
+                {
 
-            }
+                }
 
-            //Moving action
-            moveDirection = ctx.ReadValue<Vector2>();
-            _lastSavedDirection = moveDirection.x;
+                //Moving action
+                moveDirection = ctx.ReadValue<Vector2>();
+                _lastSavedDirection = moveDirection.x;
 
-            if (moveDirection.x < 0)
-                transform.localScale = new Vector3(-2, 2, 2);
-            else
-                transform.localScale = new Vector3(2, 2, 2);
+                if (moveDirection.x < 0)
+                    transform.localScale = new Vector3(-2, 2, 2);
+                else
+                    transform.localScale = new Vector3(2, 2, 2); 
 
-            body.linearVelocityX = moveDirection.x * speed;
+                body.linearVelocityX = moveDirection.x * speed;
 
-            animator.SetBool("IsMoving", true);
-        };
-        moveAction.canceled += ctx =>
-        {
-            moveDirection = Vector2.zero;
+                animator.SetBool("IsMoving", true);
+            };
+            moveAction.canceled += ctx =>
+            {
+                moveDirection = Vector2.zero;
 
-            body.linearVelocityX = 0;
+                body.linearVelocityX = 0;
 
-            animator.SetBool("IsMoving", false);
-        };
+                animator.SetBool("IsMoving", false);
+            };
+        }
     }
 
     private void Update()
     {
         Gravity();
+        GroundCheck();
     }
 
     void FixedUpdate()
@@ -100,33 +119,42 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
         animator.SetBool("IsGrounded", IsGrounded);
 
         var attackAction = InputSystem.actions.FindAction("Attack");
-        attackAction.started += ctx =>
+        if (attackAction != null)
         {
-            animator.SetTrigger("IsAttacking");
-        };
+            attackAction.started += ctx =>
+            {
+                animator.SetTrigger("IsAttacking");
+            };
+        }
 
         //Jumping action
         var jumpAction = InputSystem.actions.FindAction("Jump");
-        jumpAction.performed += ctx =>
+        if (jumpAction != null)
         {
-            if (animator.GetBool("IsGrounded"))
+            jumpAction.performed += ctx =>
             {
-                body.linearVelocityY = jumpHeight;
-                animator.SetTrigger("IsJumping");
-            }
-        };
-        jumpAction.canceled += ctx =>
-        {
-            body.linearVelocityY *= 0.5f;
-            animator.SetBool("IsJumping", false);
-        };
+                if (animator.GetBool("IsGrounded"))
+                {
+                    body.linearVelocityY = jumpHeight;
+                    animator.SetTrigger("IsJumping");
+                }
+            };
+            jumpAction.canceled += ctx =>
+            {
+                body.linearVelocityY *= 0.5f;
+                animator.SetBool("IsJumping", false);
+            };
+        }
 
         //Interact
         var interactAction = InputSystem.actions.FindAction("Interact");
-        interactAction.started += ctx =>
+        if (interactAction != null)
         {
-            //Put codes here
-        };
+            interactAction.started += ctx =>
+            {
+                //Put codes here
+            };
+        }
     }
 
     private void Gravity()
@@ -148,5 +176,63 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         transform.position = data._playerPosition;
+
+    //OnMove function
+    public void OnMove(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            //Moving action
+            moveDirection = ctx.ReadValue<Vector2>();
+            _lastSavedDirection = moveDirection.x;
+
+            if (moveDirection.x < 0)
+                transform.localScale = new Vector3(-2, 2, 2);
+            else
+                transform.localScale = new Vector3(2, 2, 2);
+
+            body.linearVelocityX = moveDirection.x * speed;
+
+            animator.SetBool("IsMoving", true);
+        }
+        else if (ctx.canceled)
+        {
+            moveDirection = Vector2.zero;
+
+            body.linearVelocityX = 0;
+
+            animator.SetBool("IsMoving", false);
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            animator.SetTrigger("IsAttacking");
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext ctx) 
+    {
+        if (ctx.performed)
+        {
+            if (animator.GetBool("IsGrounded"))
+            {
+                body.linearVelocityY = jumpHeight;
+                animator.SetTrigger("IsJumping");
+            }
+        }
+        else if (ctx.canceled)
+        {
+            body.linearVelocityY *= 0.5f;
+            animator.SetBool("IsJumping", false);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
+        if (groundCheckPosition) Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
     }
 }
