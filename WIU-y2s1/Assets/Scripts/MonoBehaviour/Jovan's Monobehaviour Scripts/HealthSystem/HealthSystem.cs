@@ -62,7 +62,7 @@ public class HealthSystem : MonoBehaviour
     private void Die()
     {
         Debug.Log(gameObject.name + " has died!");
-        gameObject.SetActive(false); // deactivate the player object on death
+        gameObject.GetComponent<EntityStatistics>().uponDeath.Invoke(); // invoke death event from EntityStatistics
     }
 }
 // Made by Jovan Yeo Kaisheng
