@@ -18,11 +18,7 @@ public class AttackAction2 : StateAction
         data.attackTimer += Time.deltaTime;
 
         // Move toward player
-        controller.transform.position = Vector2.MoveTowards(
-            controller.transform.position,
-            data.player.position,
-            attackSpeed * Time.deltaTime
-        );
+        controller.transform.position = Vector2.MoveTowards(controller.transform.position,data.player.position, attackSpeed * Time.deltaTime);
 
         // Rotate to face the player
         Vector2 direction = (data.player.position - controller.transform.position).normalized;
