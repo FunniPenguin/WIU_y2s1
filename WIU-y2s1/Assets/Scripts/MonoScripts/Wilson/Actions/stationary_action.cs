@@ -6,7 +6,7 @@ public class stationary_action : StateAction
     private Animator animator;
     public override void Act(StateController controller)
     {
-        var enemyInScene = GameObject.FindGameObjectWithTag("Enemy");
+        var enemyInScene = GameObject.FindGameObjectWithTag("Enemy2");
         animator = enemyInScene.GetComponent<Animator>();
         animator.SetBool("isAttacking", false);
     }

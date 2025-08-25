@@ -18,8 +18,8 @@ public class attack_action : StateAction
     public override void Act(StateController controller)
     {
         eneSpeed = 2f;
-        var enemyInScene = GameObject.FindGameObjectWithTag("ene1");
-        var playerInScene = GameObject.FindGameObjectWithTag("player");
+        var enemyInScene = GameObject.FindGameObjectWithTag("Enemy1");
+        var playerInScene = GameObject.FindGameObjectWithTag("Player");
         rb = enemyInScene.GetComponent<Rigidbody2D>();
         toPlayer = playerInScene.transform.position - enemyInScene.transform.position;
 

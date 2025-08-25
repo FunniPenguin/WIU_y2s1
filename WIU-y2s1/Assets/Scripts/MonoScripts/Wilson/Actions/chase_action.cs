@@ -15,7 +15,7 @@ public class chase_action : StateAction
 
     public override void Act(StateController controller)
     {
-        var enemyInScene = GameObject.FindGameObjectWithTag("Enemy");
+        var enemyInScene = GameObject.FindGameObjectWithTag("Enemy1");
         var playerInScene = GameObject.FindGameObjectWithTag("Player");
         rb = enemyInScene.GetComponent<Rigidbody2D>();
         toPlayer = playerInScene.transform.position - enemyInScene.transform.position;
