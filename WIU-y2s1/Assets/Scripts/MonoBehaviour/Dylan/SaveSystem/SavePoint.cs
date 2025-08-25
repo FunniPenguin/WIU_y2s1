@@ -1,16 +1,9 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Collections;
 
 public class SavePoint : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private string _id;
+    private bool _currSavePoint;
 }

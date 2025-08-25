@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 41606963}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.67, y: 0.34, z: 0}
+  m_LocalPosition: {x: 1.08, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -286,6 +286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSceneManager
   _startingLevelIndex: 0
+  _pauseMenuIndex: 0
+  _loadSceneIndex: 0
 --- !u!4 &270132311
 Transform:
   m_ObjectHideFlags: 0
@@ -12097,7 +12099,7 @@ Transform:
   m_GameObject: {fileID: 1834050827}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.67, y: 0.34, z: 0}
+  m_LocalPosition: {x: 1.08, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12206,7 +12208,7 @@ Transform:
   m_GameObject: {fileID: 1881167672}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.67, y: 0.34, z: 0}
+  m_LocalPosition: {x: 1.08, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

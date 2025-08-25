@@ -1,6 +1,10 @@
+using System.Collections;
+using Unity.Hierarchy;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameSceneManager : MonoBehaviour
 {
     //Start of singleton
@@ -24,7 +28,7 @@ public class GameSceneManager : MonoBehaviour
 
     private int _currMapIndex; //identitify the build index of the level that the player is currently on
     private int _additiveSceneIndex; //track the current additive scene menu opened such as pause menu so that can destroy
-    [SerializeField] private int _startingLevelIndex, _pauseMenuIndex; //stores the starting level so that save file knows which starting level to load
+    [SerializeField] private int _startingLevelIndex, _pauseMenuIndex, _loadSceneIndex; //stores the starting level so that save file knows which starting level to load
 
     private void Start()
     {
@@ -47,24 +51,11 @@ public class GameSceneManager : MonoBehaviour
         UnloadMenu();
         SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
     }
-    public void LoadScene(string sceneIndex)
+    public void LoadLevel(int LevelIndex)
     {
-        UnloadMenu();
-        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
-    }
-    public void SwitchMap(int mapIndex)
-    {
-        LoadMap(SceneManager.GetActiveScene().buildIndex, mapIndex);
-    }
-    public void LoadMap(int currentSceneIndex, int nextSceneIndex)
-    {
-        //To load a map and change the current map index so that the save file knows which map to return to
-        //UnloadMenu();
-        Debug.Log($"Loading scene: {nextSceneIndex}");
-
-        SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
-        _currMapIndex = nextSceneIndex;
-        Debug.Log($"current map index: {_currMapIndex}");
+        SceneManager.LoadScene(_loadSceneIndex, LoadSceneMode.Additive);
+        StartCoroutine(LoadAsyncScene(LevelIndex));
+        SceneManager.UnloadSceneAsync(_pauseMenuIndex);
     }
     public void LoadMenu(int index)
     {
@@ -73,9 +64,22 @@ public class GameSceneManager : MonoBehaviour
         {
             return;
         }
+        //Disable active scene event system so that pause menu event system will get all the input
+        GameObject.Find("EventSystem").GetComponent<EventSystem>().enabled = false;
+        //Load above the active scene
         SceneManager.LoadScene(index, LoadSceneMode.Additive);
+        //Ensure the active scene is not updated
+        Time.timeScale = 0;
         //track the additive scene
         _additiveSceneIndex = index;
+    }
+    //Function to switch from pause menu to other menus like save menu and inventory menu and also to switch back from those menus
+    public void SwitchMenu(int index)
+    {
+        if (SceneManager.sceneCount != 2)
+            { return; }
+        UnloadMenu();
+        LoadMenu(index);
     }
     public void UnloadMenu()
     {
@@ -83,9 +87,10 @@ public class GameSceneManager : MonoBehaviour
         //resets the value to ensure that additive scene can be loaded
         if (_additiveSceneIndex != -1)
         {
-            SceneManager.UnloadSceneAsync(_additiveSceneIndex);
+            StartCoroutine(UnloadCurrScene());
             _additiveSceneIndex = -1;
         }
+        Time.timeScale = 1;
     }
     public void ReloadCurrentScene()
     {
@@ -98,13 +103,32 @@ public class GameSceneManager : MonoBehaviour
         //for ending the game, to be used in unity events
         Application.Quit();
     }
-    public int GetCurrentMapIndex()
-    {
-        return _currMapIndex; 
-    }
     public int GetStartingLevelIndex()
     {
         return _startingLevelIndex;
+    }
+    private IEnumerator UnloadCurrScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(_additiveSceneIndex);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        GameObject.Find("EventSystem").GetComponent<EventSystem>().enabled = true;
+    }
+    private IEnumerator LoadAsyncScene(int SceneIndex)
+    {
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneIndex, LoadSceneMode.Single);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            FindFirstObjectByType<Slider>().value = asyncLoad.progress;
+            yield return null;
+        }
     }
 }
 
