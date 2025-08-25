@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "chase_action", menuName = "Scriptable Objects/chase_action")]
 public class chase_action : StateAction
 {
-    public GameObject enemyToTag;
-    public GameObject playerToTag;
+    //public GameObject enemyToTag;
+    //public GameObject playerToTag;
     private bool _LEFT = false;
     private bool _RIGHT = false;
     private bool isFacingLeft = true;
@@ -15,8 +15,8 @@ public class chase_action : StateAction
 
     public override void Act(StateController controller)
     {
-        var enemyInScene = GameObject.FindGameObjectWithTag("ene1");
-        var playerInScene = GameObject.FindGameObjectWithTag("player");
+        var enemyInScene = GameObject.FindGameObjectWithTag("Enemy");
+        var playerInScene = GameObject.FindGameObjectWithTag("Player");
         rb = enemyInScene.GetComponent<Rigidbody2D>();
         toPlayer = playerInScene.transform.position - enemyInScene.transform.position;
 

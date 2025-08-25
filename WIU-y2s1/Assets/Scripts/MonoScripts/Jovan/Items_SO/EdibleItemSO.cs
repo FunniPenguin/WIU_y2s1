@@ -8,11 +8,12 @@ namespace _Inventory.Model
     public class EdibleItemSO : ItemSO, IDestroyableItem, IItemAction
     {
         [SerializeField] private List<ModifierData> modifiersData = new List<ModifierData>(); // List of modifiers that this item will apply when consumed
-        public string ActionName => "Consume"; // The name of the action that this item performs, in this case, "Consume"
+        public string ActionName => "Use"; // The name of the action that this item performs, in this case, "Consume"
 
+        [field: SerializeField] 
         public AudioClip actionSFX {get; private set; } // The sound effect that plays when the item is consumed
 
-        public bool PerformAction(GameObject character)
+        public bool PerformAction(GameObject character, List<ItemParameter> itemState = null)
         {
             // Check if the character has a modifiable component
             foreach (ModifierData data in modifiersData)
@@ -32,7 +33,7 @@ namespace _Inventory.Model
     {
         public string ActionName { get; } // The name of the action that this item performs, e.g., "Consume", "Equip", etc.
         public AudioClip actionSFX { get; } // The sound effect that plays when the item is used
-        bool PerformAction(GameObject character); // Method to perform the action associated with the item, e.g., consuming it, equipping it, etc.
+        bool PerformAction(GameObject character, List<ItemParameter> itemState); // Method to perform the action associated with the item, e.g., consuming it, equipping it, etc.
     }
 
     [Serializable]

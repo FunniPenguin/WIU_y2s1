@@ -4,8 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - currentState: {fileID: 11400000, guid: ee28c9f5baaaf684e97a389887884712, type: 2}
-  - remainState: {fileID: 11400000, guid: 23a0fe9f78ee7244c98dc007bacaf77d, type: 2}
+  - currentState: {instanceID: 0}
+  - remainState: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

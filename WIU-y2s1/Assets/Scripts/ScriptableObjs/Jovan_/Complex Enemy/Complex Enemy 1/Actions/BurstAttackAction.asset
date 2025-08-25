@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e033aebc2c3aa9848bc3ce391c9d9b67, type: 3}
+  m_Name: BurstAttackAction
+  m_EditorClassIdentifier: Assembly-CSharp::BurstAttackAction
+  bulletPrefab: {fileID: 6562748342171354448, guid: f5247b6204109324c9463cb9dabf3643, type: 3}

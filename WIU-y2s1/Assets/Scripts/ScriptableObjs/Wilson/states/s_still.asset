@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::State
   actions: []
   transitions:
-  - decision: {fileID: 11400000, guid: e6f8a0e1069540c4fb92586a99a47e12, type: 2}
+  - decision: {fileID: 11400000, guid: baba31c6aaa730c42ae3f603184ec6b6, type: 2}
     truestate: {fileID: 11400000, guid: b6e107de05d82504d9fa26e902ff10d7, type: 2}
     falsestate: {fileID: 11400000}

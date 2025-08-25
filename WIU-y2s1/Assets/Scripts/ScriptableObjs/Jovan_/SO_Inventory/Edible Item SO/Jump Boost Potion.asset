@@ -17,6 +17,8 @@ MonoBehaviour:
   <Name>k__BackingField: Jump Boost Potion
   <Description>k__BackingField: Increases Jump Height for 5 seconds!
   <ItemImage>k__BackingField: {fileID: -6164403552999354909, guid: 991aa0d103d97654580794eb0ad84008, type: 3}
+  <DefaultParameterList>k__BackingField: []
   modifiersData:
   - statModifer: {fileID: 11400000, guid: d8b249cd23370c2499843625b03dfb03, type: 2}
-    value: 2
+    value: 1
+  <actionSFX>k__BackingField: {fileID: 8300000, guid: a282732f7d387754bb7c21f66cf97c43, type: 3}

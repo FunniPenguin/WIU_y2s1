@@ -9,20 +9,20 @@ public class CharacterStatSpeedModiferSO : CharacterStatModiferSO
     public float duration = 5f;
     public override void AffectCharacter(GameObject character, float val)
     {
-        SamplePlayerMovement movement = character.GetComponent<SamplePlayerMovement>();
+        _PlayerController movement = character.GetComponent<_PlayerController>();
         if (movement != null)
         {
             movement.StartCoroutine(ApplySpeedBoost(movement, val)); // Start the coroutine to apply the speed boost
         }
     }
 
-    private IEnumerator ApplySpeedBoost(SamplePlayerMovement movement, float val)
+    private IEnumerator ApplySpeedBoost(_PlayerController movement, float val)
     {
         // Store the original move speed and apply the modified move speed
-        float originalMoveSpeed = movement.moveSpeed;
-        movement.moveSpeed *= speedModifier * val;
+        float originalMoveSpeed = movement.speed;
+        movement.speed *= speedModifier * val;
         yield return new WaitForSeconds(duration);
         // After the duration, reset the move speed to the original value
-        movement.moveSpeed = originalMoveSpeed;
+        movement.speed = originalMoveSpeed;
     }
 }

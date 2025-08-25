@@ -24,6 +24,8 @@ namespace _Inventory.UI
         public event Action<int> OnDescriptionRequested, OnItemActionRequested, OnStartDragging; // Event for when an item description is requested, item action is requested, or dragging starts
         public event Action<int, int> OnSwapItems; // Event for when two items are swapped in the inventory
 
+        [SerializeField] private ItemActionPanel actionPanel; // Panel for item actions
+
         private void Awake()
         {
             Hide();
@@ -128,16 +130,29 @@ namespace _Inventory.UI
             DeselectAllItems();
         }
 
+        public void AddAction(string actionName, Action performAction)
+        {
+            actionPanel.AddButton(actionName, performAction);
+        }
+
+        public void ShowItemAction(int itemIndex) 
+        { 
+            actionPanel.Toggle(true);
+            actionPanel.transform.position = ListofUIItems[itemIndex].transform.position;
+        }
+
         private void DeselectAllItems()
         {
             foreach (UIInventoryItem item in ListofUIItems)
             {
                 item.Deselect();
             }
+            actionPanel.Toggle(false);
         }
 
         public void Hide()
         {
+            actionPanel.Toggle(false);
             gameObject.SetActive(false);
             ResetDraggedItem();
         }
