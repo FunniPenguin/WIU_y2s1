@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5be863496023bc4bb7e8476478c8760, type: 3}
+  m_Name: a_chase
+  m_EditorClassIdentifier: Assembly-CSharp::chase_action
+  enemyToTag: {fileID: 6429494442907318114, guid: 3d4718f26559a0f44ac625fa73e65bca, type: 3}
+  playerToTag: {fileID: 5814094362128086398, guid: 28e5b8073582afd4282a296457fc7d85, type: 3}

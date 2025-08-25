@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class _PlayerController : MonoBehaviour
+public class _PlayerController : MonoBehaviour, IDataPersistence
 {
     private EntityStatistics _statistics;
     private Animator animator;
@@ -140,5 +140,13 @@ public class _PlayerController : MonoBehaviour
         {
             body.gravityScale = baseGravity;
         }
+    }
+    public void SaveData(ref GameData data)
+    {
+        data._playerPosition = transform.position;
+    }
+    public void LoadData(GameData data)
+    {
+        transform.position = data._playerPosition;
     }
 }
