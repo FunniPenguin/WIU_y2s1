@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 251852618dfa5ad44b8a86ecf98a7494, type: 3}
-  m_Name: d_attackRange
-  m_EditorClassIdentifier: Assembly-CSharp::d_isInAggroRange
-  aggroRange: 2
+  m_Script: {fileID: 11500000, guid: 6c1e2fa76f6bdf746b247792a49c64f1, type: 3}
+  m_Name: a_stationary
+  m_EditorClassIdentifier: Assembly-CSharp::stationary_action

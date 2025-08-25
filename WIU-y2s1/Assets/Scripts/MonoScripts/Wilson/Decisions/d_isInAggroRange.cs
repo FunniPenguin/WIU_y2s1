@@ -12,7 +12,15 @@ public class d_isInAggroRange : StateDecision
 
     public override bool Decide(StateController controller)
     {
-        var enemyInScene = GameObject.FindGameObjectWithTag("Enemy");
+        var enemyInScene = GameObject.FindGameObjectWithTag("Enemy1");
+        if (enemyInScene == null)
+        {
+            enemyInScene = GameObject.FindGameObjectWithTag("Enemy2");
+            if (enemyInScene == null)
+            {
+                enemyInScene = GameObject.FindGameObjectWithTag("Enemy3");
+            }
+        }
         var playerInScene = GameObject.FindGameObjectWithTag("Player");
         toPlayer = playerInScene.transform.position - enemyInScene.transform.position;
         return (toPlayer.magnitude <= aggroRange);
