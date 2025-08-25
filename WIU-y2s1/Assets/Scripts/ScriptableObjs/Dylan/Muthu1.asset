@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0bfba7effa0ee4f938e0a75ed57779, type: 3}
+  m_Name: Muthu1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestData
+  _name: Save my world
+  _description: Trash is polluting the Singapore river, endangering the lives of
+    the otters that live there. Help Muthu clean the river and make the Singapore
+    river safe for otters. kill 30 Enemies at the singapore river.
+  _completionCount: 10

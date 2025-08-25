@@ -31,6 +31,7 @@ public class FileManager
                         dataToLoad = reader.ReadToEnd();
                     }
                 }
+                Debug.Log(dataToLoad);
                 //reads from the Json file and stores it back into GameData obj, which we then assign to loaded data and return
                 LoadedData = JsonUtility.FromJson<GameData>(dataToLoad);
                 foreach (KeyValuePair<string, bool> keyValuePair in LoadedData.mapGameObjects)

@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Quest", menuName = "Scriptable Objects/Quest")]
-public class Quest : ScriptableObject
+public class LoadingScreen : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

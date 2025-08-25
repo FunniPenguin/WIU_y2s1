@@ -4,8 +4,8 @@ using UnityEngine;
 [System.Serializable]
 public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
 {
-    [SerializeField] private List<TKey> keys = new List<TKey>();
-    [SerializeField] private List<TValue> values = new List<TValue>();
+    [SerializeField] public List<TKey> keys = new List<TKey>();
+    [SerializeField] public List<TValue> values = new List<TValue>();
 
     public void OnBeforeSerialize()
     {
@@ -20,7 +20,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IS
     }
     public void OnAfterDeserialize()
     {
-        this.Clear();
+        //this.Clear();
         if (Keys.Count != Values.Count)
         {
             Debug.LogError($"Key count and value count do not match. Key count is: {Keys.Count} while value count is: {Values.Count}");
