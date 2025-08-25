@@ -324,13 +324,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58710bc516a63448b3846f0db3e4e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityStatistics
+  maxHealth: 30
   health: 30
   damage: 10
   speed: 5
   jumpPower: 5
+  isInvincible: 0
+  iFrameDuration: 0.5
   uponDeath:
     m_PersistentCalls:
       m_Calls: []
+  statusBar: {fileID: 0}
 --- !u!1 &5069147061135525771
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +347,6 @@ GameObject:
   - component: {fileID: 5894408601984876105}
   - component: {fileID: 2340163947838894725}
   - component: {fileID: 270803697815470656}
-  - component: {fileID: 3117643423449894683}
   m_Layer: 5
   m_Name: Enemy Health
   m_TagString: Untagged
@@ -434,20 +437,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3117643423449894683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5069147061135525771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddbe283e8796048418bc1b8c36353258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StatusBar
-  offset: {x: 0, y: 0.000001, z: 0}
-  offsetPosition: 1
 --- !u!1 &6078819858700909379
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274673519068537205}
   - component: {fileID: 2945014655268910204}
+  - component: {fileID: 8232950088913611432}
   m_Layer: 5
   m_Name: EnemyHealth
   m_TagString: Untagged
@@ -636,7 +626,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1982226045132431203}
   m_HandleRect: {fileID: 0}
@@ -648,6 +638,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8232950088913611432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238702217857753820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbe283e8796048418bc1b8c36353258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusBar
+  offset: {x: 0, y: 2, z: 0}
+  offsetPosition: 1
 --- !u!1 &9193639120518090859
 GameObject:
   m_ObjectHideFlags: 0

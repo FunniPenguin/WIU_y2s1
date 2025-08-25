@@ -298,6 +298,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 794033485083505055, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 961904569750091169, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.65
@@ -9869,3 +9873,4 @@ SceneRoots:
   - {fileID: 728145226}
   - {fileID: 1169964675}
   - {fileID: 200475751}
+  - {fileID: 700653721}

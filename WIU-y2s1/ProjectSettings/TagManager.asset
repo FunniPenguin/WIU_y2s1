@@ -6,8 +6,9 @@ TagManager:
   tags:
   - PlayerHurtbox
   - Enemy
-
-  - UI
+  - Enemy2
+  - Enemy3
+  - Enemy1
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Enemy
+  - 
   - 
   - 
   - 

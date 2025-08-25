@@ -1,45 +1,73 @@
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.Rendering.DebugUI;
 
 public class EntityStatistics : MonoBehaviour
 {
     //Health is not to be used for player in this case - The player has its own separate HealthSystem
 
-    public float health;
+    [Header("Stats")]
+    public float maxHealth = 100f;
+    [SerializeField] private float health;
     public float damage;
     public float speed;
     public float jumpPower;
 
+    [Header("Invincibility")]
     public bool isInvincible = false; // flag to check if enemy is invincible
-    [SerializeField] private float _iFrameDuration = 0.5f;
-    private float _iFrameTime = 0;
+    [SerializeField] private float iFrameDuration = 0.5f;
+    private float iFrameTimer = 0f;
     //This Unity event is meant to be invoked when the entity crosses a threshold of (health <= 0)
-    public UnityEvent uponDeath;
 
+    [Header("Events")]
+    public UnityEvent uponDeath;
+    [SerializeField] private StatusBar statusBar;
+
+
+    private void Awake()
+    {
+        health = maxHealth; // start with full health
+        if (statusBar == null)
+            statusBar = GetComponentInChildren<StatusBar>();
+        UpdateUI();
+    }
     private void Update()
     {
-        _iFrameTime+= Time.deltaTime;
+        iFrameTimer += Time.deltaTime;
     }
     private void FixedUpdate()
     {
         if (health <= 0)
         {
-            uponDeath.Invoke();
+            Die();
         }
     }
 
     //For adding and removing health
-    public void AddHealth(float addedHealth)
+    public void AddHealth(float value)
     {
-        if (addedHealth < 0)
+        if (value < 0) // Taking damage
         {
-            if (_iFrameTime > _iFrameDuration)
+            if (iFrameTimer > iFrameDuration && !isInvincible)
             {
-                health += addedHealth;
-                _iFrameTime = 0;
+                health = Mathf.Clamp(health + value, 0, maxHealth);
+                iFrameTimer = 0f;
+                UpdateUI();
             }
         }
-        else { health += addedHealth; }
+        else // Healing
+        {
+            health = Mathf.Clamp(health + value, 0, maxHealth);
+            UpdateUI();
+        }
+    }
+
+    private void UpdateUI()
+    {
+        if (statusBar != null)
+        {
+            statusBar.UpdateStatusBar(health, maxHealth);
+        }
     }
 
     //For adding and removing damage
@@ -58,5 +86,11 @@ public class EntityStatistics : MonoBehaviour
     public void AddJumpPower(float addedJumpPower)
     {
         jumpPower += addedJumpPower;
+    }
+
+    private void Die()
+    {
+        uponDeath.Invoke();
+        gameObject.SetActive(false);
     }
 }
