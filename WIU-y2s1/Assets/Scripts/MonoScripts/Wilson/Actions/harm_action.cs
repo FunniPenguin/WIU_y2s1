@@ -1,13 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
-[CreateAssetMenu(fileName = "postage_action", menuName = "Scriptable Objects/postage_action")]
-public class postage_action : StateAction
+[CreateAssetMenu(fileName = "harm_action", menuName = "Scriptable Objects/harm_action")]
+public class harm_action : StateAction
 {
-    //public GameObject enemyToTag;
-    //public GameObject playerToTag;
-    public Vector2 origin;
     private bool _LEFT = false;
     private bool _RIGHT = false;
     private bool _JUMP = false;
@@ -20,36 +15,32 @@ public class postage_action : StateAction
     private float jumpThreshold = 0.5f;
 
     private Animator animator;
-    
-
     public override void Act(StateController controller)
     {
-        jumpThreshold = 0.5f;
-        jumpPower = 4f;
         var enemyInScene = GameObject.FindGameObjectWithTag("Enemy3");
         var playerInScene = GameObject.FindGameObjectWithTag("Player");
         rb = enemyInScene.GetComponent<Rigidbody2D>();
         animator = enemyInScene.GetComponent<Animator>();
-
+        Debug.Log("HARM");
         toPlayer = playerInScene.transform.position - enemyInScene.transform.position;
 
-        Debug.Log("POSTAGE");
-        _RIGHT = !(toPlayer.x > 0);
-        _LEFT = toPlayer.x > 0;
-
-        Debug.Log("ISGROUNDED:" + isGrounded);
-        if (toPlayer.y > jumpThreshold)
+        if (toPlayer.magnitude >= 5f)
         {
-            _JUMP = true;
-            Debug.Log("JUMP CALLED");
+            _RIGHT = !(toPlayer.x > 0);
+            _LEFT = toPlayer.x > 0;
         }
-        RaycastHit2D hitResult = Physics2D.Raycast(enemyInScene.transform.position, Vector2.down, 0.5f, LayerMask.GetMask("Ground"));
-        isGrounded = hitResult.collider != null;
+
+        if (toPlayer.magnitude <= 2.5f)
+        {
+            _LEFT = !(toPlayer.x > 0);
+            _RIGHT = toPlayer.x > 0;
+            animator.SetTrigger("isAttacking");
+        }
+
         handleMovement();
 
-        animator.SetBool("isMobile", _LEFT || _RIGHT);
-
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x * 0.95f, rb.linearVelocity.y * 1, 0);
+        var moveDirection = Mathf.Sign(rb.linearVelocityX + ((playerInScene.transform.position.x - enemyInScene.transform.position.x) > 0 ? 0.1f : -0.1f));
+        enemyInScene.transform.localScale = new Vector3(moveDirection * -4 * (_LEFT || _RIGHT ? -1 : 1), 4, 4);
     }
 
     private void handleMovement()
