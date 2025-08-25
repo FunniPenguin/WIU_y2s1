@@ -10,7 +10,7 @@ public class _PlayerController : MonoBehaviour
     private Vector2 moveDirection;
 
     public float speed;
-    public float jumpHeight = 10;
+    public float jumpHeight;
 
     [Header("Ground Check")]
     public Transform groundCheckPosition;
