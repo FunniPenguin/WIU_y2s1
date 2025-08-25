@@ -1,3 +1,4 @@
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameSceneManager : MonoBehaviour
@@ -5,6 +6,7 @@ public class GameSceneManager : MonoBehaviour
     //Start of singleton
     private static GameSceneManager _instance;
     public static GameSceneManager Instance {  get { return _instance; } }
+    
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -22,8 +24,8 @@ public class GameSceneManager : MonoBehaviour
 
     private int _currMapIndex; //identitify the build index of the level that the player is currently on
     private int _additiveSceneIndex; //track the current additive scene menu opened such as pause menu so that can destroy
-    [SerializeField] private int _startingLevelIndex; //stores the starting level so that save file knows which starting level to load
-    
+    [SerializeField] private int _startingLevelIndex, _pauseMenuIndex; //stores the starting level so that save file knows which starting level to load
+
     private void Start()
     {
         _currMapIndex = 0;
@@ -31,9 +33,11 @@ public class GameSceneManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.O))
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            SceneManager.LoadScene(_startingLevelIndex);
+            if (SceneManager.loadedSceneCount != 2)
+            { LoadMenu(_pauseMenuIndex); }
+            else { UnloadMenu(); }
         }
     }
     public void LoadScene(int sceneIndex)

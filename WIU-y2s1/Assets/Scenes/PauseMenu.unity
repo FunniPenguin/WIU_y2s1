@@ -464,7 +464,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1874482056}
-  - component: {fileID: 1874482054}
   - component: {fileID: 1874482055}
   - component: {fileID: 1874482057}
   m_Layer: 0
@@ -474,14 +473,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1874482054
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874482053}
-  m_Enabled: 1
 --- !u!20 &1874482055
 Camera:
   m_ObjectHideFlags: 0
