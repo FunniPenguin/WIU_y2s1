@@ -8,6 +8,7 @@ public class prime_action : StateAction
     //public GameObject playerToTag;
     
     private Rigidbody2D rb;
+    private Animator animator;
 
     public Vector2 turretAimDirection = Vector2.zero;
 
@@ -33,6 +34,8 @@ public class prime_action : StateAction
         var enemyInScene = GameObject.FindGameObjectWithTag("Enemy");
         var playerInScene = GameObject.FindGameObjectWithTag("Player");
         rb = enemyInScene.GetComponent<Rigidbody2D>();
+        animator = enemyInScene.GetComponent<Animator>();
+        animator.SetBool("isAttacking", true);
 
         dispVec = (Vector2)(playerInScene.transform.position - enemyInScene.transform.position);
         discriminant = (Mathf.Pow(projectileVel, 4)) - (gravity * ((gravity * dispVec.x * dispVec.x) + (2 * (dispVec.y * projectileVel * projectileVel))));

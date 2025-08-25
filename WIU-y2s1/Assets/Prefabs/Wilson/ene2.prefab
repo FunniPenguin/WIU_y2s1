@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 715350561373733247}
   - component: {fileID: 6395968193462007555}
   - component: {fileID: 2849750522730901943}
+  - component: {fileID: 1051864876259085151}
   m_Layer: 0
   m_Name: ene2
   m_TagString: Enemy
@@ -171,3 +172,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateController
   currentState: {fileID: 11400000, guid: ee28c9f5baaaf684e97a389887884712, type: 2}
   remainState: {fileID: 11400000, guid: 23a0fe9f78ee7244c98dc007bacaf77d, type: 2}
+--- !u!95 &1051864876259085151
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6429494442907318114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f160efd86a8b5a4b8fc0f167aa22227, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 1
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
