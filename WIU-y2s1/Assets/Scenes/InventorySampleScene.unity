@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Speed Boost Potion Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9192468610248273221, guid: 597646eace0a5a7448403a76a5c5b93c, type: 3}
+      propertyPath: GUID
+      value: I0000005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -906,6 +910,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1065931873332539413, guid: 486a1a1955eb7df49a7056b63e5c14b6, type: 3}
+      propertyPath: GUID
+      value: I0000003
+      objectReference: {fileID: 0}
     - target: {fileID: 2486086120127328139, guid: 486a1a1955eb7df49a7056b63e5c14b6, type: 3}
       propertyPath: m_Icon
       value: 
@@ -1255,6 +1263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Max Health Potion Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8085022157320833027, guid: 623b7407aaa3c7a42bd0add2dcad525d, type: 3}
+      propertyPath: GUID
+      value: I0000004
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1268,6 +1280,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1913273819612822834, guid: 83aabf7b0c97ae044ae1a52476cbb0dd, type: 3}
+      propertyPath: GUID
+      value: I0000002
+      objectReference: {fileID: 0}
     - target: {fileID: 3947397536928817836, guid: 83aabf7b0c97ae044ae1a52476cbb0dd, type: 3}
       propertyPath: m_Icon
       value: 
@@ -1321,6 +1337,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aabf7b0c97ae044ae1a52476cbb0dd, type: 3}
+--- !u!1 &1199833880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1199833882}
+  - component: {fileID: 1199833881}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1199833881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199833880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25739eaab66ec5140af80409ff38f162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DataPersistenceManager
+  _fileName: AutoSave
+--- !u!4 &1199833882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199833880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.18812, y: -0.65978, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1218168252
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,6 +2127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1472889891962016735, guid: 670c6a710348a824eb5a0cc4e9732e4b, type: 3}
+      propertyPath: GUID
+      value: I0000001
+      objectReference: {fileID: 0}
     - target: {fileID: 4051666049758628929, guid: 670c6a710348a824eb5a0cc4e9732e4b, type: 3}
       propertyPath: m_Icon
       value: 
@@ -2366,6 +2431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fan
       objectReference: {fileID: 0}
+    - target: {fileID: 6677811883178029955, guid: 7bdd343addfe06142af050b4843d27c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2382,6 +2451,10 @@ PrefabInstance:
     - target: {fileID: 1266914722362575554, guid: efc0dad8a2f0c6142843ecd46be09e19, type: 3}
       propertyPath: m_Name
       value: Spring
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266914722362575554, guid: efc0dad8a2f0c6142843ecd46be09e19, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4988754053046825064, guid: efc0dad8a2f0c6142843ecd46be09e19, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2781,3 +2854,4 @@ SceneRoots:
   - {fileID: 1421197009852884092}
   - {fileID: 6727102993889559859}
   - {fileID: 3375611019004074141}
+  - {fileID: 1199833882}
