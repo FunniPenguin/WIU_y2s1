@@ -10,20 +10,20 @@ public class CharacterStatJumpModiferSO : CharacterStatModiferSO
 
     public override void AffectCharacter(GameObject character, float val)
     {
-        SamplePlayerMovement movement = character.GetComponent<SamplePlayerMovement>();
+        _PlayerController movement = character.GetComponent<_PlayerController>();
         if (movement != null)
         {
             movement.StartCoroutine(ApplyJumpBoost(movement, val));  // Start the coroutine to apply the jump boost
         }
     }
 
-    private IEnumerator ApplyJumpBoost(SamplePlayerMovement movement, float val)
+    private IEnumerator ApplyJumpBoost(_PlayerController movement, float val)
     {
         // Store the original jump power and apply the modified jump power
-        float originalJumpPower = movement.jumpPower;
-        movement.jumpPower *= jumpModifer * val;
+        float originalJumpPower = movement.jumpHeight;
+        movement.jumpHeight *= jumpModifer * val;
         yield return new WaitForSeconds(duration);
         // After the duration, reset the jump power to the original value
-        movement.jumpPower = originalJumpPower;
+        movement.jumpHeight = originalJumpPower;
     }
 }
