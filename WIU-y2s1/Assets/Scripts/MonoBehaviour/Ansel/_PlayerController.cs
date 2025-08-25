@@ -2,7 +2,7 @@ using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class _PlayerController : MonoBehaviour, IDataPersistence
+public class _PlayerController : MonoBehaviour
 {
     private EntityStatistics _statistics;
     private Animator animator;
@@ -10,7 +10,7 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
     private Vector2 moveDirection;
 
     public float speed;
-    public float jumpHeight = 10;
+    public float jumpHeight;
 
     [Header("Ground Check")]
     public Transform groundCheckPosition;
@@ -63,11 +63,13 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
     {
         Gravity();
         GroundCheck();
+
     }
 
     void FixedUpdate()
     {
-        if (GetComponent<HealthSystem>().healthData.maxHealth <= 0) 
+
+        if (GetComponent<HealthSystem>().healthData.maxHealth <= 0)
         {
             _statistics.uponDeath.Invoke();
         }
@@ -102,13 +104,6 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
             body.gravityScale = baseGravity;
         }
     }
-    public void SaveData(ref GameData data)
-    {
-        data._playerPosition = transform.position;
-    }
-    public void LoadData(GameData data)
-    {
-        transform.position = data._playerPosition;
 
     }
 

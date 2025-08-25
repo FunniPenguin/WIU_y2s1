@@ -10,9 +10,16 @@ public class EntityStatistics : MonoBehaviour
     public float speed;
     public float jumpPower;
 
+    public bool isInvincible = false; // flag to check if enemy is invincible
+    [SerializeField] private float _iFrameDuration = 0.5f;
+    private float _iFrameTime = 0;
     //This Unity event is meant to be invoked when the entity crosses a threshold of (health <= 0)
     public UnityEvent uponDeath;
 
+    private void Update()
+    {
+        _iFrameTime+= Time.deltaTime;
+    }
     private void FixedUpdate()
     {
         if (health <= 0)
@@ -22,25 +29,33 @@ public class EntityStatistics : MonoBehaviour
     }
 
     //For adding and removing health
-    void AddHealth(float addedHealth)
+    public void AddHealth(float addedHealth)
     {
-        health += addedHealth;
+        if (addedHealth < 0)
+        {
+            if (_iFrameTime > _iFrameDuration)
+            {
+                health += addedHealth;
+                _iFrameTime = 0;
+            }
+        }
+        else { health += addedHealth; }
     }
 
     //For adding and removing damage
-    void AddDamage(float addedDamage)
+    public void AddDamage(float addedDamage)
     {
         damage += addedDamage;
     }
 
     //For adding and removing speed
-    void AddSpeed(float addedSpeed)
+    public void AddSpeed(float addedSpeed)
     { 
         speed += addedSpeed;
     }
 
     //For adding and removing jumpPower
-    void AddJumpPower(float addedJumpPower)
+    public void AddJumpPower(float addedJumpPower)
     {
         jumpPower += addedJumpPower;
     }
