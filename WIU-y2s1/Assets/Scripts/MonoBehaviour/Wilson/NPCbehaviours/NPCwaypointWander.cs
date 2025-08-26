@@ -6,6 +6,7 @@ public class NPCwaypointWander : MonoBehaviour
     [SerializeField] private Vector2 waypointStation2 = Vector2.zero;
 
     private Rigidbody2D rb;
+    private Animator animator;
 
     private int wanderState = 1;
     private float stateBuffer = 2f;
@@ -22,6 +23,7 @@ public class NPCwaypointWander : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         wanderState = Random.Range(1, 4);
         NPCspeed = 1f;
     }
@@ -68,14 +70,20 @@ public class NPCwaypointWander : MonoBehaviour
         if (_LEFT && !_RIGHT)
         {
             rb.linearVelocityX = -NPCspeed;
+            animator.SetBool("isMobile", true);
+            transform.localScale = new Vector2(5, 5);
         }
         else if (!_LEFT && _RIGHT)
         {
             rb.linearVelocityX = NPCspeed;
+            animator.SetBool("isMobile", true);
+            transform.localScale = new Vector2(-5, 5);
         }
         else
         {
             rb.linearVelocityX = 0;
+            animator.SetBool("isMobile", false);
+            transform.localScale = new Vector2(5, 5);
         }
     }
 }
