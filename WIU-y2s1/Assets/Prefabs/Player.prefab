@@ -465,16 +465,16 @@ MonoBehaviour:
   uponDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 794033485083505055}
-        m_TargetAssemblyTypeName: _PlayerController, Assembly-CSharp
-        m_MethodName: set_IsDead
-        m_Mode: 6
+      - m_Target: {fileID: 9051530989621700373}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: PlayerDeath
           m_BoolArgument: 1
         m_CallState: 2
   statusBar: {fileID: 0}
@@ -563,10 +563,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Inventory.InventoryController
   inventoryUI: {fileID: 0}
-  inventoryData: {fileID: 0}
+  inventoryData: {fileID: 11400000, guid: 96a8701a6d3ffd5449b455e16439eec4, type: 2}
   initialItems: []
-  audioSource: {fileID: 0}
-  dropClip: {fileID: 0}
+  audioSource: {fileID: 4331034378320068181}
+  dropClip: {fileID: 8300000, guid: c6eb8603700eeaa479c9add31ec9a66e, type: 3}
 --- !u!1 &7681286833082237393
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4259743563708488317}
   - component: {fileID: 797864750041512722}
-  - component: {fileID: 3041311886385195047}
+  - component: {fileID: 7063116534502431259}
   m_Layer: 0
   m_Name: Hurtbox
   m_TagString: PlayerHurtbox
@@ -727,7 +727,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.1, y: 1}
   m_Direction: 0
---- !u!114 &3041311886385195047
+--- !u!114 &7063116534502431259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -736,7 +736,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8311325422529062125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34638e17be8a1db4ba40cf4aaabccab8, type: 3}
+  m_Script: {fileID: 11500000, guid: f7bb5bd25d79c7946837f89283db24ec, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  damage: 10
+  m_EditorClassIdentifier: Assembly-CSharp::CheckTriggerMeleeAttack
+  _player: {fileID: 794033485083505055}
+  targets:
+  - Enemy
+  - Destructible
