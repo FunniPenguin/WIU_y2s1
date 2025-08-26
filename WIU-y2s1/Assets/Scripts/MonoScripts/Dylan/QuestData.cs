@@ -9,6 +9,7 @@ public class QuestData : ScriptableObject
     [SerializeField] private string _description = "";
     private int _objectiveProgress = 0;
     [SerializeField] private int _completionCount = 1;
+    [SerializeField] private string GUID = "";
 
     private void Awake()
     {
@@ -44,5 +45,13 @@ public class QuestData : ScriptableObject
         {
             _objectiveProgress = _completionCount;
         }
+        if (_objectiveProgress == _completionCount)
+        {
+            QuestManager.Instance.CompleteQuest();
+        }
+    }
+    public string GetGUID()
+    {
+        return GUID;
     }
 }
