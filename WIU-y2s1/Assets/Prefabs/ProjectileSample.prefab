@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4680267906921622223}
   - component: {fileID: 4229031218656300733}
   - component: {fileID: 8628967600728796273}
+  - component: {fileID: 2918265935705605669}
   m_Layer: 0
   m_Name: ProjectileSample
   m_TagString: Untagged
@@ -106,7 +107,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -118,3 +119,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2918265935705605669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465569971994279418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893f2a87f2451e54ba485876757176c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  direction: 0
+  _fireballSpeed: 5
