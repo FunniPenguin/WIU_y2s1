@@ -5,7 +5,7 @@ using System.Collections;
 public class QuestController : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private RectTransform questUI;    // The UI panel
+    [SerializeField] private RectTransform questUI; // The UI panel
     [SerializeField] private KeyCode toggleKey = KeyCode.J;
 
     [Header("Animation Settings")]
