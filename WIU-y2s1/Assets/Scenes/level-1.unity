@@ -260,11 +260,11 @@ MonoBehaviour:
   - channel: 0
     sources:
     - {fileID: 83196519}
-    volume: 0
+    volume: 1
   - channel: 1
     sources:
     - {fileID: 83196519}
-    volume: 0
+    volume: 1
 --- !u!4 &83196521
 Transform:
   m_ObjectHideFlags: 0
