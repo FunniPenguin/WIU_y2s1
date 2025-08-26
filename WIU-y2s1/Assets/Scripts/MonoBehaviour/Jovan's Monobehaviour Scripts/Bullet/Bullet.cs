@@ -70,7 +70,6 @@ public class Bullet : MonoBehaviour
                 healthSystem.Hurt(damage); 
             }
 
-            Debug.Log("Player hit by bullet!");
             Destroy(gameObject);
         }
     }

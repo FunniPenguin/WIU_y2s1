@@ -13,7 +13,7 @@ namespace _Inventory.UI
     public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
     {
         [SerializeField] private Image itemImage; // Image icon
-        [SerializeField] private TMP_Text quantityText; // quantiy text
+        [SerializeField] private TMP_Text quantityText; // quantity text
         [SerializeField] private Image borderImage; // border to show when selected
 
         // Events based on user interactions:

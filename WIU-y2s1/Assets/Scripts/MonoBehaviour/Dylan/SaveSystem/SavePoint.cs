@@ -10,10 +10,11 @@ public class SavePoint : MonoBehaviour, IDataPersistence
     private string _id;
     private bool _currSavePoint;
     [SerializeField] GameObject _playerPrefab;
-    private GameObject _player;
+    [SerializeField] float _distanceToSave = 1.0f;
+    [SerializeField] int _currentLevel;
+    [SerializeField] string id = "";
     private void Awake()
     {
-        
     }
     private void Start()
     {
@@ -21,24 +22,29 @@ public class SavePoint : MonoBehaviour, IDataPersistence
     }
     private void Update()
     {
-        
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.E))
         {
-            if (Vector3.Distance(_player.transform.position, transform.position) < 2.0f)
+            var player = FindAnyObjectByType<_PlayerController>();
+            if (Vector3.Distance(player.transform.position, transform.position) <= _distanceToSave)
+            {
+                _currSavePoint = true;
                 DataPersistenceManager.Instance.SaveGame();
+            }
         }
     }
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
-
+        //if (data.savePoints.ContainsKey(id))
+        //{ data.savePoints.Remove(id); }
+        //data.savePoints.Add(id, _currSavePoint);
     }
     public void LoadData(GameData data)
     {
         
-        if (_currSavePoint)
-        {
-            Instantiate(_player);
-            _currSavePoint = false;
-        }
+        //if (_currSavePoint)
+        //{
+        //    Instantiate(_playerPrefab);
+        //    _currSavePoint = false;
+        //}
     }
 }

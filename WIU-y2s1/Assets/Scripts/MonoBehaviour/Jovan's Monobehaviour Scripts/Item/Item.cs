@@ -48,7 +48,7 @@ public class Item : MonoBehaviour, IDataPersistence
 
         gameObject.SetActive(false);
     }
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         if (data.mapGameObjects.ContainsKey(GUID))
         {
@@ -62,7 +62,6 @@ public class Item : MonoBehaviour, IDataPersistence
             gameObject.SetActive(isActive);
         else
             gameObject.SetActive(true);
-        Debug.Log($"Object {GUID} has been loaded as {gameObject.activeInHierarchy}");
     }
 }
 // Made by Jovan Yeo Kaisheng

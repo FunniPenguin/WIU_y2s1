@@ -6,10 +6,7 @@ TagManager:
   tags:
   - PlayerHurtbox
   - Enemy
-  - Enemy2
-  - Enemy3
-  - Enemy1
-  - Destructible
+  - UI
   layers:
   - Default
   - TransparentFX

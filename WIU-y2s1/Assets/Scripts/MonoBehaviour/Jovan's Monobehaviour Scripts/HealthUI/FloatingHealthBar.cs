@@ -19,9 +19,8 @@ public class FloatingHealthBar : MonoBehaviour
         if (healthbar != null)
         {
             healthbar.value = currentValue / maxValue; // Update the health bar value based on current and max health
-            Debug.Log("Updating Health Bar: " + healthbar.value);
         }
     }
-}
+}    
 // Made by Jovan Yeo Kaisheng
 // This code is part of the Health System.
