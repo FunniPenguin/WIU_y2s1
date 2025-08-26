@@ -173,7 +173,7 @@ namespace _Inventory.Model
                 }   
                 InformAboutChange(); // Notify listeners that the inventory has been updated
             }
-        }   
+        } 
     }
 
     // Represents an item in the inventory, containing the item data and its quantity.

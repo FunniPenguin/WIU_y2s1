@@ -2,7 +2,7 @@ using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class _PlayerController : MonoBehaviour,IDataPersistence
+public class _PlayerController : MonoBehaviour
 {
     private EntityStatistics _statistics;
     private Animator animator;
@@ -163,11 +163,4 @@ public class _PlayerController : MonoBehaviour,IDataPersistence
             Gizmos.color = Color.white;
             if (groundCheckPosition) Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
         }
-    public void SaveData(ref GameData data)
-    {
-        //data._playerPosition = this.transform.position;
-    }
-    public void LoadData(GameData data) { 
-        //this.transform.position = data._playerPosition;
-    }
 }

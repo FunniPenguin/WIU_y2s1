@@ -75,7 +75,7 @@ public class DataPersistenceManager : MonoBehaviour
         foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
         {
             //Ref will pass the game data into the save data function by reference.
-            dataPersistenceObj.SaveData(ref _gameData);
+            dataPersistenceObj.SaveData(_gameData);
         }
         foreach(KeyValuePair<string, bool> keyValuePair in _gameData.mapGameObjects)
         {

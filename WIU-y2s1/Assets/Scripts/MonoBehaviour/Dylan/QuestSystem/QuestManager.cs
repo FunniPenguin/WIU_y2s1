@@ -55,7 +55,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
             _allGameQuestsCompleted.Invoke();
         }
     }
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         
     }

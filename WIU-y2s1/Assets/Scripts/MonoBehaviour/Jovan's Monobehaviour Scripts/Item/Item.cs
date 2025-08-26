@@ -48,7 +48,7 @@ public class Item : MonoBehaviour, IDataPersistence
 
         gameObject.SetActive(false);
     }
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         if (data.mapGameObjects.ContainsKey(GUID))
         {

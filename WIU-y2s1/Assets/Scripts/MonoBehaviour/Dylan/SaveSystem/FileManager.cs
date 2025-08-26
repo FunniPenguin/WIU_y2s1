@@ -32,14 +32,14 @@ public class FileManager
                         dataToLoad = reader.ReadToEnd();
                     }
                 }
-                Debug.Log(dataToLoad);
+                //Debug.Log(dataToLoad);
                 //reads from the Json file and stores it back into GameData obj, which we then assign to loaded data and return
                 //LoadedData = JsonUtility.FromJson<GameData>(dataToLoad);
                 LoadedData = JsonConvert.DeserializeObject<GameData>(dataToLoad);
-                foreach (KeyValuePair<string, bool> keyValuePair in LoadedData.mapGameObjects)
-                {
-                    Debug.Log($"Game object {keyValuePair.Key} has been loaded as {keyValuePair.Value}");
-                }
+                //foreach (KeyValuePair<string, bool> keyValuePair in LoadedData.mapGameObjects)
+                //{
+                //    Debug.Log($"Game object {keyValuePair.Key} has been loaded as {keyValuePair.Value}");
+                //}
             }
             catch (Exception e){ 
                 Debug.LogError($"Error loading Json file at {fullPathName}\n{e}");
