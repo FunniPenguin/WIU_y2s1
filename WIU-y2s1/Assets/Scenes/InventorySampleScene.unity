@@ -831,6 +831,22 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 162089712}
+    - target: {fileID: 8660955210366952116, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: dropClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c6eb8603700eeaa479c9add31ec9a66e, type: 3}
+    - target: {fileID: 8660955210366952116, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 2002371012}
+    - target: {fileID: 8660955210366952116, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 1981138771}
+    - target: {fileID: 8660955210366952116, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: inventoryData
+      value: 
+      objectReference: {fileID: 11400000, guid: 96a8701a6d3ffd5449b455e16439eec4, type: 2}
     - target: {fileID: 9178223507891463820, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: inventoryUI
       value: 
@@ -2727,6 +2743,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a733dcd8c9470841878577309f6e6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInventory
+--- !u!82 &2002371012 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4331034378320068181, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+  m_PrefabInstance: {fileID: 383076555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2059538944
 GameObject:
   m_ObjectHideFlags: 0
