@@ -112,11 +112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29df7b0aef9f2443b9e7440138faa11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  jumpHeight: 0
   groundCheckPosition: {fileID: 2945117242592364524}
   groundCheckSize: {x: 1.1, y: 0.1}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   baseGravity: 2
   MaxfallSpeed: 20
   fallSpeedMultiplier: 2
@@ -457,6 +459,8 @@ MonoBehaviour:
   damage: 10
   speed: 10
   jumpPower: 10
+  isInvincible: 0
+  _iFrameDuration: 0.5
   uponDeath:
     m_PersistentCalls:
       m_Calls:
