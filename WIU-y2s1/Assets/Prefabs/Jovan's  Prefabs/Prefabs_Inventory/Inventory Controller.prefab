@@ -727,6 +727,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6865306232733712541, guid: df9f74d3b465bab46898c56f1ba444aa, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 356b2c116143bb043af06f3a04e428de, type: 2}
+    - target: {fileID: 6865306232733712541, guid: df9f74d3b465bab46898c56f1ba444aa, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8725323620397940223, guid: 356b2c116143bb043af06f3a04e428de, type: 2}
     - target: {fileID: 7590471988946338113, guid: df9f74d3b465bab46898c56f1ba444aa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -827,7 +835,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682542042315788361}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a0a72a64510f0a4097d703022cbc60e, type: 3}
   m_Name: 

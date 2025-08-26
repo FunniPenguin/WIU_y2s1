@@ -176,7 +176,7 @@ namespace _Inventory
             sb.AppendLine();
             for (int i = 0; i < inventoryItem.itemState.Count; i++)
             {
-                sb.AppendLine($"Damage{inventoryItem.itemState[i].itemParameter.ParameterName} "
+                sb.Append($"Damage{inventoryItem.itemState[i].itemParameter.ParameterName} "
                     + $": {inventoryItem.itemState[i].value} / " 
                     + $"{inventoryItem.item.DefaultParameterList[i].value}");
                 sb.AppendLine();
