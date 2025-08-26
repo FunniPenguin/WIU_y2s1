@@ -950,7 +950,6 @@ GameObject:
   - component: {fileID: 8503036966120246670}
   - component: {fileID: 1590052882176115933}
   - component: {fileID: 8077504559755975849}
-  - component: {fileID: 6723927152591060997}
   m_Layer: 0
   m_Name: QuestUI
   m_TagString: Untagged
@@ -999,22 +998,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestController
   questUI: {fileID: 1231434983781501623}
-  toggleKey: 106
-  fadeDuration: 0.3
-  hiddenOffset: {x: -300, y: 0}
---- !u!114 &6723927152591060997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8468694780442224643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c76b435533c794597b8a72dadf008a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuestController
-  questUI: {fileID: 9081037843367909100}
   toggleKey: 106
   fadeDuration: 0.3
   hiddenOffset: {x: -300, y: 0}
