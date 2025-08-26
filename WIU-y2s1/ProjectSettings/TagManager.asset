@@ -7,7 +7,7 @@ TagManager:
   - PlayerHurtbox
   - Enemy
   - UI
-  - Destructable
+  - Destructible
   layers:
   - Default
   - TransparentFX

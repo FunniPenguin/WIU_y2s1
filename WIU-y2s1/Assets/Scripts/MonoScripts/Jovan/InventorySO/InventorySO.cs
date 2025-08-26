@@ -199,13 +199,12 @@ namespace _Inventory.Model
         }
 
         // Creates an empty InventoryItem, which has no item and a quantity of zero
-        public static InventoryItem GetEmptyItem() 
-            => new InventoryItem
-            {
-                item = null, // No item assigned
-                quantity = 0, // Quantity is zero
-                itemState = new List<ItemParameter>()
-            };
+        public static InventoryItem GetEmptyItem() => new InventoryItem
+        {
+            item = null, // No item assigned
+            quantity = 0, // Quantity is zero
+            itemState = new List<ItemParameter>()
+        };
     }
 }
 
