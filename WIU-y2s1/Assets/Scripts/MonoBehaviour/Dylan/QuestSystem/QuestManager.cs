@@ -29,6 +29,10 @@ public class QuestManager : MonoBehaviour, IDataPersistence
 
     private void Start()
     {
+        if (_questList != null)
+        {
+            _activeQuest = _questList[0];
+        }
         DontDestroyOnLoad(gameObject);
     }
     //End of singleton
