@@ -49,7 +49,7 @@ public class QuestLogUI : MonoBehaviour
         {
             var row = spawnedQuestRows[i];
             var texts = row.GetComponentsInChildren<TextMeshProUGUI>();
-            texts[2].text = $"{activeQuests[i].GetObjectiveProgress()}/{activeQuests[i].GetCompletionCount()}";
+            texts[2].text = $"["+ $"{activeQuests[i].GetObjectiveProgress()}/{activeQuests[i].GetCompletionCount()}" + $"]";
         }
     }
 }
