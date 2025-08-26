@@ -23,10 +23,12 @@ public class EntityStatistics : MonoBehaviour
     public UnityEvent uponDeath;
     [SerializeField] private StatusBar statusBar;
 
+    private float originalDamage;
 
     private void Awake()
     {
         health = maxHealth; // start with full health
+        originalDamage = damage; // to make sure that the original damage is stored so that damage can be reset when equipping a different weapon
         if (statusBar == null)
             statusBar = GetComponentInChildren<StatusBar>();
         UpdateUI();
@@ -74,6 +76,12 @@ public class EntityStatistics : MonoBehaviour
     public void AddDamage(float addedDamage)
     {
         damage += addedDamage;
+    }
+
+    //For resetting damage when unequipping weapon
+    public void ResetDamage()
+    {
+        damage = originalDamage;
     }
 
     //For adding and removing speed

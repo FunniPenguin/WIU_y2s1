@@ -9,6 +9,7 @@ TagManager:
   - Enemy2
   - Enemy3
   - Enemy1
+  - Destructible
   layers:
   - Default
   - TransparentFX
