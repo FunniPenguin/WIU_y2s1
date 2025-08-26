@@ -866,8 +866,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1156522868}
         m_TargetAssemblyTypeName: LocalSceneManager, Assembly-CSharp
-        m_MethodName: SwapMenu
-        m_Mode: 3
+        m_MethodName: BackToGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
