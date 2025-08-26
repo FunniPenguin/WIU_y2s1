@@ -551,6 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateController
   currentState: {fileID: 11400000, guid: 50e1611dd54ff874c8ae47dd1d66ea82, type: 2}
   remainState: {fileID: 11400000, guid: bb6b1acae8fde934e950fc6d4959089d, type: 2}
+  distanceFromPlayer: 30
 --- !u!50 &3649543220040341004
 Rigidbody2D:
   serializedVersion: 5
@@ -668,8 +669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58710bc516a63448b3846f0db3e4e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityStatistics
-  maxHealth: 50
-  health: 50
+  maxHealth: 10
+  health: 10
   damage: 5
   speed: 10
   jumpPower: 10

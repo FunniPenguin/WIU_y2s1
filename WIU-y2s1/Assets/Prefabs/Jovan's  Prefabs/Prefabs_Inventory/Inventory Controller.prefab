@@ -775,9 +775,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4830156592529579833, guid: df9f74d3b465bab46898c56f1ba444aa, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1252307836543141830}
-    - targetCorrespondingSourceObject: {fileID: 4830156592529579833, guid: df9f74d3b465bab46898c56f1ba444aa, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8536326263038060733}
   m_SourcePrefab: {fileID: 100100000, guid: df9f74d3b465bab46898c56f1ba444aa, type: 3}
 --- !u!114 &111989930525243342 stripped
@@ -796,23 +793,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4830156592529579833, guid: df9f74d3b465bab46898c56f1ba444aa, type: 3}
   m_PrefabInstance: {fileID: 5364008756843384688}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1252307836543141830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682542042315788361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a0a72a64510f0a4097d703022cbc60e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Inventory.InventoryController
-  inventoryUI: {fileID: 1717500637949039483}
-  inventoryData: {fileID: 11400000, guid: 96a8701a6d3ffd5449b455e16439eec4, type: 2}
-  initialItems: []
-  audioSource: {fileID: 8536326263038060733}
-  dropClip: {fileID: 8300000, guid: c6eb8603700eeaa479c9add31ec9a66e, type: 3}
 --- !u!82 &8536326263038060733
 AudioSource:
   m_ObjectHideFlags: 0
@@ -910,17 +890,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1717500637949039483 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6747799824617806859, guid: df9f74d3b465bab46898c56f1ba444aa, type: 3}
-  m_PrefabInstance: {fileID: 5364008756843384688}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a733dcd8c9470841878577309f6e6d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIInventory
 --- !u!224 &6721261014610086479 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1672663689095284031, guid: df9f74d3b465bab46898c56f1ba444aa, type: 3}
