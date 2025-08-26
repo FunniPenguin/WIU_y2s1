@@ -184,6 +184,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
+--- !u!1001 &124026854
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4397072146236507454, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.0430324
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397072146236507454, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.7544758
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397072146236507454, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397072146236507454, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397072146236507454, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397072146236507454, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397072146236507454, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397072146236507454, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397072146236507454, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397072146236507454, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554024460604427504, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
+      propertyPath: m_Name
+      value: Cool Sword (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
 --- !u!1001 &162145902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17912,3 +17969,4 @@ SceneRoots:
   - {fileID: 997727077}
   - {fileID: 1244254187}
   - {fileID: 899156131}
+  - {fileID: 124026854}
