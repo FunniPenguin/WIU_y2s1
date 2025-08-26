@@ -53,3 +53,4 @@ public class QuestLogUI : MonoBehaviour
 }
 
 //Class is made by Jovan
+//Edited by Dylan: Linked the quest UI to the quest manager

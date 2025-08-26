@@ -203,7 +203,7 @@ namespace _Inventory
                 else
                 {
                     // Hide inventory
-                    inventoryUI.Hide();
+                    //inventoryUI.Hide();
                 }
             }
         }
