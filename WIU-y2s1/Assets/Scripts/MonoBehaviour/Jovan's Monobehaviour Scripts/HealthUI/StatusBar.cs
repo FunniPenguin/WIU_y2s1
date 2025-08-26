@@ -10,7 +10,10 @@ public class StatusBar : MonoBehaviour
     void Awake()
     {
         slider = GetComponent<Slider>();
-        parentTransform = GetComponentInParent<Transform>();
+        if (slider == null)
+            Debug.LogError("StatusBar on " + gameObject.name + " is missing a Slider component!");
+
+        parentTransform = transform.root;
     }
     private void Update()
     {

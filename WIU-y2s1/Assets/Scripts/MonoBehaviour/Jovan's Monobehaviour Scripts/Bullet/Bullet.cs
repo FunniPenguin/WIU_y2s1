@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;
     public float forwardDuration = 0.7f; // time flying forward before coming back
     public float lifetime = 3f; // total bullet lifetime
+    public float damage = 5f;
 
     private float timer = 0f;
     private bool returning = false;
@@ -27,7 +28,7 @@ public class Bullet : MonoBehaviour
 
         if (!returning)
         {
-            // Fly straight in local "right" direction
+            // Fly straight
             transform.Translate(Vector2.right * speed * Time.deltaTime);
 
             if (timer >= forwardDuration)
@@ -66,7 +67,7 @@ public class Bullet : MonoBehaviour
             HealthSystem healthSystem = collision.GetComponent<HealthSystem>();
             if (healthSystem != null)
             {
-                healthSystem.Hurt(5); 
+                healthSystem.Hurt(damage); 
             }
 
             Debug.Log("Player hit by bullet!");
