@@ -177,7 +177,7 @@ namespace _Inventory
             for (int i = 0; i < inventoryItem.itemState.Count; i++)
             {
                 sb.Append($"{inventoryItem.itemState[i].itemParameter.ParameterName} "
-                    + $": {inventoryItem.itemState[i].value}"
+                    + $": +{inventoryItem.itemState[i].value}"
                     //+ $" / {inventoryItem.item.DefaultParameterList[i].value}"
                     );
                 sb.AppendLine();
