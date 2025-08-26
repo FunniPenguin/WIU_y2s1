@@ -50,7 +50,6 @@ GameObject:
   - component: {fileID: 7914351124992047845}
   - component: {fileID: 6568965065574642748}
   - component: {fileID: 7841928683905899791}
-  - component: {fileID: 9178223507891463820}
   - component: {fileID: 2900966642882753924}
   - component: {fileID: 2028788189049969140}
   m_Layer: 7
@@ -519,23 +518,6 @@ MonoBehaviour:
   healthData: {fileID: 11400000, guid: 350aec3008224844f8b8efd2de4c2d60, type: 2}
   healthBar: {fileID: 0}
   isInvincible: 0
---- !u!114 &9178223507891463820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3868035439176965045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a0a72a64510f0a4097d703022cbc60e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Inventory.InventoryController
-  inventoryUI: {fileID: 0}
-  inventoryData: {fileID: 11400000, guid: 96a8701a6d3ffd5449b455e16439eec4, type: 2}
-  initialItems: []
-  audioSource: {fileID: 4331034378320068181}
-  dropClip: {fileID: 8300000, guid: c6eb8603700eeaa479c9add31ec9a66e, type: 3}
 --- !u!114 &2900966642882753924
 MonoBehaviour:
   m_ObjectHideFlags: 0
