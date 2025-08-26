@@ -20,7 +20,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IS
     }
     public void OnAfterDeserialize()
     {
-        //this.Clear();
+        this.Clear();
         if (Keys.Count != Values.Count)
         {
             Debug.LogError($"Key count and value count do not match. Key count is: {Keys.Count} while value count is: {Values.Count}");
