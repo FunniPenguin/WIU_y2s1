@@ -1,0 +1,21 @@
+using UnityEngine;
+
+public class LocalSceneManager : MonoBehaviour
+{
+    public void BackToGame()
+    {
+        GameSceneManager.Instance.UnloadMenu();
+    }
+    public void SwapMenu(int index)
+    {
+        GameSceneManager.Instance.SwitchMenu(index);
+    }
+    public void SwitchActiveScene(int index)
+    {
+        GameSceneManager.Instance.LoadLevel(index);
+    }
+    public void RestartLevel()
+    {
+        GameSceneManager.Instance.ReloadCurrentScene();
+    }
+}

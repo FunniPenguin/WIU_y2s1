@@ -26,22 +26,23 @@ public class GameSceneManager : MonoBehaviour
     private void OnDestroy() { if (this == _instance) { _instance = null; } }
     //End of singleton
 
-    private int _currMapIndex; //identitify the build index of the level that the player is currently on
     private int _additiveSceneIndex; //track the current additive scene menu opened such as pause menu so that can destroy
     [SerializeField] private int _startingLevelIndex, _pauseMenuIndex, _loadSceneIndex; //stores the starting level so that save file knows which starting level to load
-
+    private bool _enablePauseMenu = false;
     private void Start()
     {
-        _currMapIndex = 0;
         _additiveSceneIndex = -1;
+        _enablePauseMenu = false;
     }
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            if (SceneManager.loadedSceneCount != 2)
-            { LoadMenu(_pauseMenuIndex); }
-            else { UnloadMenu(); }
+        if (_enablePauseMenu) {
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                if (SceneManager.loadedSceneCount != 2)
+                { LoadMenu(_pauseMenuIndex); }
+                else { UnloadMenu(); }
+            }
         }
     }
     public void LoadScene(int sceneIndex)
@@ -53,9 +54,10 @@ public class GameSceneManager : MonoBehaviour
     }
     public void LoadLevel(int LevelIndex)
     {
+        UnloadMenu();
         SceneManager.LoadScene(_loadSceneIndex, LoadSceneMode.Additive);
         StartCoroutine(LoadAsyncScene(LevelIndex));
-        SceneManager.UnloadSceneAsync(_pauseMenuIndex);
+        SceneManager.UnloadSceneAsync(_loadSceneIndex);
     }
     public void LoadMenu(int index)
     {
@@ -65,7 +67,7 @@ public class GameSceneManager : MonoBehaviour
             return;
         }
         //Disable active scene event system so that pause menu event system will get all the input
-        GameObject.Find("EventSystem").GetComponent<EventSystem>().enabled = false;
+        ToggleSceneEventSystem(false);
         //Load above the active scene
         SceneManager.LoadScene(index, LoadSceneMode.Additive);
         //Ensure the active scene is not updated
@@ -78,8 +80,7 @@ public class GameSceneManager : MonoBehaviour
     {
         if (SceneManager.sceneCount != 2)
             { return; }
-        UnloadMenu();
-        LoadMenu(index);
+        StartCoroutine(SwapMenu(index));
     }
     public void UnloadMenu()
     {
@@ -107,6 +108,19 @@ public class GameSceneManager : MonoBehaviour
     {
         return _startingLevelIndex;
     }
+    public void SetEnablePauseMenu(bool enable)
+    {
+        _enablePauseMenu = enable;
+    }
+    private void ToggleSceneEventSystem(bool enable)
+    {
+        GameObject EventSystemObj = GameObject.Find("EventSystem");
+        if ( EventSystemObj != null)
+        {
+            EventSystem sceneEventSystem = EventSystemObj.GetComponent<EventSystem>();
+            if (sceneEventSystem != null) { sceneEventSystem.enabled = enable; }
+        }
+    }
     private IEnumerator UnloadCurrScene()
     {
         AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(_additiveSceneIndex);
@@ -116,7 +130,7 @@ public class GameSceneManager : MonoBehaviour
         {
             yield return null;
         }
-        GameObject.Find("EventSystem").GetComponent<EventSystem>().enabled = true;
+        ToggleSceneEventSystem(true);
     }
     private IEnumerator LoadAsyncScene(int SceneIndex)
     {
@@ -126,9 +140,23 @@ public class GameSceneManager : MonoBehaviour
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
-            FindFirstObjectByType<Slider>().value = asyncLoad.progress;
+            Slider slider = FindFirstObjectByType<Slider>();
+            if (slider != null)
+                slider.value = asyncLoad.progress;
             yield return null;
         }
+    }
+    private IEnumerator SwapMenu(int index)
+    {
+        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(_additiveSceneIndex);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        ToggleSceneEventSystem(true);
+        LoadMenu(index);
     }
 }
 
