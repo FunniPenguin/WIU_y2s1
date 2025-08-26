@@ -36,6 +36,7 @@ public class QuestLogUI : MonoBehaviour
                 texts[0].text = quest.GetName();
                 texts[1].text = quest.GetDescription();
                 texts[2].text = $"{quest.GetObjectiveProgress()}/{quest.GetCompletionCount()}";
+                texts[3].text = "Quest";
             }
 
             spawnedQuestRows.Add(row);
