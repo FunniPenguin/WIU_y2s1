@@ -176,9 +176,10 @@ namespace _Inventory
             sb.AppendLine();
             for (int i = 0; i < inventoryItem.itemState.Count; i++)
             {
-                sb.AppendLine($"Damage{inventoryItem.itemState[i].itemParameter.ParameterName} "
-                    + $": {inventoryItem.itemState[i].value} / " 
-                    + $"{inventoryItem.item.DefaultParameterList[i].value}");
+                sb.Append($"{inventoryItem.itemState[i].itemParameter.ParameterName} "
+                    + $": +{inventoryItem.itemState[i].value}"
+                    //+ $" / {inventoryItem.item.DefaultParameterList[i].value}"
+                    );
                 sb.AppendLine();
             }
             return sb.ToString();
@@ -211,17 +212,3 @@ namespace _Inventory
 
 // Made by Jovan Yeo Kaisheng
 // This code is part of the _Inventory system.
-
-/// <summary>
-/// Pre-knowledge needed: Event Subscription.
-/// Event refers to the process where a method or function registers itself to be notified and executed when a specific event occurs.
-/// Benefits:  Decoupling:
-/// Events promote loose coupling, meaning classes don't need direct knowledge of each other to communicate.
-/// Modularity:
-/// Code becomes more modular and reusable, as components can be easily added or removed without affecting other parts of the system.
-/// Flexibility:
-/// Multiple methods can subscribe to the same event, and event handling logic can be easily modified or extended.
-/// 
-/// To subscribe to an event, you typically use the += operator with the event name and the method you want to execute when the event occurs.
-/// To unsubscribe from an event, you use the -= operator with the event name and the method you want to stop executing when the event occurs.
-/// </summary>

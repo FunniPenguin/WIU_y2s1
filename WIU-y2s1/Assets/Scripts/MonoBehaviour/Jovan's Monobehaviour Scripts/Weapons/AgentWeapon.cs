@@ -17,6 +17,8 @@ public class AgentWeapon : MonoBehaviour
 
         this.weapon = weaponItemSO;
         this.itemCurrentState = new List<ItemParameter>(itemState);
+        this.gameObject.GetComponent<EntityStatistics>().ResetDamage();
+        this.gameObject.GetComponent<EntityStatistics>().AddDamage(weapon.DefaultParameterList[0].value);
         ModifyParameters();
     }
 

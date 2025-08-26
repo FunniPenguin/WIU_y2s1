@@ -50,11 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6119486288002151626, guid: 7362b01e5434baa4dac00c8909e4acdf, type: 3}
       propertyPath: m_Name
-      value: Sword Item Variant
+      value: StoneSword
       objectReference: {fileID: 0}
     - target: {fileID: 8693742890348358484, guid: 7362b01e5434baa4dac00c8909e4acdf, type: 3}
       propertyPath: <Quantity>k__BackingField
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8693742890348358484, guid: 7362b01e5434baa4dac00c8909e4acdf, type: 3}
       propertyPath: <InventoryItem>k__BackingField

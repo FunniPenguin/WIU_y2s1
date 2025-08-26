@@ -28,7 +28,7 @@ public class QuestController : MonoBehaviour
 
     private void Start()
     {
-        ShowQuestUI(isVisible, instant: true);
+        ShowQuestUI(!isVisible, instant: true);
     }
 
     private void Update()
