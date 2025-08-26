@@ -52,17 +52,17 @@ public class DataPersistenceManager : MonoBehaviour
         this._gameData = _fileManager.Load();
         if (_gameData == null)
         {
-            Debug.Log("Generating new game data");
+            //Debug.Log("Generating new game data");
             NewGame();
         }
-        else
-        {
-            Debug.Log("Loaded map game data");
-            foreach (KeyValuePair<string, bool> keyValuePair in _gameData.mapGameObjects)
-            {
-                Debug.Log($"Game object {keyValuePair.Key} has been loaded into data as {keyValuePair.Value}");
-            }
-        }
+        //else
+        //{
+        //    Debug.Log("Loaded map game data");
+        //    foreach (KeyValuePair<string, bool> keyValuePair in _gameData.mapGameObjects)
+        //    {
+        //        Debug.Log($"Game object {keyValuePair.Key} has been loaded into data as {keyValuePair.Value}");
+        //    }
+        //}
         //Load all the objects which contain data to be saved
         this._DataPersistenceObjects = FindAllDataPersistenceObjects();
         foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
@@ -71,16 +71,16 @@ public class DataPersistenceManager : MonoBehaviour
         }
     }
     public void SaveGame() {
-        Debug.Log("Saving game data");
+        //Debug.Log("Saving game data");
         foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
         {
             //Ref will pass the game data into the save data function by reference.
             dataPersistenceObj.SaveData(_gameData);
         }
-        foreach(KeyValuePair<string, bool> keyValuePair in _gameData.mapGameObjects)
-        {
-            Debug.Log($"Game object {keyValuePair.Key} has been saved into data as {keyValuePair.Value}");
-        }
+        //foreach(KeyValuePair<string, bool> keyValuePair in _gameData.mapGameObjects)
+        //{
+        //    //Debug.Log($"Game object {keyValuePair.Key} has been saved into data as {keyValuePair.Value}");
+        //}
         //_gameData._currMapIndex = GameSceneManager.Instance.GetCurrentMapIndex();
         _fileManager.Save(_gameData);
     }
