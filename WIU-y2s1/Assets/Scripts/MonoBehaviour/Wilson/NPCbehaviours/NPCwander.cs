@@ -74,15 +74,17 @@ public class NPCwander : MonoBehaviour
         }
 
         //DEBUG TEXT AND LINES /////////////////////////////////////////////////////////////////////////////////////DELETE ONCE COMPLETE
-        Debug.Log("LEFT: " + _LEFT);
-        Debug.Log("RIGHT: " + _RIGHT);
-        Debug.DrawLine(transform.position, new Vector2(transform.position.x - 1, transform.position.y - 2));
-        Debug.DrawLine(transform.position, new Vector2(transform.position.x + 1, transform.position.y - 2));
-        Debug.DrawLine(transform.position, new Vector2(transform.position.x - 1, transform.position.y));
-        Debug.DrawLine(transform.position, new Vector2(transform.position.x + 1, transform.position.y));
+        //Debug.Log("LEFT: " + _LEFT);
+        //Debug.Log("RIGHT: " + _RIGHT);
+        //Debug.DrawLine(transform.position, new Vector2(transform.position.x - 1, transform.position.y - 2));
+        //Debug.DrawLine(transform.position, new Vector2(transform.position.x + 1, transform.position.y - 2));
+        //Debug.DrawLine(transform.position, new Vector2(transform.position.x - 1, transform.position.y));
+        //Debug.DrawLine(transform.position, new Vector2(transform.position.x + 1, transform.position.y));
         //DEBUG TEXT AND LINES /////////////////////////////////////////////////////////////////////////////////////DELETE ONCE COMPLETE
 
         /*  
+         *  
+         *  wanderState states:
          *  
          *  1: short left
          *  2: med left
@@ -127,7 +129,7 @@ public class NPCwander : MonoBehaviour
         return dir == 'l' ? leftJumpValidator.collider != null : dir == 'r' ? rightJumpValidator.collider != null : false;
     }
 
-    bool checkIfGrounded() //checks directly under the NPC to check if they're contacting the ground.
+    bool checkIfGrounded() //detects if NPC is contacting the ground.
     {
         RaycastHit2D groundChecker = Physics2D.Raycast(transform.position, Vector2.down, 1f, LayerMask.GetMask("Ground"));
         return groundChecker.collider != null;
