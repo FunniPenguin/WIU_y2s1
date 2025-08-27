@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
@@ -30,15 +29,6 @@ public class AudioManager : MonoBehaviour
         musicSource.loop = false;
     }
 
-    private void Update()
-    {
-        // If nothing is playing, keep randomizing between 1–3
-        if (!musicSource.isPlaying && musicClips.Count > 0)
-        {
-            PlayRandomMusic123();
-        }
-    }
-
     public void PlayMusic(int index)
     {
         if (index >= 0 && index < musicClips.Count)
@@ -61,6 +51,19 @@ public class AudioManager : MonoBehaviour
         } while (randomIndex == lastPlayedIndex); // avoid repeating same track
 
         PlayMusic(randomIndex);
+    }
+
+    public void PlayBattleMusic()
+    {
+        if (musicClips.Count < 3) return;
+
+        int randomBattleIndex;
+        do
+        {
+            randomBattleIndex = Random.Range(4, 6); // 4 or 5
+        } while (randomBattleIndex == lastPlayedIndex); // avoid repeating same track
+
+        PlayMusic(randomBattleIndex);
     }
 
     public void StopAll()
