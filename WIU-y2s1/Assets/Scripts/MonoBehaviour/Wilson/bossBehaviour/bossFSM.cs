@@ -47,6 +47,9 @@ public class bossFSM : MonoBehaviour
 
     private float aim = 0f;
 
+    private int bombardProjectiles = 1;
+    private float projectileTimer = 0.25f;
+
     //phase 2.1 variables end
 
     private Vector2 movementTarget = Vector2.zero;
@@ -62,7 +65,8 @@ public class bossFSM : MonoBehaviour
         evade1,
         attack1,
         prime2,
-        bombard2
+        bombard2,
+        attack2
     }
     private subStateEnum subState = subStateEnum.evade1;
 
@@ -74,6 +78,9 @@ public class bossFSM : MonoBehaviour
     }
     private phaseStateEnum phaseState = phaseStateEnum.phaseOne;
 
+    private int phaseTwoHealthTrigger = 50;
+    private bool doNotRefreshStatesFlag = false;
+
     private void Start()
     {
         health = 100f;
@@ -83,14 +90,24 @@ public class bossFSM : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         rb = boss.GetComponent<Rigidbody2D>();
         attackCollider = boss.GetComponent<CircleCollider2D>();
+        doNotRefreshStatesFlag = false;
 
-        phaseState = phaseStateEnum.phaseTwo;
-        subState = subStateEnum.prime2;
+        //phaseState = phaseStateEnum.phaseTwo;
+        //subState = subStateEnum.prime2;
+        //attackSubState = attackSubStateEnum.charge;
     }
 
     private void Update()
     {
         //Debug.Log(attackSubStateAmount);
+
+        if (health <= phaseTwoHealthTrigger && !doNotRefreshStatesFlag)
+        {
+            phaseState = phaseStateEnum.phaseTwo;
+            subState = subStateEnum.prime2;
+            attackSubState = attackSubStateEnum.charge;
+            doNotRefreshStatesFlag = true;
+        }
 
         toPlayer = player.transform.position - boss.transform.position;
         if (phaseState == phaseStateEnum.phaseOne)
@@ -186,34 +203,90 @@ public class bossFSM : MonoBehaviour
             }
             else if (subState == subStateEnum.bombard2)
             {
-                var projectile = Instantiate(projectilePrefab);
-                projectile.transform.position = transform.position;
-                int validAngles = 0;
-                var discriminant = (Mathf.Pow(projectileVel, 4)) - (gravity * ((gravity * toPlayer.x * toPlayer.x) + (2 * (toPlayer.y * projectileVel * projectileVel))));
-                if (discriminant < 0)
+                if (projectileTimer  <= 0)
                 {
-                    validAngles = 0;
-                }
-                else if (discriminant == 0)
-                {
-                    validAngles = 1;
+                    projectileTimer = 0.25f;
+                    bombardProjectiles--;
+                    if (bombardProjectiles <= 0)
+                    {
+                        subState = subStateEnum.attack2;
+                    }
+                    var projectile = Instantiate(projectilePrefab);
+                    projectile.transform.position = transform.position;
+                    int validAngles = 0;
+                    var discriminant = (Mathf.Pow(projectileVel, 4)) - (gravity * ((gravity * toPlayer.x * toPlayer.x) + (2 * (toPlayer.y * projectileVel * projectileVel))));
+                    if (discriminant < 0)
+                    {
+                        validAngles = 0;
+                    }
+                    else if (discriminant == 0)
+                    {
+                        validAngles = 1;
+                    }
+                    else
+                    { validAngles = 2; }
+                    float sqrtDisc = Mathf.Sqrt(discriminant);
+                    float angle1 = Mathf.Atan((projectileVel * projectileVel + sqrtDisc) / (gravity * toPlayer.x));
+                    float angle2 = Mathf.Atan((projectileVel * projectileVel - sqrtDisc) / (gravity * toPlayer.x));
+                    RaycastHit2D hitResult = Physics2D.Raycast(transform.position, toPlayer, 3, LayerMask.GetMask("Ground"));
+                    float[] validAngleArray = new float[] { angle1, angle2 };
+                    aim = validAngleArray.Length == 1 ? validAngleArray[0] : (hitResult.collider != null ? validAngleArray[0] : validAngleArray[1]);
+                    Vector2 launchDir = new Vector2(Mathf.Cos(aim), Mathf.Sin(aim));
+                    launchDir *= Mathf.Sign(toPlayer.x);
+                    if (validAngles == 0)
+                    {
+                        launchDir = new Vector2(toPlayer.x >= 0f ? .75f : -.75f, .75f);
+                    }
+                    projectile.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(launchDir.x * firePower, launchDir.y * firePower);
+                    projectile.GetComponent<Rigidbody2D>().angularVelocity = -(projectile.GetComponent<Rigidbody2D>().linearVelocityX) * 100f;
                 }
                 else
-                { validAngles = 2; }
-                float sqrtDisc = Mathf.Sqrt(discriminant);
-                float angle1 = Mathf.Atan((projectileVel * projectileVel + sqrtDisc) / (gravity * toPlayer.x));
-                float angle2 = Mathf.Atan((projectileVel * projectileVel - sqrtDisc) / (gravity * toPlayer.x));
-                RaycastHit2D hitResult = Physics2D.Raycast(transform.position, toPlayer, 3, LayerMask.GetMask("Ground"));
-                float[] validAngleArray = new float[] { angle1, angle2 };
-                aim = validAngleArray.Length == 1 ? validAngleArray[0] : (hitResult.collider != null ? validAngleArray[0] : validAngleArray[1]);
-                Vector2 launchDir = new Vector2(Mathf.Cos(aim), Mathf.Sin(aim));
-                launchDir *= Mathf.Sign(toPlayer.x);
-                if (validAngles == 0)
                 {
-                    launchDir = new Vector2(toPlayer.x >= 0f ? .75f : -.75f, .75f);
+                    projectileTimer -= Time.deltaTime;
                 }
-                projectile.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(launchDir.x * firePower, launchDir.y * firePower);
-                projectile.GetComponent<Rigidbody2D>().angularVelocity = -(projectile.GetComponent<Rigidbody2D>().linearVelocityX) * 100f;
+            }
+            else if (subState == subStateEnum.attack2)
+            {
+                if (attackSubState == attackSubStateEnum.charge)
+                {
+                    movementTarget = player.transform.position;
+                    if (toPlayer.magnitude < 2.5f)
+                    {
+                        attackSubState = attackSubStateEnum.attack;
+                        _JUMP = Random.Range(0, 1) == 0;
+                    }
+                }
+                else if (attackSubState == attackSubStateEnum.attack)
+                {
+                    attackCollider.enabled = true;
+                    attackingTimer -= Time.deltaTime;
+                    if (attackingTimer <= 0)
+                    {
+                        attackingTimer = 0.25f;
+                        isPerimeterLEFT = !isPerimeterLEFT;
+                        attackSubState = attackSubStateEnum.recuperate;
+                    }
+                }
+                else if (attackSubState == attackSubStateEnum.recuperate)
+                {
+                    attackCollider.enabled = false;
+                    movementTarget = new Vector2(player.transform.position.x + (isPerimeterLEFT ? -perimeterDistance : perimeterDistance), player.transform.position.y);
+                    _JUMP = true;
+                    if (toPlayer.magnitude > 6f)
+                    {
+                        attackSubState = attackSubStateEnum.charge;
+                        if (attackSubStateAmount <= 0)
+                        {
+                            subState = subStateEnum.bombard2;
+                            attackSubStateAmount = 2;
+                            subStateTransitionTimer = 3f;
+                        }
+                        else
+                        {
+                            attackSubStateAmount -= 1;
+                        }
+                    }
+                }
             }
         }
         _LEFT = movementTarget.x < boss.transform.position.x;
