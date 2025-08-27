@@ -1,11 +1,19 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
-
     public AudioSource EffectsSource;
     public AudioSource MusicSource;
+    public AudioSource AmbienceSource;
+    public AudioSource UISource;
+
+    [Header("Audio Clips")]
+    public AudioClip UI;
+    public AudioClip SFX;
+    public AudioClip Music;
+    public AudioClip Ambience;
 
     private void Awake()
     {
@@ -17,7 +25,6 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
         DontDestroyOnLoad(gameObject);
     }
 
@@ -33,3 +40,4 @@ public class AudioManager : MonoBehaviour
         MusicSource.Play();
     }
 }
+// Made By Jovan Yeo Kaisheng
