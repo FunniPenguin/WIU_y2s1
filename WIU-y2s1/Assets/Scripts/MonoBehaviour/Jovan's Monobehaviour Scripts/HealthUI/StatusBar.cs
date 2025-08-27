@@ -24,6 +24,8 @@ public class StatusBar : MonoBehaviour
 
     public void UpdateStatusBar(float CurrentValue, float MaxValue)
     {
+        if (slider == null) return;
+        if (MaxValue <= 0) return;
         slider.value = CurrentValue / MaxValue;
     }
 }
