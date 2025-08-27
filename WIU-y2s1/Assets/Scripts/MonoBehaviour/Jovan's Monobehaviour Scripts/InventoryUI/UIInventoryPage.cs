@@ -28,7 +28,7 @@ namespace _Inventory.UI
 
         private void Awake()
         {
-            //Hide();
+            Hide();
             mouseFollower.Toggle(false);
             itemDescription.ResetDescription();
         }
@@ -150,12 +150,12 @@ namespace _Inventory.UI
             actionPanel.Toggle(false);
         }
 
-        //public void Hide()
-        //{
-        //    actionPanel.Toggle(false);
-        //    gameObject.SetActive(false);
-        //    ResetDraggedItem();
-        //}
+        public void Hide()
+        {
+            actionPanel.Toggle(false);
+            gameObject.SetActive(false);
+            ResetDraggedItem();
+        }
 
         internal void UpdateDescription(int itemIndex, Sprite itemImage, string name, string description)
         {
