@@ -10,7 +10,7 @@ public class QuestSOContainer : ScriptableObject
     {
         foreach (QuestData data in _questList)
         {
-            if (data.name == ID)
+            if (data.GetGUID() == ID)
             {
                 return data;
             }

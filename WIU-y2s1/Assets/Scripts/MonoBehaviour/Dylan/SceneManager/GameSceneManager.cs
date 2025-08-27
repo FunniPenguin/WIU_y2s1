@@ -78,9 +78,16 @@ public class GameSceneManager : MonoBehaviour
     //Function to switch from pause menu to other menus like save menu and inventory menu and also to switch back from those menus
     public void SwitchMenu(int index)
     {
+        Debug.Log("Attempting to switch menus");
         if (SceneManager.sceneCount != 2)
-            { return; }
-        StartCoroutine(SwapMenu(index));
+        {
+            Debug.LogError("Issue switching level");
+            return; 
+        }
+        else
+        {
+            StartCoroutine(SwapMenu(index));
+        }
     }
     public void UnloadMenu()
     {
