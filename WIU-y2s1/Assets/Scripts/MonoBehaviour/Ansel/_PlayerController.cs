@@ -27,6 +27,8 @@ public class _PlayerController : MonoBehaviour
     public bool IsClimbing { get; set; }
     public float _lastSavedDirection = 0;
 
+    private Vector2 _finalVelocity, _movementVelocity, _impulseVelocity;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -60,6 +62,10 @@ public class _PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Todo: change the linear velovity to movement velocity in the player script only
+        //Todo: check if current linear vel is greater than limit. if true then negate new movement vel
+        //Todo: calculate clamp value for movement velocity by taking current vel and clamp val diff, if the min
+        //Todo: Final force calculation would be final vel += movement vel + impulse + gravity
         Gravity();
         GroundCheck();
 
@@ -99,62 +105,65 @@ public class _PlayerController : MonoBehaviour
         }
     }
 
-        //OnMove function
-        public void OnMove(InputAction.CallbackContext ctx)
+    //OnMove function
+    public void OnMove(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
         {
-            if (ctx.performed)
+            //Moving action
+            moveDirection = ctx.ReadValue<Vector2>();
+            _lastSavedDirection = moveDirection.x;
+
+            if (moveDirection.x < 0)
+                transform.localScale = new Vector3(-2, 2, 2);
+            else
+                transform.localScale = new Vector3(2, 2, 2);
+
+            body.linearVelocityX = moveDirection.x * speed;
+
+            animator.SetBool("IsMoving", true);
+        }
+        else if (ctx.canceled)
+        {
+            moveDirection = Vector2.zero;
+
+            body.linearVelocityX = 0;
+
+            animator.SetBool("IsMoving", false);
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            animator.SetTrigger("IsAttacking");
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            if (animator.GetBool("IsGrounded"))
             {
-                //Moving action
-                moveDirection = ctx.ReadValue<Vector2>();
-                _lastSavedDirection = moveDirection.x;
-
-                if (moveDirection.x < 0)
-                    transform.localScale = new Vector3(-2, 2, 2);
-                else
-                    transform.localScale = new Vector3(2, 2, 2);
-
-                body.linearVelocityX = moveDirection.x * speed;
-
-                animator.SetBool("IsMoving", true);
-            }
-            else if (ctx.canceled)
-            {
-                moveDirection = Vector2.zero;
-
-                body.linearVelocityX = 0;
-
-                animator.SetBool("IsMoving", false);
+                body.linearVelocityY = jumpHeight;
+                animator.SetTrigger("IsJumping");
             }
         }
-
-        public void OnAttack(InputAction.CallbackContext ctx)
+        else if (ctx.canceled)
         {
-            if (ctx.performed)
-            {
-                animator.SetTrigger("IsAttacking");
-            }
+            body.linearVelocityY *= 0.5f;
+            animator.SetBool("IsJumping", false);
         }
+    }
 
-        public void OnJump(InputAction.CallbackContext ctx)
-        {
-            if (ctx.performed)
-            {
-                if (animator.GetBool("IsGrounded"))
-                {
-                    body.linearVelocityY = jumpHeight;
-                    animator.SetTrigger("IsJumping");
-                }
-            }
-            else if (ctx.canceled)
-            {
-                body.linearVelocityY *= 0.5f;
-                animator.SetBool("IsJumping", false);
-            }
-        }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
+        if (groundCheckPosition) Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
+    }
 
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.white;
-            if (groundCheckPosition) Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
-        }
+
+
 }
