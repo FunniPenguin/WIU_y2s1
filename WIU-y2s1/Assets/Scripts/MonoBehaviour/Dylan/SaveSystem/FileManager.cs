@@ -58,7 +58,7 @@ public class FileManager
 
             //JsonUtility.ToJson takes in a data to be converted into Json format and a bool to either prioritise size or readability of data
             //Passing in the Game data to convert to Json format and passing in true so that data is readable
-            string dataToStore = JsonConvert.SerializeObject(data); 
+            string dataToStore = JsonConvert.SerializeObject(data, Formatting.Indented); 
 
             //When opening files, if an exception is thrown, the file may get closed and it may result in a memory leak
             //Using block ensures that the memory is disposed off even if there is an exception thrown

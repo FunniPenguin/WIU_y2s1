@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cool Sword
   m_EditorClassIdentifier: Assembly-CSharp::_Inventory.Model.EquippableItemSO
   <IsStackable>k__BackingField: 0
+  <ItemKey>k__BackingField: cool_sword
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Cool Sword
   <Description>k__BackingField: Cool sword. Nothing more.

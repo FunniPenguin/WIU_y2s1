@@ -18,8 +18,8 @@ namespace _Inventory.Model
         [field: SerializeField]
         public bool IsStackable { get; set; }
 
-        // I define the ID of the item. This is used to uniquely identify the item in the inventory and ensure that each and every item has a unique ID.
-        public int ID => GetInstanceID();
+        [field: SerializeField] 
+        public string ItemKey { get; private set; } = "";
 
         // The maximum stack size for the item type in the inventory slot.
         // Default is 1, can be changed in the inspector. (e.g. 10 for potions, 1 for weapons)

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Invincibility Potion
   m_EditorClassIdentifier: Assembly-CSharp::_Inventory.Model.EdibleItemSO
   <IsStackable>k__BackingField: 1
+  <ItemKey>k__BackingField: invincibility_potion
   <MaxStackSize>k__BackingField: 2
   <Name>k__BackingField: Invincibility Potion
   <Description>k__BackingField: Immune to any source of damage for 5 seconds

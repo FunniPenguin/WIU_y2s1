@@ -1,7 +1,5 @@
 using _Inventory.Model;
 using System.Collections;
-using UnityEditor;
-using UnityEditor.Overlays;
 using UnityEngine;
 
 public class Item : MonoBehaviour, IDataPersistence

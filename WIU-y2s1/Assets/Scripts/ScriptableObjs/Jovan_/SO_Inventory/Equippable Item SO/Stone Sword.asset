@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Stone Sword
   m_EditorClassIdentifier: Assembly-CSharp::_Inventory.Model.EquippableItemSO
   <IsStackable>k__BackingField: 0
+  <ItemKey>k__BackingField: stone_sword
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Stone Sword
   <Description>k__BackingField: A crude blade chipped from dark stone. Risks breaking

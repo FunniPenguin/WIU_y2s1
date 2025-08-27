@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
-using System.Collections;
 
 //Making the class a singleton class
 //This implementation requires instantiating a DataPersistenceManager game object inside each scene

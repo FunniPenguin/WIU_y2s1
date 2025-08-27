@@ -40,7 +40,7 @@ namespace _Inventory.Model
                 InformAboutChange(); // Notify listeners that the inventory has been updated
                 return quantity; // Return the remaining quantity that could not be added
             }
-            quantity = AddStackableItem(item,quantity); // If the item is stackable, try to add it to existing stacks or create new stacks in the inventory
+            quantity = AddStackableItem(item, quantity); // If the item is stackable, try to add it to existing stacks or create new stacks in the inventory
             InformAboutChange(); // Notify listeners that the inventory has been updated
             return quantity; // Return the remaining quantity that could not be added
         }
@@ -56,7 +56,7 @@ namespace _Inventory.Model
             };
 
             // Iterate through the inventory items to find the first empty slot
-            for (int i = 0; i < inventoryItems.Count;i++)
+            for (int i = 0; i < inventoryItems.Count; i++)
             {
                 if (inventoryItems[i].IsEmpty)
                 {
@@ -73,13 +73,13 @@ namespace _Inventory.Model
         // Adds a stackable item to the inventory, either by increasing the quantity of an existing stack or creating a new stack if necessary
         private int AddStackableItem(ItemSO item, int quantity)
         {
-            for (int i =0; i < inventoryItems.Count; i++)
+            for (int i = 0; i < inventoryItems.Count; i++)
             {
                 // Skip empty slots in the inventory
                 if (inventoryItems[i].IsEmpty)
                     continue;
                 // If the item in the current slot matches the item being added
-                if (inventoryItems[i].item.ID == item.ID)
+                if (inventoryItems[i].item.ItemKey == item.ItemKey)
                 {
                     int amountPossibleToTake = inventoryItems[i].item.MaxStackSize - inventoryItems[i].quantity; // Calculate how much more of this item can be added to the current stack
 
@@ -88,7 +88,7 @@ namespace _Inventory.Model
                     {
                         inventoryItems[i] = inventoryItems[i].ChangeQuantity(inventoryItems[i].item.MaxStackSize); // Fill the stack to its maximum size
                         quantity -= amountPossibleToTake; // Decrease the quantity by the amount added to the stack
-                    } 
+                    }
                     else
                     {
                         inventoryItems[i] = inventoryItems[i].ChangeQuantity(inventoryItems[i].quantity + quantity); // If the current stack can accommodate the entire quantity, just increase the stack size
@@ -170,10 +170,26 @@ namespace _Inventory.Model
                 else
                 {
                     inventoryItems[itemIndex] = inventoryItems[itemIndex].ChangeQuantity(reminder); // Otherwise, change the quantity of the item at the specified index to the reminder amount
-                }   
+                }
                 InformAboutChange(); // Notify listeners that the inventory has been updated
             }
-        } 
+        }
+
+
+        public void SetItemAt(int index, InventoryItem item)
+        {
+            if (index < 0 || index >= inventoryItems.Count) return;
+            inventoryItems[index] = item;
+            InformAboutChange();
+        }
+
+
+        public void ClearAll()
+        {
+            for (int i = 0; i < inventoryItems.Count; i++)
+                inventoryItems[i] = InventoryItem.GetEmptyItem();
+            InformAboutChange();
+        }
     }
 
     // Represents an item in the inventory, containing the item data and its quantity.
@@ -199,13 +215,12 @@ namespace _Inventory.Model
         }
 
         // Creates an empty InventoryItem, which has no item and a quantity of zero
-        public static InventoryItem GetEmptyItem() 
-            => new InventoryItem
-            {
-                item = null, // No item assigned
-                quantity = 0, // Quantity is zero
-                itemState = new List<ItemParameter>()
-            };
+        public static InventoryItem GetEmptyItem() => new InventoryItem
+        {
+            item = null, // No item assigned
+            quantity = 0, // Quantity is zero
+            itemState = new List<ItemParameter>()
+        };
     }
 }
 

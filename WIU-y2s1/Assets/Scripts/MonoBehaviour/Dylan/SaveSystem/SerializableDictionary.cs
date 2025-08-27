@@ -21,12 +21,12 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IS
     public void OnAfterDeserialize()
     {
         this.Clear();
-        if (Keys.Count != Values.Count)
+        if (keys.Count != values.Count)
         {
-            Debug.LogError($"Key count and value count do not match. Key count is: {Keys.Count} while value count is: {Values.Count}");
+            Debug.LogError($"Key count and value count do not match. Key count is: {keys.Count} while value count is: {values.Count}");
         }
-        Debug.Log($"{Keys.Count} keys, {Values.Count} values");
-        for (int i = 0; i < Keys.Count; i++)
+        Debug.Log($"{keys.Count} keys, {values.Count} values");
+        for (int i = 0; i < keys.Count; i++)
         {
             this.Add(keys[i], values[i]);
             Debug.Log($"Loaded {keys[i]} and {values[i]} into the dictionary");

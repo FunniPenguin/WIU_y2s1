@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Speed Boost Potion
   m_EditorClassIdentifier: Assembly-CSharp::_Inventory.Model.EdibleItemSO
   <IsStackable>k__BackingField: 1
+  <ItemKey>k__BackingField: speed_potion
   <MaxStackSize>k__BackingField: 99
   <Name>k__BackingField: Speed Boost Potion
   <Description>k__BackingField: Increases your speed for 5 seconds

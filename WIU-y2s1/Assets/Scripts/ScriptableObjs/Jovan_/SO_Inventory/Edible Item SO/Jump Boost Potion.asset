@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Jump Boost Potion
   m_EditorClassIdentifier: Assembly-CSharp::_Inventory.Model.EdibleItemSO
   <IsStackable>k__BackingField: 1
+  <ItemKey>k__BackingField: jump_boost_potion
   <MaxStackSize>k__BackingField: 99
   <Name>k__BackingField: Jump Boost Potion
   <Description>k__BackingField: Increases Jump Height for 5 seconds!

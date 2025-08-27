@@ -7,5 +7,10 @@ namespace _Inventory.Model
     {
         [field: SerializeField] 
         public string ParameterName { get; private set; }
+
+        [field: SerializeField]
+        public string ParameterKey { get; private set; }
     }
 }
+
+// Made By Jovan Yeo Kaisheng
