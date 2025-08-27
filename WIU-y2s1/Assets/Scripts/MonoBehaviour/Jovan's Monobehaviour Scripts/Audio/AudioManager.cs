@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Libraries")]
     [SerializeField] private List<AudioClip> musicClips = new List<AudioClip>();
 
+    private int lastPlayedIndex = -1;
+
     private void Awake()
     {
         if (Instance == null)
@@ -24,23 +26,45 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        musicSource.loop = false;
     }
 
-    // Music will loop
+    private void Update()
+    {
+        // If nothing is playing, keep randomizing between 1–3
+        if (!musicSource.isPlaying && musicClips.Count > 0)
+        {
+            PlayRandomMusic123();
+        }
+    }
+
     public void PlayMusic(int index)
     {
         if (index >= 0 && index < musicClips.Count)
         {
+            lastPlayedIndex = index;
             musicSource.clip = musicClips[index];
             musicSource.Play();
         }
     }
 
-    // all audio sources will stop
+    // Random ONLY between index 1, 2, and 3
+    public void PlayRandomMusic123()
+    {
+        if (musicClips.Count < 4) return;
+
+        int randomIndex;
+        do
+        {
+            randomIndex = Random.Range(1, 4); // 1, 2, or 3
+        } while (randomIndex == lastPlayedIndex); // avoid repeating same track
+
+        PlayMusic(randomIndex);
+    }
+
     public void StopAll()
     {
         musicSource.Stop();
     }
 }
-
-// Made By Jovan Yeo Kaisheng
