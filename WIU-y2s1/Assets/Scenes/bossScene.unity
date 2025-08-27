@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a3f551ad5bf9f640866cc5b66b08a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::boss
+  projectilePrefab: {fileID: 5465569971994279418, guid: 4b7edbc5fc5f7db46ad1348f4e7b9e38, type: 3}
   health: 100
 --- !u!1 &1869282644
 GameObject:
