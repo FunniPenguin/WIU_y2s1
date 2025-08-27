@@ -9,6 +9,8 @@ public class _dashAbility : _AbilityScript
     public float DashSpeed = 20;
     public float cooldown = 10;
 
+    private Vector2 _dashTrajectory;
+
     public override void Ability()
     {
         Dash(DashSpeed);
@@ -19,8 +21,8 @@ public class _dashAbility : _AbilityScript
         var playerInScene = GameObject.FindGameObjectWithTag(_player.tag);
         var body = playerInScene.GetComponent<Rigidbody2D>();
 
-        body.linearVelocityX = dashpower * playerInScene.GetComponent<_PlayerController>()._lastSavedDirection;
-        Debug.Log(body.linearVelocityX);
-        body.linearVelocityY = 0;
+        _dashTrajectory.Set(dashpower * playerInScene.GetComponent<_PlayerController>()._lastSavedDirection, 5f);
+
+        body.linearVelocity += _dashTrajectory;
     }
 }
