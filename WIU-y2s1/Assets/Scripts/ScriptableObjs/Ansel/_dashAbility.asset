@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a860b9c864fc6e4cbc6a55c8f5cc294, type: 3}
   m_Name: _dashAbility
   m_EditorClassIdentifier: Assembly-CSharp::_dashAbility
-  _player: {fileID: 0}
   DashSpeed: 20
-  cooldown: 10
+  cooldown: 1

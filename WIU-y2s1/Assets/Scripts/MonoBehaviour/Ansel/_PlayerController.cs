@@ -58,15 +58,10 @@ public class _PlayerController : MonoBehaviour
 
     }
 
-    private void Update()
+    void FixedUpdate()
     {
         Gravity();
         GroundCheck();
-
-    }
-
-    void FixedUpdate()
-    {
 
         if (GetComponent<HealthSystem>().healthData.maxHealth <= 0)
         {

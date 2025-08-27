@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_fireballAbility
   _player: {fileID: 3868035439176965045, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
   _fireball: {fileID: 5465569971994279418, guid: 4b7edbc5fc5f7db46ad1348f4e7b9e38, type: 3}
-  _fireballDamage: 5
+  _fireballDamage: 10
   _fireballSpeed: 5
-  cooldown: 5
