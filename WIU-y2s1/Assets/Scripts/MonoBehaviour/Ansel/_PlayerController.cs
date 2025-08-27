@@ -55,7 +55,7 @@ public class _PlayerController : MonoBehaviour
         animator.SetBool("IsDead", false);
 
         var moveAction = InputSystem.actions.FindAction("Move");
-
+        DataPersistenceManager.Instance.Load();
     }
 
     private void Update()

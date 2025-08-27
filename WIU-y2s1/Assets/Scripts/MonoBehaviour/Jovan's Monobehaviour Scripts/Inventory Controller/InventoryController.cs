@@ -12,7 +12,7 @@ namespace _Inventory
     /// and responding to player input for inventory management.
     /// </summary>
 
-    public class InventoryController : MonoBehaviour,IDataPersistence
+    public class InventoryController : MonoBehaviour //, IDataPersistence
     {
         [SerializeField]
         private UIInventory inventoryUI; // It will refer to the UI component displaying inventory slots
@@ -203,27 +203,29 @@ namespace _Inventory
                 }
             }
         }
-        public void SaveData(GameData data)
-        {
-            foreach (InventoryItem item in inventoryData.GetItemList())
-            {          
-                if (data.inventoryItems.ContainsKey(item.item.Name))
-                {
-                    data.inventoryItems.Remove(item.item.Name);
-                }
-                data.inventoryItems.Add(item.item.Name, item.quantity);
-            }
-        }
-        public void LoadData(GameData data) { 
-            foreach (KeyValuePair<string, int> item in data.inventoryItems)
-            {
-                ItemSO LoadItem = itemList.FindItem(item.Key);
-                if (LoadItem != null)
-                {
-                    inventoryData.AddItem(LoadItem, item.Value);
-                }
-            }
-        }
+        //public void SaveData(GameData data)
+        //{
+        //    for (int i = 0; i < inventoryData.GetItemList().Count; i++)
+        //    {
+        //        string itemName = inventoryData.GetItemList()[i].item.Name;
+        //        int itemQuantity = inventoryData.GetItemList()[i].quantity;
+        //        if (data.inventoryItems.ContainsKey(itemName))
+        //        {
+        //            data.inventoryItems.Remove(itemName);
+        //        }
+        //        data.inventoryItems.Add(itemName, itemQuantity);
+        //    }
+        //}
+        //public void LoadData(GameData data) { 
+        //    foreach (KeyValuePair<string, int> item in data.inventoryItems)
+        //    {
+        //        ItemSO LoadItem = itemList.FindItem(item.Key);
+        //        if (LoadItem != null)
+        //        {
+        //            inventoryData.AddItem(LoadItem, item.Value);
+        //        }
+        //    }
+        //}
     }
 }
 

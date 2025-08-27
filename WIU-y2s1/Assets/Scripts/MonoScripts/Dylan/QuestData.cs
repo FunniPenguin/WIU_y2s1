@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Pathfinding;
 
 [CreateAssetMenu(fileName = "QuestData", menuName = "QuestData/QuestData")]
 public class QuestData : ScriptableObject
@@ -9,6 +10,7 @@ public class QuestData : ScriptableObject
     private int _objectiveProgress = 0;
     [SerializeField] private int _completionCount = 1;
     [SerializeField] private string GUID = "";
+    private bool _isActive = false;
 
     private void Awake()
     {
@@ -29,6 +31,14 @@ public class QuestData : ScriptableObject
     public int GetCompletionCount() { 
         return _completionCount;
     }
+    public bool GetQuestActive()
+    {
+        return _isActive;
+    }
+    public void SetQuestActive(bool active)
+    {
+        _isActive = active;
+    }
     public void UpdateObjectiveCount(int Count)
     {
         _objectiveProgress += Count;
@@ -44,5 +54,20 @@ public class QuestData : ScriptableObject
     public string GetGUID()
     {
         return GUID;
+    }
+
+}
+[System.Serializable]
+public struct QuestInfo
+{
+    public string guid;
+    public int progress;
+    public bool isQuestActive;
+
+    public QuestInfo(string UID, int QuestProgress, bool IsQuestActive)
+    {
+        guid = UID;
+        progress = QuestProgress;
+        isQuestActive = IsQuestActive;
     }
 }

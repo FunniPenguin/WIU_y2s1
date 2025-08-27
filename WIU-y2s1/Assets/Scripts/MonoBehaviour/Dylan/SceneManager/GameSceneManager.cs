@@ -1,6 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Hierarchy;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -10,6 +10,7 @@ public class GameSceneManager : MonoBehaviour
     //Start of singleton
     private static GameSceneManager _instance;
     public static GameSceneManager Instance {  get { return _instance; } }
+    public List<int> _levelBuildIndexes;
     
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class GameSceneManager : MonoBehaviour
     //End of singleton
 
     private int _additiveSceneIndex; //track the current additive scene menu opened such as pause menu so that can destroy
-    [SerializeField] private int _startingLevelIndex, _pauseMenuIndex, _loadSceneIndex; //stores the starting level so that save file knows which starting level to load
+    [SerializeField] private int _startingLevelIndex, _pauseMenuIndex, _loadSceneIndex, _saveSceneIndex = 8; //stores the starting level so that save file knows which starting level to load
     private bool _enablePauseMenu = false;
     private void Start()
     {
@@ -88,6 +89,10 @@ public class GameSceneManager : MonoBehaviour
         {
             StartCoroutine(SwapMenu(index));
         }
+    }
+    public int GetSaveIndex()
+    {
+        return _saveSceneIndex;
     }
     public void UnloadMenu()
     {

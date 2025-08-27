@@ -17,28 +17,51 @@ public class DataPersistenceManager : MonoBehaviour
     //Public static reference to _instance created.
     public static DataPersistenceManager Instance { get { return _instance; } }
 
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+    private void OnDestroy() { if (this == _instance) { _instance = null; } }
+
+
     //Reference to the consolidated game data so that it is easier to save to json when all the data is in one place
     private GameData _gameData;
 
     //List of game objects that require saving
     private List<IDataPersistence> _DataPersistenceObjects;
-
-    /**************************************************************************************************************
-     * Note: This script is just a basic implementation to load save file when game starts and save when game ends,
-     * Mod this such that game is saved only when player enters save menu to save and new game and load are handled in start
-     **************************************************************************************************************/
-    private void Start()
-    { 
-        this._fileManager = new FileManager(Application.persistentDataPath, _fileName);
-        Load();
-    }
-
-    private void Update()
+    public bool CheckIfFileExists(string fileName)
     {
-        if (Input.GetKeyUp(KeyCode.P))
+        this._fileManager = new FileManager(Application.persistentDataPath, fileName);
+        //try to load the file        
+        if (_fileManager.Load() == null)
         {
-            SaveGame();
+            //Return false to tell the UI not to display any statistics
+            return false;
+            //NewGame();
         }
+        return true;
+    }
+    public GameData GetGameData()
+    {
+        return _gameData;
+    }
+    public void SetGameData()
+    {
+        _gameData = _fileManager.Load();
+        if (_gameData == null)
+        {
+            Debug.LogError("No game data loaded");
+            return;
+        }
+
     }
     public void NewGame()
     {
@@ -47,13 +70,12 @@ public class DataPersistenceManager : MonoBehaviour
     }
     public void Load()
     {
-        //try to load the file, if not then create a new game
-        this._gameData = _fileManager.Load();
-        if (_gameData == null)
-        {
-            //Debug.Log("Generating new game data");
-            NewGame();
-        }
+        ////try to load the file, if not then create a new game
+        //this._gameData = _fileManager.Load();
+        //if (_gameData == null)
+        //{
+        //    NewGame();
+        //}
         //else
         //{
         //    Debug.Log("Loaded map game data");
@@ -62,6 +84,11 @@ public class DataPersistenceManager : MonoBehaviour
         //        Debug.Log($"Game object {keyValuePair.Key} has been loaded into data as {keyValuePair.Value}");
         //    }
         //}
+        if (_gameData == null)
+        {
+            Debug.LogError("No game data loaded");
+            return;
+        }
         //Load all the objects which contain data to be saved
         this._DataPersistenceObjects = FindAllDataPersistenceObjects();
         foreach (IDataPersistence dataPersistenceObj in _DataPersistenceObjects)
@@ -83,23 +110,6 @@ public class DataPersistenceManager : MonoBehaviour
         //_gameData._currMapIndex = GameSceneManager.Instance.GetCurrentMapIndex();
         _fileManager.Save(_gameData);
     }
-
-
-
-    private void Awake()
-    {
-        //Checking if _instance was already initialised in the scene, if so then destroy this DataPersistenceManager
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
-    }
-    //Ensure that no more instances once scene ends
-    private void OnDestroy() { if (this == _instance) { _instance = null; } }
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IDataPersistence>();
