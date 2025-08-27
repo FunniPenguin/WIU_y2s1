@@ -1,43 +1,46 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
-    public AudioSource EffectsSource;
-    public AudioSource MusicSource;
-    public AudioSource AmbienceSource;
-    public AudioSource UISource;
 
-    [Header("Audio Clips")]
-    public AudioClip UI;
-    public AudioClip SFX;
-    public AudioClip Music;
-    public AudioClip Ambience;
+    [Header("Audio Sources")]
+    [SerializeField] private AudioSource musicSource;
+
+    [Header("Audio Libraries")]
+    [SerializeField] private List<AudioClip> musicClips = new List<AudioClip>();
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
-        DontDestroyOnLoad(gameObject);
     }
 
-    public void Play(AudioClip clip)
+    // Music will loop
+    public void PlayMusic(int index)
     {
-        EffectsSource.clip = clip;
-        EffectsSource.Play();
+        if (index >= 0 && index < musicClips.Count)
+        {
+            musicSource.clip = musicClips[index];
+            musicSource.Play();
+        }
     }
 
-    public void PlayMusic(AudioClip clip)
+    // all audio sources will stop
+    public void StopAll()
     {
-        MusicSource.clip = clip;
-        MusicSource.Play();
+        musicSource.Stop();
     }
 }
+
 // Made By Jovan Yeo Kaisheng
