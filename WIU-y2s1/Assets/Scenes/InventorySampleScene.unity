@@ -796,6 +796,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2028788189049969140, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: itemCurrentState.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028788189049969140, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: parametersToModify.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -803,6 +807,10 @@ PrefabInstance:
       propertyPath: parametersToModify.Array.data[0].value
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2028788189049969140, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: itemCurrentState.Array.data[0].itemParameter
+      value: 
+      objectReference: {fileID: 11400000, guid: fde2b0588a8be4c48a8f74d634c7ff0b, type: 2}
     - target: {fileID: 2028788189049969140, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: parametersToModify.Array.data[0].itemParameter
       value: 

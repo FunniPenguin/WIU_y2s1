@@ -13,84 +13,124 @@ MonoBehaviour:
   m_Name: Player Inventory
   m_EditorClassIdentifier: Assembly-CSharp::InventorySO
   inventoryItems:
+  - quantity: 0
+    item: {fileID: 0}
+    itemState: []
   - quantity: 2
     item: {fileID: 11400000, guid: 1b4f90942b2c5ce4b8bd0f375280c8eb, type: 2}
+    itemState: []
+  - quantity: 1
+    item: {fileID: 11400000, guid: e72e128d481a8bb4b9712edcaa4edf72, type: 2}
+    itemState: []
+  - quantity: 1
+    item: {fileID: 11400000, guid: e72e128d481a8bb4b9712edcaa4edf72, type: 2}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
+  - quantity: 1
+    item: {fileID: 11400000, guid: 51b130de88726744dbdfe966f96cf2dc, type: 2}
+    itemState: []
+  - quantity: 2
+    item: {fileID: 11400000, guid: 3a277845ab600734b9ce5b424c7a0f93, type: 2}
+    itemState: []
+  - quantity: 1
+    item: {fileID: 11400000, guid: 9dad6a5544d8c74419b75087f00fefc4, type: 2}
+    itemState: []
+  - quantity: 1
+    item: {fileID: 11400000, guid: e72e128d481a8bb4b9712edcaa4edf72, type: 2}
+    itemState: []
+  - quantity: 1
+    item: {fileID: 11400000, guid: e72e128d481a8bb4b9712edcaa4edf72, type: 2}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
+    itemState: []
   - quantity: 0
     item: {fileID: 0}
-  - quantity: 0
-    item: {fileID: 0}
-  - quantity: 0
-    item: {fileID: 0}
-  - quantity: 0
-    item: {fileID: 0}
-  - quantity: 0
-    item: {fileID: 0}
-  - quantity: 0
-    item: {fileID: 0}
-  - quantity: 0
-    item: {fileID: 0}
-  - quantity: 0
-    item: {fileID: 0}
-  - quantity: 0
-    item: {fileID: 0}
+    itemState: []
   <Size>k__BackingField: 40
