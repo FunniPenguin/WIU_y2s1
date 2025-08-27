@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class AbilityController : MonoBehaviour
 {
     public _AbilityScript _activeAbility;
-    public float cooldown = 1;
+    public float cooldown = 0.5f;
     private float _timeLastHit = 0;
 
     public void Update()

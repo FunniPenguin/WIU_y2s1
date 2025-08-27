@@ -515,8 +515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfebcaba05fc43c4e9d401d8d9556cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilityController
-  _activeAbility: {fileID: 11400000, guid: ee179f146c29021488b17142c405b1f7, type: 2}
-  cooldown: 5
+  _activeAbility: {fileID: 11400000, guid: a29a27e52443bf04e90b97d9e22aed68, type: 2}
+  cooldown: 1
 --- !u!114 &7841928683905899791
 MonoBehaviour:
   m_ObjectHideFlags: 0
