@@ -5,6 +5,8 @@ public class NPCwaypointWander : MonoBehaviour
     [SerializeField] private Vector2 waypointStation1 = Vector2.zero;
     [SerializeField] private Vector2 waypointStation2 = Vector2.zero;
 
+    [SerializeField] private bool shouldFlipSideSprite;
+
     private GameObject player; //player in scene (please ensure your player is tagged "Player").
     private Rigidbody2D rb;
     private Animator animator;
@@ -37,7 +39,7 @@ public class NPCwaypointWander : MonoBehaviour
         toPlayer = player.transform.position - transform.position;
         if (toPlayer.magnitude <= derenderThreshold && player != null)
         {
-            Debug.Log(stateBuffer);
+            //Debug.Log(stateBuffer);
             if (wanderState == 2 || wanderState >= 4)
             {
                 _LEFT = false; _RIGHT = false;
@@ -84,13 +86,13 @@ public class NPCwaypointWander : MonoBehaviour
         {
             rb.linearVelocityX = -NPCspeed;
             animator.SetBool("isMobile", true);
-            transform.localScale = new Vector2(5, 5);
+            transform.localScale = shouldFlipSideSprite ? new Vector2(-5, 5) : new Vector2(5, 5);
         }
         else if (!_LEFT && _RIGHT)
         {
             rb.linearVelocityX = NPCspeed;
             animator.SetBool("isMobile", true);
-            transform.localScale = new Vector2(-5, 5);
+            transform.localScale = shouldFlipSideSprite ? new Vector2(5, 5) : new Vector2(-5, 5);
         }
         else
         {
