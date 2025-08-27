@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: DamageParameter
   m_EditorClassIdentifier: Assembly-CSharp::_Inventory.Model.ItemParameterSO
   <ParameterName>k__BackingField: Damage
+  <ParameterKey>k__BackingField: Damage

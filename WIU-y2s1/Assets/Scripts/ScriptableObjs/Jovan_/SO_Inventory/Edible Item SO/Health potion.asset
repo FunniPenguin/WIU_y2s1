@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Health potion
   m_EditorClassIdentifier: Assembly-CSharp::_Inventory.Model.EdibleItemSO
   <IsStackable>k__BackingField: 1
+  <ItemKey>k__BackingField: health_potion
   <MaxStackSize>k__BackingField: 99
   <Name>k__BackingField: Health Potion
   <Description>k__BackingField: ' Increases Health'
