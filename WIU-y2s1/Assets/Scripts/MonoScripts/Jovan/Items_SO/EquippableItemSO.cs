@@ -4,20 +4,20 @@ using UnityEngine;
 namespace _Inventory.Model
 {
     [CreateAssetMenu(fileName = "EquippableItemSO", menuName = "Inventory/EquippableItemSO")]
-    public class EquippableItemSO : ItemSO, IDestroyableItem, IItemAction
+    public class EquippableItemSO : ItemSO
     {
-        public string ActionName => "Equip";
+        private void Awake()
+        {
+            ActionName = "Equip";
+        }
 
-        [field: SerializeField]
-        public AudioClip actionSFX { get; private set; }
-
-        public bool PerformAction(GameObject character, List<ItemParameter> itemState = null)
+        public override bool PerformAction(GameObject character)
         {
             AgentWeapon weaponSystem = character.GetComponent<AgentWeapon>();
 
             if (weaponSystem != null)
             {
-                weaponSystem.SetWeapon(this, itemState == null ? DefaultParameterList : itemState);
+                weaponSystem.SetWeapon(this, DefaultParameterList);
                 return true;
             }
             return false;

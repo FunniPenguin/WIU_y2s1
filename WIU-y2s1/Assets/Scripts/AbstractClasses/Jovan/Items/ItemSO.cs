@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Inventory.Model
@@ -43,6 +44,11 @@ namespace _Inventory.Model
 
         [field: SerializeField]
         public List<ItemParameter> DefaultParameterList { get; set; }
+
+        public string ActionName;
+        [SerializeField] public AudioClip actionSFX { get; private set; }
+
+        public abstract bool PerformAction(GameObject character);
     }
 
     [Serializable]

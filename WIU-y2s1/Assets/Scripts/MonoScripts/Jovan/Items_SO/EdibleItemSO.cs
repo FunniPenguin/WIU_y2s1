@@ -5,15 +5,15 @@ using UnityEngine;
 namespace _Inventory.Model
 {
     [CreateAssetMenu]
-    public class EdibleItemSO : ItemSO, IDestroyableItem, IItemAction
+    public class EdibleItemSO : ItemSO
     {
         [SerializeField] private List<ModifierData> modifiersData = new List<ModifierData>(); // List of modifiers that this item will apply when consumed
-        public string ActionName => "Use"; // The name of the action that this item performs, in this case, "Consume"
+        private void Awake()
+        {
+            ActionName = "Use";
+        } 
 
-        [field: SerializeField] 
-        public AudioClip actionSFX {get; private set; } // The sound effect that plays when the item is consumed
-
-        public bool PerformAction(GameObject character, List<ItemParameter> itemState = null)
+        public override bool PerformAction(GameObject character)
         {
             // Check if the character has a modifiable component
             foreach (ModifierData data in modifiersData)
@@ -22,18 +22,6 @@ namespace _Inventory.Model
             }
             return true;
         }
-    }
-
-    public interface IDestroyableItem
-    {
-        // Remove m from inventory when used
-    }
-
-    public interface IItemAction
-    {
-        public string ActionName { get; } // The name of the action that this item performs, e.g., "Consume", "Equip", etc.
-        public AudioClip actionSFX { get; } // The sound effect that plays when the item is used
-        bool PerformAction(GameObject character, List<ItemParameter> itemState); // Method to perform the action associated with the item, e.g., consuming it, equipping it, etc.
     }
 
     [Serializable]

@@ -83,14 +83,14 @@ namespace _Inventory
                 return;
 
             // Check if the item has an action like consume or equip
-            IItemAction itemAction = inventoryItem.item as IItemAction;
+            ItemSO itemAction = inventoryItem.item;
             if (itemAction != null)
             {
                 inventoryUI.ShowItemAction(itemIndex);
                 inventoryUI.AddAction(itemAction.ActionName, () => PerformAction(itemIndex));
             }
             // If the item is destroyable, remove it from the inventory
-            IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
+            ItemSO destroyableItem = inventoryItem.item;
             if (destroyableItem != null)
             {
                 inventoryUI.AddAction("Discard", () => DropItem(itemIndex, inventoryItem.quantity));
@@ -111,17 +111,17 @@ namespace _Inventory
                 return;
 
             // If the item is destroyable, remove it from the inventory
-            IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
+            ItemSO destroyableItem = inventoryItem.item;
             if (destroyableItem != null)
             {
                 inventoryData.RemoveItem(itemIndex, 1);
             }
 
             // Check if the item has an action like consume or equip
-            IItemAction itemAction = inventoryItem.item as IItemAction;
+            ItemSO itemAction = inventoryItem.item;
             if (itemAction != null)
             {
-                itemAction.PerformAction(gameObject, inventoryItem.itemState);
+                itemAction.PerformAction(gameObject);
                 audioSource.PlayOneShot(itemAction.actionSFX);
                 if (inventoryData.GetItemAt(itemIndex).IsEmpty)
                 {
@@ -129,9 +129,6 @@ namespace _Inventory
                 }
             }
         }
-
-
-
 
         // Called when the player starts dragging an item, will display the item being dragged, with the alpha being lowwered
         private void HandleDragging(int itemIndex)
