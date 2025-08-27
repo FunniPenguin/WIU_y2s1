@@ -10,10 +10,10 @@ public class QuestLogUI : MonoBehaviour
 
     private List<GameObject> spawnedQuestRows = new();
 
-    private void Start()
-    {
-        RefreshUI();
-    }
+    //private void Start()
+    //{
+    //    RefreshUI();
+    //}
 
     public void RefreshUI()
     {

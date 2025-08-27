@@ -30,7 +30,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
 
     private List<QuestData> _questList;
     [SerializeField] private QuestSOContainer _questContainer;
-    private QuestData _activeQuest = null;
+    private QuestData _activeQuest;
     private int _currentQuestIndex = 0;
     private void Start()
     {
@@ -38,6 +38,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
     }
     public QuestData GetActiveQuest()
     {
+        //Debug.Log(_activeQuest);
         return _activeQuest;
     }
     public void UpdateActiveQuest(int progress)
@@ -46,7 +47,6 @@ public class QuestManager : MonoBehaviour, IDataPersistence
     }
     public void CompleteQuest()
     {
-        _activeQuest.SetCompletionStatus(true);
         if (_currentQuestIndex < _questList.Count)
         {
             _currentQuestIndex++;
@@ -65,7 +65,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
             {
                 data.questData.Remove(questData.GetGUID());
             }
-            data.questData.Add(questData.GetGUID(), questData.GetCompletionCount());
+            data.questData.Add(questData.GetGUID(), questData.GetObjectiveProgress());
         }
         data._activeQuestGUID = _activeQuest.GetGUID();
     }
@@ -77,8 +77,9 @@ public class QuestManager : MonoBehaviour, IDataPersistence
             QuestData LoadedQuest = _questContainer.FindQuest(entry.Key);
             if (LoadedQuest != null)
             {
-                LoadedQuest.UpdateObjectiveCount(entry.Value);
+                Debug.Log($"Adding {entry.Key} and {entry.Value} into questlist");
                 _questList.Add(LoadedQuest);
+                //LoadedQuest.UpdateObjectiveCount(entry.Value);
             }
         }
         //Ensure that in a new save file all the quests are loaded
@@ -92,8 +93,12 @@ public class QuestManager : MonoBehaviour, IDataPersistence
                 }
             }
         }
-        QuestData LoadActiveQuest = _questContainer.FindQuest(data._activeQuestGUID);
-        if (LoadActiveQuest != null) { _activeQuest = LoadActiveQuest; }
-        else { _activeQuest = _questList[0]; }
+        //Set the active quest to a default value first before checking if there was a saved active quest
+        _activeQuest = _questList[0];
+        if (data._activeQuestGUID != "")
+        {
+            QuestData LoadActiveQuest = _questContainer.FindQuest(data._activeQuestGUID);
+            if (LoadActiveQuest != null) { _activeQuest = LoadActiveQuest; }
+        }
     }
 }

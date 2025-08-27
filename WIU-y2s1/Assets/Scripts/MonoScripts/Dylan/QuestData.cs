@@ -4,7 +4,6 @@ using System.Collections;
 [CreateAssetMenu(fileName = "QuestData", menuName = "QuestData/QuestData")]
 public class QuestData : ScriptableObject
 {
-    private bool _completionStatus = false;
     [SerializeField] private string _name = "";
     [SerializeField] private string _description = "";
     private int _objectiveProgress = 0;
@@ -14,11 +13,6 @@ public class QuestData : ScriptableObject
     private void Awake()
     {
         _objectiveProgress = 0;
-        _completionStatus = false;
-    }
-    public bool GetCompletionStatus()
-    {
-        return _completionStatus;
     }
     public string GetName()
     {
@@ -34,9 +28,6 @@ public class QuestData : ScriptableObject
     }
     public int GetCompletionCount() { 
         return _completionCount;
-    }
-    public void SetCompletionStatus(bool Status) { 
-        _completionStatus = Status;
     }
     public void UpdateObjectiveCount(int Count)
     {

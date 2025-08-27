@@ -43,6 +43,7 @@ public class QuestController : MonoBehaviour
     {
         isVisible = !isVisible;
         ShowQuestUI(isVisible);
+        
     }
 
     public void ShowQuestUI(bool show, bool instant = false)
