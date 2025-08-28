@@ -12,11 +12,10 @@ public class _dashAbility : _AbilityScript
     private Vector2 _dashTrajectory;
 
     // Added by Jovan Yeo Kaisheng
-    public UnityEvent onDash;
+    public AudioClip audio;
 
     public override void Ability()
     {
-        onDash?.Invoke();
         Dash(DashSpeed);
     }
 
@@ -33,7 +32,6 @@ public class _dashAbility : _AbilityScript
         body.linearVelocity = Vector2.zero;
         _dashTrajectory = new Vector2(playerInScene.GetComponent<_PlayerController>()._lastSavedDirection, 0).normalized;
         body.AddForce(_dashTrajectory * dashpower, ForceMode2D.Impulse);
-
         Debug.Log(body.linearVelocity);
     }
 }
