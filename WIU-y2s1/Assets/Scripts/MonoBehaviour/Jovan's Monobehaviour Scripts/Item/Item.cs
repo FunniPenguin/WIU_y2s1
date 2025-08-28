@@ -20,10 +20,10 @@ public class Item : MonoBehaviour, IDataPersistence
 
     private void Awake()
     {
-        if (GUID == "")
-        {
-            GUID = DataPersistenceManager.GenerateGUID();
-        }
+        //if (GUID == "")
+        //{
+        //    GUID = DataPersistenceManager.GenerateGUID();
+        //}
     }
     private void Start()
     {
