@@ -190,6 +190,10 @@ namespace _Inventory.Model
                 inventoryItems[i] = InventoryItem.GetEmptyItem();
             InformAboutChange();
         }
+        public List<InventoryItem> GetItemList()
+        {
+            return inventoryItems;
+        }
     }
 
     // Represents an item in the inventory, containing the item data and its quantity.

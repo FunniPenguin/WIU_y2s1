@@ -83,9 +83,9 @@ public class QuestManager : MonoBehaviour, IDataPersistence
             }
         }
         //Ensure that in a new save file all the quests are loaded
-        if (_questList.Count < _questContainer.GetQuetsList().Length)
+        if (_questList.Count < _questContainer.GetQuestList().Length)
         {
-            foreach (QuestData quest in _questContainer.GetQuetsList())
+            foreach (QuestData quest in _questContainer.GetQuestList())
             {
                 if (!_questList.Contains(quest))
                 {

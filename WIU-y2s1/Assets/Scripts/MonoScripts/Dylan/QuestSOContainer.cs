@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "QuestSOContainer", menuName = "QuestSOContainer")]
+[CreateAssetMenu(fileName = "QuestSOContainer", menuName = "Containers/QuestSOContainer")]
 public class QuestSOContainer : ScriptableObject
 {
     [SerializeField] private QuestData[] _questList;
@@ -17,7 +17,7 @@ public class QuestSOContainer : ScriptableObject
         }
         return null;
     }
-    public QuestData[] GetQuetsList()
+    public QuestData[] GetQuestList()
     {
         return _questList;
     }

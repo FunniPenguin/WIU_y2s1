@@ -30,8 +30,11 @@ EditorBuildSettings:
     path: Assets/Scenes/InventorySampleScene.unity
     guid: b68d1abf11f1c9a45ac04432a8ec2198
   - enabled: 1
-    path: Assets/Scenes/InventoryScene.unity
-    guid: aad2837d0cb20cb4583fdbc7852f662e
+    path: Assets/Scenes/LoadScene.unity
+    guid: 9423f9553ed2d3b48ac1ed3940cb2aff
+  - enabled: 1
+    path: Assets/Scenes/SaveScene.unity
+    guid: 0908e0ebf5923a94a895e31474b4739d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

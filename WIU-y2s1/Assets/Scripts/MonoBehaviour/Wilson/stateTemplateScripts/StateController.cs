@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class StateController : MonoBehaviour
+public class StateController : MonoBehaviour, IDataPersistence
 {
+    [SerializeField] private string GUID = "";
     public State currentState;
     public State remainState;
 
@@ -37,5 +38,21 @@ public class StateController : MonoBehaviour
         {
             currentState = nextstate;
         }
+    }
+    public void SaveData(GameData data)
+    {
+        if (data.mapGameObjects.ContainsKey(GUID))
+        {
+            data.mapGameObjects.Remove(GUID);
+        }
+        data.mapGameObjects.Add(GUID, gameObject.activeInHierarchy);
+    }
+    public void LoadData(GameData data)
+    {
+        bool isActive = true;
+        if (data.mapGameObjects.TryGetValue(GUID, out isActive))
+            gameObject.SetActive(isActive);
+        else
+            gameObject.SetActive(true);
     }
 }
