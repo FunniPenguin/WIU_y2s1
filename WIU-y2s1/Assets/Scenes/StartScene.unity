@@ -2269,9 +2269,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 418258168}
-        m_TargetAssemblyTypeName: GameSceneManager, Assembly-CSharp
-        m_MethodName: SetEnablePauseMenu
+      - m_Target: {fileID: 6909213202847965027}
+        m_TargetAssemblyTypeName: LocalSceneManager, Assembly-CSharp
+        m_MethodName: SetPauseEnable
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

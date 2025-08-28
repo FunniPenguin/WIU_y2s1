@@ -18,4 +18,8 @@ public class LocalSceneManager : MonoBehaviour
     {
         GameSceneManager.Instance.ReloadCurrentScene();
     }
+    public void SetPauseEnable(bool enabled)
+    {
+        GameSceneManager.Instance.SetEnablePauseMenu(enabled);
+    }
 }

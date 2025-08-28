@@ -564,7 +564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -575,6 +575,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1318298785}
@@ -583,7 +587,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1142640484}
     - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1142640484}
+    - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
@@ -595,6 +607,10 @@ PrefabInstance:
       value: SwitchActiveScene
       objectReference: {fileID: 0}
     - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetPauseEnable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.Animator, UnityEngine
       objectReference: {fileID: 0}
@@ -603,12 +619,24 @@ PrefabInstance:
       value: LocalSceneManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LocalSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -619,7 +647,15 @@ PrefabInstance:
       value: PlayerDeath
       objectReference: {fileID: 0}
     - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: PlayerDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165099528982465740, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6568965065574642748, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
