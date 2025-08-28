@@ -26,4 +26,9 @@ public class LocalSceneManager : MonoBehaviour
     {
         DataPersistenceManager.Instance.NewGame();
     }
+    public void NextLevel(int index)
+    {
+        DataPersistenceManager.Instance.NewLevel();
+        GameSceneManager.Instance.LoadLevel(index);
+    }
 }

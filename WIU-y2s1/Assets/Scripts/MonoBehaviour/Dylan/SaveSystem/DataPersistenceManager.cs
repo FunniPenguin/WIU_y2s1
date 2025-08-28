@@ -1,6 +1,8 @@
-using UnityEngine;
-using System.Linq;
+using _Inventory.Model;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.ShaderKeywordFilter;
+using UnityEngine;
 
 //Making the class a singleton class
 //This implementation requires instantiating a DataPersistenceManager game object inside each scene
@@ -66,6 +68,18 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame()
     {
         _gameData = new GameData();
+    }
+    public void NewLevel()
+    {
+        if (_gameData != null)
+        {
+            _gameData.mapGameObjects.Clear();
+            _gameData.savePoints.Clear();
+        }
+        else
+        {
+            _gameData = new GameData();
+        }
     }
     public void Load()
     {
