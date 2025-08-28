@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.InputSystem.OnScreen.OnScreenStick;
 using static UnityEngine.RuleTile.TilingRuleOutput;
@@ -166,5 +167,10 @@ public class bPhase1_action : StateAction
         {
             rb.linearVelocityX += bossSpeed;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision collision)
+    {
+        if (collision == GameObject.FindGameObjectWithTag("Player"))
     }
 }

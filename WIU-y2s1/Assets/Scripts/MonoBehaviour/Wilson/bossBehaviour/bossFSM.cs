@@ -337,4 +337,16 @@ public class bossFSM : MonoBehaviour
             rb.linearVelocityX += bossSpeed;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            HealthSystem healthSystem = collision.gameObject.GetComponent<HealthSystem>();
+            if (healthSystem != null)
+            {
+                healthSystem.Hurt(Random.Range(5, 15));
+            }
+        }
+    }
 }
