@@ -14,3 +14,4 @@ public class PatrolAction : StateAction
         if (Random.value < 0.01f) movingRight = !movingRight;
     }
 }
+// Made by Jovan Yeo Kaisheng

@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c4432cb728fb842bd9352fb1603731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BouncyObject
-  bounceForce: 15
+  bounceForce: 20
   onBounce:
     m_PersistentCalls:
       m_Calls:

@@ -13,4 +13,5 @@ namespace _Inventory.Model
     }
 }
 
-// Made By Jovan Yeo Kaisheng
+// Made by Jovan Yeo Kaisheng
+// This code is part of the _Inventory system.

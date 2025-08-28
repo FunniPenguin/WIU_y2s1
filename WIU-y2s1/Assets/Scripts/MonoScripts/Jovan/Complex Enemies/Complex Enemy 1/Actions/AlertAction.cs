@@ -10,3 +10,4 @@ public class AlertAction : StateAction
         controller.transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 }
+// Made by Jovan Yeo Kaisheng

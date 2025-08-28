@@ -8,6 +8,7 @@ public class AgentWeapon : MonoBehaviour
     [SerializeField] private InventorySO inventoryData;
     [SerializeField] private List<ItemParameter> itemCurrentState;
 
+    // set weapon, if there is an existing weapon, add it back to inventory
     public void SetWeapon(EquippableItemSO weaponItemSO, List<ItemParameter> itemState)
     {
         if (weapon != null)
@@ -21,3 +22,4 @@ public class AgentWeapon : MonoBehaviour
         this.gameObject.GetComponent<EntityStatistics>().AddDamage(weapon.DefaultParameterList[0].value);
     }
 }
+// Made by Jovan Yeo Kaisheng

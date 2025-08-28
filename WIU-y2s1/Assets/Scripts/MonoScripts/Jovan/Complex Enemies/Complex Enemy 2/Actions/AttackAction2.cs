@@ -26,3 +26,4 @@ public class AttackAction2 : StateAction
         controller.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }
+// Made by Jovan Yeo Kaisheng

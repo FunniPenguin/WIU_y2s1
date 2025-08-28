@@ -24,3 +24,4 @@ public class BurstAttackAction : StateAction
         }
     }
 }
+// Made by Jovan Yeo Kaisheng

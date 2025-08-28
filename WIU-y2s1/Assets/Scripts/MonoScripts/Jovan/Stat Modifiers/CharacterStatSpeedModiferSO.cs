@@ -26,3 +26,5 @@ public class CharacterStatSpeedModiferSO : CharacterStatModiferSO
         movement.speed = originalMoveSpeed;
     }
 }
+// Made by Jovan Yeo Kaisheng
+// This code is part of the _Inventory system.

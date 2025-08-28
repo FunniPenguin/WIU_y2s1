@@ -24,3 +24,5 @@ public class ItemContainerSO : ScriptableObject
         return _itemList;
     }
 }
+// Made by Jovan Yeo Kaisheng
+// This code is part of the _Inventory system.
