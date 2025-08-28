@@ -336,15 +336,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fd6cb52acc58b45a79d4767dc2e2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  channels:
-  - channel: 0
-    sources:
-    - {fileID: 83196519}
-    volume: 0
-  - channel: 1
-    sources:
-    - {fileID: 83196519}
-    volume: 0
+  audioMixer: {fileID: 0}
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  audioClips: []
+  sfxClips: []
+  masterVolume: 1
+  musicVolume: 1
+  sfxVolume: 1
 --- !u!4 &83196521
 Transform:
   m_ObjectHideFlags: 0
@@ -963,6 +962,10 @@ PrefabInstance:
     - target: {fileID: 6429494442907318114, guid: b975a248557b82f44b6269604ab1bcb8, type: 3}
       propertyPath: m_Name
       value: ene3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429494442907318114, guid: b975a248557b82f44b6269604ab1bcb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1834,6 +1837,10 @@ PrefabInstance:
     - target: {fileID: 6429494442907318114, guid: 5894a3c9d2779024ca8cf324fa3d33f2, type: 3}
       propertyPath: m_Name
       value: ene2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429494442907318114, guid: 5894a3c9d2779024ca8cf324fa3d33f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17059,6 +17066,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ene3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6429494442907318114, guid: b975a248557b82f44b6269604ab1bcb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19057,6 +19068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ene3
       objectReference: {fileID: 0}
+    - target: {fileID: 6429494442907318114, guid: b975a248557b82f44b6269604ab1bcb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19178,6 +19193,10 @@ PrefabInstance:
     - target: {fileID: 6429494442907318114, guid: b975a248557b82f44b6269604ab1bcb8, type: 3}
       propertyPath: m_Name
       value: ene3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429494442907318114, guid: b975a248557b82f44b6269604ab1bcb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22280,6 +22299,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9081037843367909100, guid: 974b7abf3e108784d93cfc035cc2b62f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9081037843367909100, guid: 974b7abf3e108784d93cfc035cc2b62f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9081037843367909100, guid: 974b7abf3e108784d93cfc035cc2b62f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9081037843367909100, guid: 974b7abf3e108784d93cfc035cc2b62f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22754,6 +22789,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ene3 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6429494442907318114, guid: b975a248557b82f44b6269604ab1bcb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22810,6 +22849,10 @@ PrefabInstance:
     - target: {fileID: 6429494442907318114, guid: b975a248557b82f44b6269604ab1bcb8, type: 3}
       propertyPath: m_Name
       value: ene3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429494442907318114, guid: b975a248557b82f44b6269604ab1bcb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
