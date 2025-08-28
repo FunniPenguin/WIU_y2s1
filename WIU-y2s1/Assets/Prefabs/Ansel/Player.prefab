@@ -548,7 +548,7 @@ MonoBehaviour:
   health: 100
   damage: 10
   speed: 10
-  jumpPower: 10
+  jumpPower: 20
   isInvincible: 0
   iFrameDuration: 0.5
   uponDeath:

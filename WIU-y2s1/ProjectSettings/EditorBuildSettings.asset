@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/PauseMenu.unity
     guid: da5efd30216514746932069dccebcf1f
   - enabled: 1
-    path: Assets/Scenes/level-1.unity
+    path: Assets/Scenes/Level 1.unity
     guid: 4524748d3b11f95408fb143236fa9e20
   - enabled: 0
     path: Assets/Scenes/SettingsScene.unity
@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 1b72ac0b3d6d7b546a5d2baae168887d
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: a1284969929d2a64986525c645f5a2ab
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
