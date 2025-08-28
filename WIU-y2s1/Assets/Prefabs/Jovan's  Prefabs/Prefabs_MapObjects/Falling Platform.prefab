@@ -200,3 +200,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FallingPlatform
   fallWait: 1
   destroyWait: 2
+  respawnWait: 3
