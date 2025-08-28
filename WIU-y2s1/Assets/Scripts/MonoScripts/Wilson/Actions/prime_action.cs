@@ -70,6 +70,8 @@ public class prime_action : StateAction
                 launchDir *= Mathf.Sign(dispVec.x);
 
                 bullet.GetComponent<Rigidbody2D>().AddForce(launchDir * firePower, ForceMode2D.Impulse);
+                bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, bullet.transform.rotation.z + bullet.GetComponent<Rigidbody2D>().linearVelocityX));
+                bullet.GetComponent<Rigidbody2D>().angularVelocity = -(bullet.GetComponent<Rigidbody2D>().linearVelocityX) * 100f;
             }
 
         }
@@ -77,7 +79,7 @@ public class prime_action : StateAction
         shootCooldown -= Time.deltaTime;
         if (shootCooldown <= 0)
         {
-            shootCooldown = 1f;
+            shootCooldown = Random.Range(75, 100) / 100f;
             _SHOOT = true;
         }
     }

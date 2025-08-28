@@ -236,16 +236,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545150756639913385}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2644951244488337119}
+  m_Father: {fileID: 1769574475736837260}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 637, y: 335}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2044163523474787899
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUEST
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 356b2c116143bb043af06f3a04e428de, type: 2}
   m_sharedMaterial: {fileID: 8725323620397940223, guid: 356b2c116143bb043af06f3a04e428de, type: 2}
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -400.94373, y: -25.224976, z: -392.9784, w: 0}
+  m_margin: {x: -6.1186676, y: -556.5327, z: -623.1718, w: 355.82983}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -593,6 +593,7 @@ RectTransform:
   - {fileID: 5373635994161896940}
   - {fileID: 8363993076311728976}
   - {fileID: 2369345180871094972}
+  - {fileID: 9081037843367909100}
   m_Father: {fileID: 1231434983781501623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -868,7 +869,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1231434983781501623}
-  - {fileID: 9081037843367909100}
   m_Father: {fileID: 8503036966120246670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -950,7 +950,6 @@ GameObject:
   - component: {fileID: 8503036966120246670}
   - component: {fileID: 1590052882176115933}
   - component: {fileID: 8077504559755975849}
-  - component: {fileID: 6723927152591060997}
   m_Layer: 0
   m_Name: QuestUI
   m_TagString: Untagged
@@ -999,22 +998,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestController
   questUI: {fileID: 1231434983781501623}
-  toggleKey: 106
-  fadeDuration: 0.3
-  hiddenOffset: {x: -300, y: 0}
---- !u!114 &6723927152591060997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8468694780442224643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c76b435533c794597b8a72dadf008a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuestController
-  questUI: {fileID: 9081037843367909100}
   toggleKey: 106
   fadeDuration: 0.3
   hiddenOffset: {x: -300, y: 0}

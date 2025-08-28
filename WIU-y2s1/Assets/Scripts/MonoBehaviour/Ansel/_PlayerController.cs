@@ -10,7 +10,7 @@ public class _PlayerController : MonoBehaviour
     private Vector2 moveDirection;
 
     public float speed;
-    public float jumpHeight;
+    public float jumpHeight = 10;
 
     [Header("Ground Check")]
     public Transform groundCheckPosition;
@@ -55,23 +55,21 @@ public class _PlayerController : MonoBehaviour
         animator.SetBool("IsDead", false);
 
         var moveAction = InputSystem.actions.FindAction("Move");
-
+        DataPersistenceManager.Instance.Load();
     }
 
     private void Update()
     {
         Gravity();
         GroundCheck();
-
     }
 
     void FixedUpdate()
     {
-
-        if (GetComponent<HealthSystem>().healthData.maxHealth <= 0)
-        {
-            _statistics.uponDeath.Invoke();
-        }
+        //if (GetComponent<HealthSystem>(). <= 0) 
+        //{
+        //    _statistics.uponDeath.Invoke();
+        //}
 
         if (!animator.GetBool("IsGrounded") && body.linearVelocityY < 0)
         {
@@ -103,63 +101,62 @@ public class _PlayerController : MonoBehaviour
             body.gravityScale = baseGravity;
         }
     }
-
-        //OnMove function
-        public void OnMove(InputAction.CallbackContext ctx)
+    //OnMove function
+    public void OnMove(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
         {
-            if (ctx.performed)
+            //Moving action
+            moveDirection = ctx.ReadValue<Vector2>();
+            _lastSavedDirection = moveDirection.x;
+
+            if (moveDirection.x < 0)
+                transform.localScale = new Vector3(-2, 2, 2);
+            else
+                transform.localScale = new Vector3(2, 2, 2);
+
+            body.linearVelocityX = moveDirection.x * speed;
+
+            animator.SetBool("IsMoving", true);
+        }
+        else if (ctx.canceled)
+        {
+            moveDirection = Vector2.zero;
+
+            body.linearVelocityX = 0;
+
+            animator.SetBool("IsMoving", false);
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            animator.SetTrigger("IsAttacking");
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext ctx) 
+    {
+        if (ctx.performed)
+        {
+            if (animator.GetBool("IsGrounded"))
             {
-                //Moving action
-                moveDirection = ctx.ReadValue<Vector2>();
-                _lastSavedDirection = moveDirection.x;
-
-                if (moveDirection.x < 0)
-                    transform.localScale = new Vector3(-2, 2, 2);
-                else
-                    transform.localScale = new Vector3(2, 2, 2);
-
-                body.linearVelocityX = moveDirection.x * speed;
-
-                animator.SetBool("IsMoving", true);
-            }
-            else if (ctx.canceled)
-            {
-                moveDirection = Vector2.zero;
-
-                body.linearVelocityX = 0;
-
-                animator.SetBool("IsMoving", false);
+                body.linearVelocityY = jumpHeight;
+                animator.SetTrigger("IsJumping");
             }
         }
-
-        public void OnAttack(InputAction.CallbackContext ctx)
+        else if (ctx.canceled)
         {
-            if (ctx.performed)
-            {
-                animator.SetTrigger("IsAttacking");
-            }
+            body.linearVelocityY *= 0.5f;
+            animator.SetBool("IsJumping", false);
         }
+    }
 
-        public void OnJump(InputAction.CallbackContext ctx)
-        {
-            if (ctx.performed)
-            {
-                if (animator.GetBool("IsGrounded"))
-                {
-                    body.linearVelocityY = jumpHeight;
-                    animator.SetTrigger("IsJumping");
-                }
-            }
-            else if (ctx.canceled)
-            {
-                body.linearVelocityY *= 0.5f;
-                animator.SetBool("IsJumping", false);
-            }
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.white;
-            if (groundCheckPosition) Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
-        }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
+        if (groundCheckPosition) Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
+    }
 }

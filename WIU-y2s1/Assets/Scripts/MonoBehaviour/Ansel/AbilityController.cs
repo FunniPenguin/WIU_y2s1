@@ -5,16 +5,23 @@ using UnityEngine.InputSystem;
 public class AbilityController : MonoBehaviour
 {
     public _AbilityScript _activeAbility;
+    public float cooldown = 0.5f;
+    private float _timeLastHit = 0;
+
+    public void Update()
+    {
+        _timeLastHit += Time.deltaTime;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void callAbility()
     {
-        var CastAction = InputSystem.actions.FindAction("Ability");
-
-        CastAction.started += ctx =>
+        if (_timeLastHit >= cooldown)
         {
             _activeAbility.Ability();
-        };
+
+            _timeLastHit = 0;
+        }
     }
 
     //Ability acquired function goes here

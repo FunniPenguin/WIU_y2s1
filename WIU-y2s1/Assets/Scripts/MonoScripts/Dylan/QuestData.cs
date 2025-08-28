@@ -1,23 +1,20 @@
 using UnityEngine;
 using System.Collections;
+using Pathfinding;
 
 [CreateAssetMenu(fileName = "QuestData", menuName = "QuestData/QuestData")]
 public class QuestData : ScriptableObject
 {
-    private bool _completionStatus = false;
     [SerializeField] private string _name = "";
     [SerializeField] private string _description = "";
     private int _objectiveProgress = 0;
     [SerializeField] private int _completionCount = 1;
+    [SerializeField] private string GUID = "";
+    private bool _isActive = false;
 
     private void Awake()
     {
         _objectiveProgress = 0;
-        _completionStatus = false;
-    }
-    public bool GetCompletionStatus()
-    {
-        return _completionStatus;
     }
     public string GetName()
     {
@@ -34,8 +31,13 @@ public class QuestData : ScriptableObject
     public int GetCompletionCount() { 
         return _completionCount;
     }
-    public void SetCompletionStatus(bool Status) { 
-        _completionStatus = Status;
+    public bool GetQuestActive()
+    {
+        return _isActive;
+    }
+    public void SetQuestActive(bool active)
+    {
+        _isActive = active;
     }
     public void UpdateObjectiveCount(int Count)
     {
@@ -44,5 +46,28 @@ public class QuestData : ScriptableObject
         {
             _objectiveProgress = _completionCount;
         }
+        if (_objectiveProgress == _completionCount)
+        {
+            QuestManager.Instance.CompleteQuest();
+        }
+    }
+    public string GetGUID()
+    {
+        return GUID;
+    }
+
+}
+[System.Serializable]
+public struct QuestInfo
+{
+    public string guid;
+    public int progress;
+    public bool isQuestActive;
+
+    public QuestInfo(string UID, int QuestProgress, bool IsQuestActive)
+    {
+        guid = UID;
+        progress = QuestProgress;
+        isQuestActive = IsQuestActive;
     }
 }

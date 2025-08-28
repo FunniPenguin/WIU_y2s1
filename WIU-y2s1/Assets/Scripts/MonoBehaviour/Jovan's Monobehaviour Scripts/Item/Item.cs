@@ -60,7 +60,6 @@ public class Item : MonoBehaviour, IDataPersistence
             gameObject.SetActive(isActive);
         else
             gameObject.SetActive(true);
-        Debug.Log($"Object {GUID} has been loaded as {gameObject.activeInHierarchy}");
     }
 }
 // Made by Jovan Yeo Kaisheng
