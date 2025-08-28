@@ -10,6 +10,7 @@ public class GameData
 {
     public int _currentLevel; 
     public string _activeQuestGUID;
+    public float _health;
 
     //Do not save player position as player should spawn at player spawn point
 
@@ -21,6 +22,7 @@ public class GameData
     {
         _currentLevel = 0;
         _activeQuestGUID = "";
+        _health = 100;
         //_playerPosition = new Vector3(0, 0, 0);
         //_currMapIndex = GameSceneManager.Instance.GetStartingLevelIndex();
         mapGameObjects = new Dictionary<string, bool>();

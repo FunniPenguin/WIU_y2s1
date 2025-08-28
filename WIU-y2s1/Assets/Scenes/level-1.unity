@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2757235118716579053, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
+      propertyPath: GUID
+      value: 0549860h
+      objectReference: {fileID: 0}
     - target: {fileID: 4153934763420134003, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
       propertyPath: m_Name
       value: Trash Exploding enemy (2)
@@ -1684,6 +1688,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2757235118716579053, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
+      propertyPath: GUID
+      value: 3285y690
+      objectReference: {fileID: 0}
     - target: {fileID: 4153934763420134003, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
       propertyPath: m_Name
       value: Trash Exploding enemy (3)
@@ -1861,6 +1869,10 @@ PrefabInstance:
     - target: {fileID: 2984389808664543710, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738348910231283392, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: GUID
+      value: 09578684
       objectReference: {fileID: 0}
     - target: {fileID: 8639911629858855770, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
       propertyPath: m_Name
@@ -2107,6 +2119,10 @@ PrefabInstance:
     - target: {fileID: 1982226045132431203, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757235118716579053, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
+      propertyPath: GUID
+      value: 09845j08
       objectReference: {fileID: 0}
     - target: {fileID: 4153934763420134003, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
       propertyPath: m_Name
@@ -2557,6 +2573,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1704554834}
   - {fileID: 1853788399}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6761,6 +6778,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2757235118716579053, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
+      propertyPath: GUID
+      value: 23r9p8cp
+      objectReference: {fileID: 0}
     - target: {fileID: 4153934763420134003, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
       propertyPath: m_Name
       value: Trash Exploding enemy (5)
@@ -6829,6 +6850,10 @@ PrefabInstance:
     - target: {fileID: 1982226045132431203, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757235118716579053, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
+      propertyPath: GUID
+      value: v23ou958
       objectReference: {fileID: 0}
     - target: {fileID: 4153934763420134003, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
       propertyPath: m_Name
@@ -6977,6 +7002,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4738348910231283392, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: GUID
+      value: 432hjj44
+      objectReference: {fileID: 0}
     - target: {fileID: 8639911629858855770, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
       propertyPath: m_Name
       value: Annoying Flying Enemy (3)
@@ -7106,6 +7135,10 @@ PrefabInstance:
     - target: {fileID: 2984389808664543710, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738348910231283392, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: GUID
+      value: 39284y4b
       objectReference: {fileID: 0}
     - target: {fileID: 8639911629858855770, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
       propertyPath: m_Name
@@ -7241,6 +7274,10 @@ PrefabInstance:
     - target: {fileID: 1982226045132431203, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757235118716579053, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
+      propertyPath: GUID
+      value: 2903423d
       objectReference: {fileID: 0}
     - target: {fileID: 4153934763420134003, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
       propertyPath: m_Name
@@ -15377,6 +15414,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4738348910231283392, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
+      propertyPath: GUID
+      value: 2314c9p2
+      objectReference: {fileID: 0}
     - target: {fileID: 8639911629858855770, guid: c080047a3f08b4947936f43b41c5af1a, type: 3}
       propertyPath: m_Name
       value: Annoying Flying Enemy (2)
@@ -16425,7 +16466,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 667400851}
     m_Modifications:
     - target: {fileID: 366842202708077897, guid: 6b5f68c4069103543bb5537a3e48a7ed, type: 3}
       propertyPath: m_Name
@@ -16457,15 +16498,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4082862050123831223, guid: 6b5f68c4069103543bb5537a3e48a7ed, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4082862050123831223, guid: 6b5f68c4069103543bb5537a3e48a7ed, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4082862050123831223, guid: 6b5f68c4069103543bb5537a3e48a7ed, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4082862050123831223, guid: 6b5f68c4069103543bb5537a3e48a7ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -16484,6 +16525,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b5f68c4069103543bb5537a3e48a7ed, type: 3}
+--- !u!4 &1704554834 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4082862050123831223, guid: 6b5f68c4069103543bb5537a3e48a7ed, type: 3}
+  m_PrefabInstance: {fileID: 1704554833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1790574188
 GameObject:
   m_ObjectHideFlags: 0
@@ -18981,4 +19027,3 @@ SceneRoots:
   - {fileID: 1541761880}
   - {fileID: 95017110}
   - {fileID: 667400851}
-  - {fileID: 1704554833}

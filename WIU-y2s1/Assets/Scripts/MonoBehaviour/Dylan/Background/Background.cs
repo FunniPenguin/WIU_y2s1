@@ -5,34 +5,55 @@ using UnityEngine.UIElements;
 
 public class Background : MonoBehaviour
 {
-    private float _currentPosition, _length;
-    [SerializeField] private GameObject _camera;
-    [SerializeField][Range(0.0f, 1.0f)] private float _parallaxEffect = 1.0f;
+    private Transform _camera;
+    private Vector3 _cameraStartPosition;
+    private float _distance;
+    private GameObject[] _backgrounds;
+    private Material[] _materials;
+    private float[] _bgSpeeds;
+    private float _furthestBack;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField][Range(0.01f, 0.05f)] private float _parallaxSpeed;
+
+    private void Start()
     {
-        _currentPosition = transform.position.x;
-        _length = transform.GetComponent<SpriteRenderer>().bounds.size.x;
+        _camera = Camera.main.transform;
+        _cameraStartPosition = _camera.position;
+
+        int bgCount = transform.childCount;
+        _materials = new Material[bgCount];
+        _bgSpeeds = new float[bgCount];
+        _backgrounds = new GameObject[bgCount];
+
+        for (int i = 0; i < bgCount; i++)
+        {
+            _backgrounds[i] = transform.GetChild(i).gameObject;
+            _materials[i] = _backgrounds[i].GetComponent<Renderer>().material;
+        }
+        CalculateBGSpeed(bgCount);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void CalculateBGSpeed(int bgCount)
     {
-        float displacement = _camera.transform.position.x * _parallaxEffect;
-        float backgroundMovement = _camera.transform.position.x * (1 - _parallaxEffect);
-
-        transform.position = new Vector3(_currentPosition + displacement, 0, 0);
-        if (backgroundMovement > _currentPosition + _length)
+        for (int i = 0; i < bgCount; i++)
         {
-            _currentPosition += _length;
+            if ((_backgrounds[i].transform.position.z - _camera.position.z) > _furthestBack)
+            {
+                _furthestBack = _backgrounds[i].transform .position.z + _camera.position.z;
+            }
         }
-        else if (backgroundMovement < _currentPosition - _length)
+        for (int i = 0; i < bgCount; i++)
         {
-            _currentPosition -= _length;
+            _bgSpeeds[i] = 1 - (_backgrounds[i].transform.position.z - _camera.position.z) / (_furthestBack);
         }
+    }
+    private void LateUpdate()
+    {
+        _distance = _camera.position.x - _cameraStartPosition.x;
+        for (int i = 0; i < _backgrounds.Length; i++)
         {
-            
+            float speed = (_bgSpeeds[i] / 100)* _parallaxSpeed * Time.deltaTime;
+            _materials[i].SetTextureOffset("_MainTex", new Vector2(_distance, speed));
         }
     }
 }

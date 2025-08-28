@@ -625,10 +625,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1699407058}
         m_TargetAssemblyTypeName: LocalSceneManager, Assembly-CSharp
-        m_MethodName: SwitchActiveScene
-        m_Mode: 3
+        m_MethodName: BackToGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2409,6 +2409,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1699407057
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2310143381749407325, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -52.16947
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310143381749407325, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.10536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310143381749407325, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310143381749407325, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310143381749407325, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310143381749407325, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310143381749407325, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310143381749407325, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310143381749407325, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310143381749407325, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881801329630188155, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+      propertyPath: m_Name
+      value: LocalSceneManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+--- !u!114 &1699407058 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5930823064589615327, guid: b1b749785e1111241a9fe4b5b7d2f228, type: 3}
+  m_PrefabInstance: {fileID: 1699407057}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9908408c0dbfe8c448397d65e1fa1f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalSceneManager
 --- !u!1 &1874482053
 GameObject:
   m_ObjectHideFlags: 0
@@ -3025,3 +3093,4 @@ SceneRoots:
   - {fileID: 2056509883}
   - {fileID: 1305087542}
   - {fileID: 1638753329}
+  - {fileID: 1699407057}

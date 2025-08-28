@@ -15,9 +15,6 @@ public class SavePoint : MonoBehaviour, IDataPersistence
     [SerializeField] string id = "";
     private void Awake()
     {
-    }
-    private void Start()
-    {
         _player = FindFirstObjectByType<_PlayerController>().gameObject;
     }
     private void Update()
