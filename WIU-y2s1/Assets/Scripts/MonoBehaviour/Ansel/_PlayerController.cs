@@ -2,15 +2,15 @@ using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class _PlayerController : MonoBehaviour
+public class _PlayerController : MonoBehaviour, IDataPersistence
 {
     private EntityStatistics _statistics;
     private Animator animator;
     private Rigidbody2D body;
     private Vector2 moveDirection;
 
-    public float speed;
-    public float jumpHeight;
+    private float speed;
+    private float jumpHeight = 10;
 
     [Header("Ground Check")]
     public Transform groundCheckPosition;
@@ -29,6 +29,7 @@ public class _PlayerController : MonoBehaviour
 
     void Awake()
     {
+        DontDestroyOnLoad(this);
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         _statistics = GetComponent<EntityStatistics>();
@@ -62,13 +63,11 @@ public class _PlayerController : MonoBehaviour
     {
         Gravity();
         GroundCheck();
-
     }
 
     void FixedUpdate()
     {
-
-        if (GetComponent<HealthSystem>().healthData.maxHealth <= 0)
+        if (GetComponent<_HealthSystem>().health.health <= 0) 
         {
             _statistics.uponDeath.Invoke();
         }
@@ -103,63 +102,70 @@ public class _PlayerController : MonoBehaviour
             body.gravityScale = baseGravity;
         }
     }
+    public void SaveData(ref GameData data)
+    {
+        data._playerPosition = transform.position;
+    }
+    public void LoadData(GameData data)
+    {
+        transform.position = data._playerPosition;
 
-        //OnMove function
-        public void OnMove(InputAction.CallbackContext ctx)
+    //OnMove function
+    public void OnMove(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
         {
-            if (ctx.performed)
+            //Moving action
+            moveDirection = ctx.ReadValue<Vector2>();
+            _lastSavedDirection = moveDirection.x;
+
+            if (moveDirection.x < 0)
+                transform.localScale = new Vector3(-2, 2, 2);
+            else
+                transform.localScale = new Vector3(2, 2, 2);
+
+            body.linearVelocityX = moveDirection.x * speed;
+
+            animator.SetBool("IsMoving", true);
+        }
+        else if (ctx.canceled)
+        {
+            moveDirection = Vector2.zero;
+
+            body.linearVelocityX = 0;
+
+            animator.SetBool("IsMoving", false);
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            animator.SetTrigger("IsAttacking");
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext ctx) 
+    {
+        if (ctx.performed)
+        {
+            if (animator.GetBool("IsGrounded"))
             {
-                //Moving action
-                moveDirection = ctx.ReadValue<Vector2>();
-                _lastSavedDirection = moveDirection.x;
-
-                if (moveDirection.x < 0)
-                    transform.localScale = new Vector3(-2, 2, 2);
-                else
-                    transform.localScale = new Vector3(2, 2, 2);
-
-                body.linearVelocityX = moveDirection.x * speed;
-
-                animator.SetBool("IsMoving", true);
-            }
-            else if (ctx.canceled)
-            {
-                moveDirection = Vector2.zero;
-
-                body.linearVelocityX = 0;
-
-                animator.SetBool("IsMoving", false);
+                body.linearVelocityY = jumpHeight;
+                animator.SetTrigger("IsJumping");
             }
         }
-
-        public void OnAttack(InputAction.CallbackContext ctx)
+        else if (ctx.canceled)
         {
-            if (ctx.performed)
-            {
-                animator.SetTrigger("IsAttacking");
-            }
+            body.linearVelocityY *= 0.5f;
+            animator.SetBool("IsJumping", false);
         }
+    }
 
-        public void OnJump(InputAction.CallbackContext ctx)
-        {
-            if (ctx.performed)
-            {
-                if (animator.GetBool("IsGrounded"))
-                {
-                    body.linearVelocityY = jumpHeight;
-                    animator.SetTrigger("IsJumping");
-                }
-            }
-            else if (ctx.canceled)
-            {
-                body.linearVelocityY *= 0.5f;
-                animator.SetBool("IsJumping", false);
-            }
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.white;
-            if (groundCheckPosition) Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
-        }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
+        if (groundCheckPosition) Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
+    }
 }
