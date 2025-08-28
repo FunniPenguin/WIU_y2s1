@@ -23,3 +23,4 @@ public class EnemyData : MonoBehaviour
     public void StartCooldown() => cooldownTimer = attackCooldown;
     public bool CanAttack() => IsCooldownReady();
 }
+// Made By Jovan Yeo Kaisheng
