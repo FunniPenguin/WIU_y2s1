@@ -2,15 +2,15 @@ using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class _PlayerController : MonoBehaviour, IDataPersistence
+public class _PlayerController : MonoBehaviour
 {
     private EntityStatistics _statistics;
     private Animator animator;
     private Rigidbody2D body;
     private Vector2 moveDirection;
 
-    private float speed;
-    private float jumpHeight = 10;
+    public float speed;
+    public float jumpHeight;
 
     [Header("Ground Check")]
     public Transform groundCheckPosition;
@@ -27,9 +27,10 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
     public bool IsClimbing { get; set; }
     public float _lastSavedDirection = 0;
 
+    private Vector2 _finalVelocity, _movementVelocity, _impulseVelocity;
+
     void Awake()
     {
-        DontDestroyOnLoad(this);
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         _statistics = GetComponent<EntityStatistics>();
@@ -59,15 +60,16 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
 
     }
 
-    private void Update()
-    {
-        Gravity();
-        GroundCheck();
-    }
-
     void FixedUpdate()
     {
-        if (GetComponent<_HealthSystem>().health.health <= 0) 
+        //Todo: change the linear velovity to movement velocity in the player script only
+        //Todo: check if current linear vel is greater than limit. if true then negate new movement vel
+        //Todo: calculate clamp value for movement velocity by taking current vel and clamp val diff, if the min
+        //Todo: Final force calculation would be final vel += movement vel + impulse + gravity
+        Gravity();
+        GroundCheck();
+
+        if (GetComponent<HealthSystem>().healthData.maxHealth <= 0)
         {
             _statistics.uponDeath.Invoke();
         }
@@ -102,13 +104,6 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
             body.gravityScale = baseGravity;
         }
     }
-    public void SaveData(ref GameData data)
-    {
-        data._playerPosition = transform.position;
-    }
-    public void LoadData(GameData data)
-    {
-        transform.position = data._playerPosition;
 
     //OnMove function
     public void OnMove(InputAction.CallbackContext ctx)
@@ -146,7 +141,7 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
         }
     }
 
-    public void OnJump(InputAction.CallbackContext ctx) 
+    public void OnJump(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
@@ -168,4 +163,7 @@ public class _PlayerController : MonoBehaviour, IDataPersistence
         Gizmos.color = Color.white;
         if (groundCheckPosition) Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
     }
+
+
+
 }
