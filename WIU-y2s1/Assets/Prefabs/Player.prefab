@@ -450,6 +450,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6568965065574642748}
+        m_TargetAssemblyTypeName: AbilityController, Assembly-CSharp
+        m_MethodName: switchAbility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: edb225d0-6976-403d-91ee-edc0e54b6e55
+    m_ActionName: 'Player/AbilitySwitch[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -517,6 +533,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbilityController
   _activeAbility: {fileID: 11400000, guid: ee179f146c29021488b17142c405b1f7, type: 2}
   cooldown: 1
+  _abilitiesInStore:
+  - {fileID: 11400000, guid: a29a27e52443bf04e90b97d9e22aed68, type: 2}
+  - {fileID: 11400000, guid: ee179f146c29021488b17142c405b1f7, type: 2}
 --- !u!114 &7841928683905899791
 MonoBehaviour:
   m_ObjectHideFlags: 0

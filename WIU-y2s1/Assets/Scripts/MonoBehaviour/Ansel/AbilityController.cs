@@ -8,9 +8,34 @@ public class AbilityController : MonoBehaviour
     public float cooldown = 0.5f;
     private float _timeLastHit = 0;
 
+    public _AbilityScript[] _abilitiesInStore;
+
+    public void Start()
+    {
+        if (_activeAbility == null)
+        {
+            _activeAbility = _abilitiesInStore[0];
+        }
+    }
+
     public void Update()
     {
         _timeLastHit += Time.deltaTime;
+    }
+
+    public void switchAbility()
+    {
+        for (int i = 0; i < _abilitiesInStore.Length; i++)
+        {
+            if (_activeAbility == _abilitiesInStore[i] && _abilitiesInStore[i + 1] != null)
+            {
+                _activeAbility = _abilitiesInStore[i + 1];
+            }
+            else if (_abilitiesInStore[i + 1] == null)
+            {
+                _activeAbility = _abilitiesInStore[0];
+            }
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
