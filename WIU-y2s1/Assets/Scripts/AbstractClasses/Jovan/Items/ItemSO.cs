@@ -46,7 +46,7 @@ namespace _Inventory.Model
         public List<ItemParameter> DefaultParameterList { get; set; }
 
         public string ActionName;
-        [SerializeField] public AudioClip actionSFX { get; private set; }
+        [SerializeField] public AudioClip actionSFX;
 
         public abstract bool PerformAction(GameObject character);
     }

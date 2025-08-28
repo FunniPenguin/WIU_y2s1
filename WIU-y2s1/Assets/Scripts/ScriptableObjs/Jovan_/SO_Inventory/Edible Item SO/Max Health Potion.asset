@@ -19,7 +19,8 @@ MonoBehaviour:
   <Description>k__BackingField: Restores Health to Full
   <ItemImage>k__BackingField: {fileID: -7212785955650792343, guid: 7c48642f9437b3446ab05b8b8965f3c5, type: 3}
   <DefaultParameterList>k__BackingField: []
+  ActionName: Use
+  actionSFX: {fileID: 8300000, guid: 67c59c34048325c4ab16ce75883b5577, type: 3}
   modifiersData:
   - statModifer: {fileID: 11400000, guid: 4e9e24fc1d5eb5d49883d1e34a80976f, type: 2}
     value: 100
-  <actionSFX>k__BackingField: {fileID: 8300000, guid: 67c59c34048325c4ab16ce75883b5577, type: 3}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.TextCore.Text;
 
 public class Bullet : MonoBehaviour
@@ -12,6 +13,12 @@ public class Bullet : MonoBehaviour
     private bool returning = false;
     private Transform owner; // enemy that shot the bullet
 
+    [Header("Events")]
+    public UnityEvent onSpawn;
+    public UnityEvent onHitPlayer;
+    public UnityEvent onReturn;
+    public UnityEvent onDestroy;
+
     public void Initialize(Transform shooter)
     {
         owner = shooter;
@@ -19,6 +26,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
+        onSpawn?.Invoke();
         Destroy(gameObject, lifetime);
     }
 
@@ -35,6 +43,8 @@ public class Bullet : MonoBehaviour
             {
                 returning = true;
                 timer = 0f;
+
+                onReturn?.Invoke();
             }
         }
         else
@@ -50,11 +60,13 @@ public class Bullet : MonoBehaviour
 
                 if (Vector2.Distance(transform.position, owner.position) < 0.2f)
                 {
+                    onDestroy?.Invoke();
                     Destroy(gameObject);
                 }
             }
             else
             {
+                onDestroy?.Invoke();
                 Destroy(gameObject);
             }
         }
@@ -70,7 +82,10 @@ public class Bullet : MonoBehaviour
                 healthSystem.Hurt(damage); 
             }
 
+            onHitPlayer?.Invoke();
+            onDestroy?.Invoke();
             Destroy(gameObject);
         }
     }
 }
+// Made by Jovan Yeo Kaisheng

@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Speed Boost Potion Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7252225758160385814, guid: 7362b01e5434baa4dac00c8909e4acdf, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -948700710635971991, guid: 63543ad4b41ad8f4ead18267eb0d6fef, type: 2}
     - target: {fileID: 8693742890348358484, guid: 7362b01e5434baa4dac00c8909e4acdf, type: 3}
       propertyPath: <Quantity>k__BackingField
       value: 1

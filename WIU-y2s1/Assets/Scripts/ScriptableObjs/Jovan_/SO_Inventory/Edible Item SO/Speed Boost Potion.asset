@@ -19,7 +19,8 @@ MonoBehaviour:
   <Description>k__BackingField: Increases your speed for 5 seconds
   <ItemImage>k__BackingField: {fileID: 862379016836818256, guid: 264cc0b8b44f07145b814a251f2b2028, type: 3}
   <DefaultParameterList>k__BackingField: []
+  ActionName: Use
+  actionSFX: {fileID: 8300000, guid: a282732f7d387754bb7c21f66cf97c43, type: 3}
   modifiersData:
   - statModifer: {fileID: 11400000, guid: 5525dbbd284725445b28e3642d7e7cef, type: 2}
     value: 1
-  <actionSFX>k__BackingField: {fileID: 8300000, guid: a282732f7d387754bb7c21f66cf97c43, type: 3}

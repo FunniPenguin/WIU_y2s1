@@ -1,6 +1,6 @@
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class _PlayerController : MonoBehaviour
 {
@@ -22,10 +22,19 @@ public class _PlayerController : MonoBehaviour
     public float MaxfallSpeed = 20f;
     public float fallSpeedMultiplier = 2f;
 
+    // Added by Jovan Yeo Kaisheng
+    [Header("Events")]
+    public UnityEvent onMoveStart;
+    public UnityEvent onMoveEnd;
+    public UnityEvent onJump;
+    public UnityEvent onLand;
+
     public bool IsGrounded { get; set; }
     public bool IsDead { get; set; }
     public bool IsClimbing { get; set; }
     public float _lastSavedDirection = 0;
+
+    private bool wasGrounded;
 
     void Awake()
     {
@@ -38,11 +47,17 @@ public class _PlayerController : MonoBehaviour
         if (Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0, groundLayer))
         {
             IsGrounded = true;
+            if (!IsGrounded)
+            {
+                onLand?.Invoke();
+            }
         }
         else
         {
             IsGrounded = false;
         }
+
+        wasGrounded = IsGrounded;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -118,6 +133,7 @@ public class _PlayerController : MonoBehaviour
             body.linearVelocityX = moveDirection.x * speed;
 
             animator.SetBool("IsMoving", true);
+            onMoveStart?.Invoke();
         }
         else if (ctx.canceled)
         {
@@ -126,6 +142,7 @@ public class _PlayerController : MonoBehaviour
             body.linearVelocityX = 0;
 
             animator.SetBool("IsMoving", false);
+            onMoveEnd?.Invoke();
         }
     }
 
@@ -145,6 +162,7 @@ public class _PlayerController : MonoBehaviour
             {
                 body.linearVelocityY = jumpHeight;
                 animator.SetTrigger("IsJumping");
+                onJump?.Invoke();
             }
         }
         else if (ctx.canceled)

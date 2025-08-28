@@ -24,13 +24,13 @@ AnimationClip:
       value: {fileID: -2751330272638895622, guid: 6ef4801081c32c24784227d514a808ea, type: 3}
     - time: 0.083333336
       value: {fileID: -4557018752806375212, guid: 78433f70ebe1ae34eb0a281cbc1e6caf, type: 3}
-    - time: 0.16666667
-      value: {fileID: -2956725262159379523, guid: 78433f70ebe1ae34eb0a281cbc1e6caf, type: 3}
     - time: 0.25
-      value: {fileID: -5072338036205609861, guid: 78433f70ebe1ae34eb0a281cbc1e6caf, type: 3}
+      value: {fileID: -2956725262159379523, guid: 78433f70ebe1ae34eb0a281cbc1e6caf, type: 3}
     - time: 0.33333334
+      value: {fileID: -5072338036205609861, guid: 78433f70ebe1ae34eb0a281cbc1e6caf, type: 3}
+    - time: 0.5
       value: {fileID: 32725560429275957, guid: 78433f70ebe1ae34eb0a281cbc1e6caf, type: 3}
-    - time: 0.41666666
+    - time: 0.5833333
       value: {fileID: 7581161988436231811, guid: 78433f70ebe1ae34eb0a281cbc1e6caf, type: 3}
     attribute: m_Sprite
     path: PlayerSprite
@@ -65,7 +65,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.6666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -92,7 +92,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.41666666
+  - time: 0.5833333
     functionName: AttackEnd
     data: 
     objectReferenceParameter: {fileID: 0}

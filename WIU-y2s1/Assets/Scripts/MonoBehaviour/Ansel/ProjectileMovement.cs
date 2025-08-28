@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class ProjectileMovement : MonoBehaviour
 {
@@ -9,6 +9,16 @@ public class ProjectileMovement : MonoBehaviour
 
     private float lifetime = 3;
     private float lifetimer = 0;
+
+    // Added by Jovan Yeo Kaisheng
+    [Header("Events")]
+    public UnityEvent onSpawn;
+    public UnityEvent onHitEnemy;
+
+    void Start()
+    {
+        onSpawn?.Invoke();
+    }
 
     // Update is called once per frame
     void Update()
@@ -33,6 +43,7 @@ public class ProjectileMovement : MonoBehaviour
                 healthSystem.AddHealth(-_fireballDamage);
             }
 
+            onHitEnemy?.Invoke();
             Destroy(gameObject);
         }
 

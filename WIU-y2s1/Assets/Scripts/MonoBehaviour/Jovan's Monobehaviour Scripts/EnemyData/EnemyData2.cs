@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyData2 : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class EnemyData2 : MonoBehaviour
     [HideInInspector] public float aimTimer = 0f;
     [HideInInspector] public float attackTimer = 0f;
     [HideInInspector] public float recoverTimer = 0f;
+
+    public UnityEvent onAttack;
 
     private void OnEnable()
     {
@@ -34,7 +37,9 @@ public class EnemyData2 : MonoBehaviour
             if (healthSystem != null)
             {
                 healthSystem.Hurt(damage);
+                onAttack?.Invoke();
             }
         }
     }
 }
+// Made by Jovan Yeo Kaisheng
