@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6249aae87ff3c3a498e526817fdc86d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StateController
-  GUID: CE000001
+  GUID: CE000002
   currentState: {fileID: 11400000, guid: 7f5098e7ccee2a14d8ff58f92ef41373, type: 2}
   remainState: {fileID: 11400000, guid: bb6b1acae8fde934e950fc6d4959089d, type: 2}
   distanceFromPlayer: 30
@@ -318,7 +318,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.015462875, y: 0.0360806}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -328,7 +328,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.3401833, y: 1.8143878}
   m_EdgeRadius: 0
 --- !u!114 &8160738912844481725
 MonoBehaviour:
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbe283e8796048418bc1b8c36353258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusBar
-  offset: {x: 0, y: 1, z: 0}
+  offset: {x: 0, y: 0.5, z: 0}
   offsetPosition: 1
 --- !u!1 &9193639120518090859
 GameObject:
