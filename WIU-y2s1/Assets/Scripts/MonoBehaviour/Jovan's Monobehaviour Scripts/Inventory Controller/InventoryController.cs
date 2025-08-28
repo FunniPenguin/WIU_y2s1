@@ -191,6 +191,7 @@ namespace _Inventory
                 {
                     // Show inventory and sync current data
                     inventoryUI.Show();
+                    Time.timeScale = 0f; // Pause the game when inventory is open
                     foreach (var item in inventoryData.GetCurrentInventoryState())
                     {
                         inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
@@ -200,6 +201,7 @@ namespace _Inventory
                 {
                     // Hide inventory
                     inventoryUI.Hide();
+                    Time.timeScale = 1f; // Resume the game when inventory is closed
                 }
             }
         }
