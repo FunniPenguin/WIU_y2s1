@@ -46,12 +46,21 @@ public class ProjectileMovement : MonoBehaviour
             onHitEnemy?.Invoke();
             Destroy(gameObject);
         }
+        else if (collision.CompareTag("Boss"))
+        {
+            EntityStatistics healthSystem = collision.GetComponent<EntityStatistics>();
+            if (healthSystem != null)
+            {
+                healthSystem.AddHealth(-_fireballDamage);
+            }
 
+            onHitEnemy?.Invoke();
+            Destroy(gameObject);
+        }
         else if (collision.CompareTag("Player"))
         {
             return;
         }
-
         else if (collision.gameObject.layer == 3)
         {
             Destroy(gameObject);

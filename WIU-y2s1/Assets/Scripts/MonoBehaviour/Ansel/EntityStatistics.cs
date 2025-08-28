@@ -101,4 +101,10 @@ public class EntityStatistics : MonoBehaviour
         uponDeath.Invoke();
         gameObject.SetActive(false);
     }
+
+    public float GetHealthRatio()
+    {
+        return maxHealth > 0 ? health / maxHealth : 0f;
+    }
 }
+// Made by Jovan Yeo Kaisheng
