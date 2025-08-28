@@ -15,3 +15,4 @@ public class AimAction2 : StateAction
         data.aimTimer += Time.deltaTime;
     }
 }
+// Made by Jovan Yeo Kaisheng

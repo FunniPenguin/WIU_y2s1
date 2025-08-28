@@ -8,6 +8,7 @@ namespace _Inventory.UI
     {
         [SerializeField] private GameObject buttonPrefab;
 
+        // Add a button to the panel
         public void AddButton(string name, Action onClickAction)
         {
             GameObject button = Instantiate(buttonPrefab, transform);
@@ -15,6 +16,7 @@ namespace _Inventory.UI
             button.GetComponentInChildren<TMPro.TMP_Text>().text = name;
         }
 
+        // Toggle the panel visibility
         internal void Toggle(bool val)
         {
             if (val == true)
@@ -24,6 +26,7 @@ namespace _Inventory.UI
             gameObject.SetActive(val);
         }
 
+        // Remove all old buttons
         public void RemoveOldButtons()
         {
             foreach (Transform transformChildObjects in transform)
@@ -34,3 +37,4 @@ namespace _Inventory.UI
     }
 }
 
+// Made by Jovan Yeo Kaisheng

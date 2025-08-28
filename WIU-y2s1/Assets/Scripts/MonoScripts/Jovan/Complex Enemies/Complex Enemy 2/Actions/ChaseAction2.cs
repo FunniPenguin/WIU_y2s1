@@ -13,3 +13,4 @@ public class ChaseAction2 : StateAction
         controller.transform.position = Vector2.MoveTowards(controller.transform.position,data.player.position,chaseSpeed * Time.deltaTime);
     }
 }
+// Made by Jovan Yeo Kaisheng
