@@ -1343,6 +1343,7 @@ PrefabInstance:
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1352,6 +1353,7 @@ PrefabInstance:
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 318661074}
+      objectReference: {fileID: 1435302533}
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1367,6 +1369,7 @@ PrefabInstance:
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetPauseEnable
+      value: PlayWinMusic
       objectReference: {fileID: 0}
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1375,6 +1378,7 @@ PrefabInstance:
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: LocalSceneManager, Assembly-CSharp
+      value: LocalAudioManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
