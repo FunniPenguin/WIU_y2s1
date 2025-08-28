@@ -17,7 +17,6 @@ public class Bullet : MonoBehaviour
     public UnityEvent onSpawn;
     public UnityEvent onHitPlayer;
     public UnityEvent onReturn;
-    public UnityEvent onDestroy;
 
     public void Initialize(Transform shooter)
     {
@@ -60,13 +59,11 @@ public class Bullet : MonoBehaviour
 
                 if (Vector2.Distance(transform.position, owner.position) < 0.2f)
                 {
-                    onDestroy?.Invoke();
                     Destroy(gameObject);
                 }
             }
             else
             {
-                onDestroy?.Invoke();
                 Destroy(gameObject);
             }
         }
@@ -83,7 +80,6 @@ public class Bullet : MonoBehaviour
             }
 
             onHitPlayer?.Invoke();
-            onDestroy?.Invoke();
             Destroy(gameObject);
         }
     }

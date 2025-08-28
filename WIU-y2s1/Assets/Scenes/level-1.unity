@@ -404,10 +404,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6568965065574642748, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
-      propertyPath: _activeAbility
-      value: 
-      objectReference: {fileID: 11400000, guid: ee179f146c29021488b17142c405b1f7, type: 2}
     - target: {fileID: 7841928683905899791, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: healthBar
       value: 
@@ -16808,71 +16804,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aabf7b0c97ae044ae1a52476cbb0dd, type: 3}
---- !u!1001 &1122735229
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1982226045132431203, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1982226045132431203, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153934763420134003, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_Name
-      value: Trash Exploding enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7122187396987208726, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 42.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 7122187396987208726, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7122187396987208726, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7122187396987208726, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7122187396987208726, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7122187396987208726, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7122187396987208726, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7122187396987208726, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7122187396987208726, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7122187396987208726, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a8d82a996c4af0b49a4e2d7ffd2a095c, type: 3}
 --- !u!1001 &1141015298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23144,7 +23075,6 @@ SceneRoots:
   - {fileID: 492358436}
   - {fileID: 2073735786}
   - {fileID: 1790574191}
-  - {fileID: 1122735229}
   - {fileID: 447371280}
   - {fileID: 381253340}
   - {fileID: 162145902}

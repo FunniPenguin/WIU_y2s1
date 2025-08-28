@@ -622,7 +622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfebcaba05fc43c4e9d401d8d9556cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilityController
-  _activeAbility: {fileID: 0}
+  _activeAbility: {fileID: 11400000, guid: ee179f146c29021488b17142c405b1f7, type: 2}
   cooldown: 1
   _abilitiesInStore:
   - {fileID: 11400000, guid: ee179f146c29021488b17142c405b1f7, type: 2}
