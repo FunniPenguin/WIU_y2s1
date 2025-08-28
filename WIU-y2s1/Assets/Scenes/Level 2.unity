@@ -1597,6 +1597,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7299525164857234790, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7651276893967259947, guid: 85b4b6ae5b0903548bb3ff3871e520e9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
