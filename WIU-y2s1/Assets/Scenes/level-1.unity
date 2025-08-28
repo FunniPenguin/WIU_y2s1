@@ -585,7 +585,7 @@ PrefabInstance:
     - target: {fileID: 6568965065574642748, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: _activeAbility
       value: 
-      objectReference: {fileID: 11400000, guid: ee179f146c29021488b17142c405b1f7, type: 2}
+      objectReference: {fileID: 11400000, guid: a29a27e52443bf04e90b97d9e22aed68, type: 2}
     - target: {fileID: 7841928683905899791, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: healthBar
       value: 
@@ -594,6 +594,10 @@ PrefabInstance:
       propertyPath: dropClip
       value: 
       objectReference: {fileID: 8300000, guid: c6eb8603700eeaa479c9add31ec9a66e, type: 3}
+    - target: {fileID: 8660955210366952116, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: itemList
+      value: 
+      objectReference: {fileID: 11400000, guid: 4e0c42f20d31b0e4b8755f410e7288b1, type: 2}
     - target: {fileID: 8660955210366952116, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: audioSource
       value: 

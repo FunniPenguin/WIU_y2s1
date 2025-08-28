@@ -36,9 +36,6 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
-        //musicSource.loop = false;
-
         ApplyVolumes();
     }
 
