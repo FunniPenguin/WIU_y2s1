@@ -18,6 +18,13 @@ public class Item : MonoBehaviour, IDataPersistence
 
     [SerializeField] private string GUID = "";
 
+    private void Awake()
+    {
+        if (GUID == "")
+        {
+            GUID = DataPersistenceManager.GenerateGUID();
+        }
+    }
     private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = InventoryItem.ItemImage; // Set the sprite of the item based on the ItemSO data

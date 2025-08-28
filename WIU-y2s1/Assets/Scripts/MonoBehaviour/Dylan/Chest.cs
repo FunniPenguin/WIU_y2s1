@@ -1,0 +1,57 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class Chest : MonoBehaviour
+{
+    public UnityEvent _chestOpened;
+    private string _id;
+    private bool _currSavePoint;
+    GameObject _player;
+    [SerializeField] float _distanceToInteract = 1.0f;
+    [SerializeField] string id = "";
+    [SerializeField] GameObject[] _prefabList;
+    private Animator _animator;
+    private void Awake()
+    {
+        _player = FindFirstObjectByType<_PlayerController>().gameObject;
+        _animator = GetComponentInChildren<Animator>();
+    }
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            var player = FindAnyObjectByType<_PlayerController>();
+            if (Vector3.Distance(player.transform.position, transform.position) <= _distanceToInteract)
+            {
+                _animator.Play("ChestOpen");
+            }
+        }
+    }
+    public void SaveData(GameData data)
+    {
+        if (data.savePoints.ContainsKey(id))
+        { data.savePoints.Remove(id); }
+        data.savePoints.Add(id, _currSavePoint);
+    }
+    public void LoadData(GameData data)
+    {
+        if (data.savePoints.TryGetValue(id, out bool isSavePoint))
+            _currSavePoint = isSavePoint;
+        if (_currSavePoint)
+        {
+            _player.transform.position = transform.position;
+            //So that when saving the game only will have one save point marked as true
+            _currSavePoint = false;
+        }
+    }
+    public void OpenChest()
+    {
+        foreach (GameObject prefab in _prefabList)
+        {
+            Instantiate(prefab);
+            prefab.SetActive(true);
+        }
+        _chestOpened.Invoke();
+    }
+}

@@ -103,11 +103,7 @@ public class DataPersistenceManager : MonoBehaviour
             //Ref will pass the game data into the save data function by reference.
             dataPersistenceObj.SaveData(_gameData);
         }
-        //foreach(KeyValuePair<string, bool> keyValuePair in _gameData.mapGameObjects)
-        //{
-        //    //Debug.Log($"Game object {keyValuePair.Key} has been saved into data as {keyValuePair.Value}");
-        //}
-        //_gameData._currMapIndex = GameSceneManager.Instance.GetCurrentMapIndex();
+        _gameData._lastSave = System.DateTime.Now;
         _fileManager.Save(_gameData);
     }
     private List<IDataPersistence> FindAllDataPersistenceObjects()
@@ -115,6 +111,28 @@ public class DataPersistenceManager : MonoBehaviour
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IDataPersistence>();
 
         return new List<IDataPersistence>(dataPersistenceObjects);
+    }
+    public static string GenerateGUID()
+    {
+        int RandomInteger = Random.Range(1, 3);
+        char alphabet;
+        switch (RandomInteger)
+        {
+            case 1:
+                alphabet = 'A';
+                break;
+            case 2:
+                alphabet = 'B';
+                break;
+            case 3:
+                alphabet = 'C';
+                break;
+            default:
+                alphabet = 'A';
+                break;
+        }
+        int SevenDigit = Random.Range(1000000, 9999999);
+        return new string(alphabet + SevenDigit.ToString());
     }
 }
 

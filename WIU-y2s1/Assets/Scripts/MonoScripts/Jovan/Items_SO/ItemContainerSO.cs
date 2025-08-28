@@ -12,7 +12,7 @@ public class ItemContainerSO : ScriptableObject
         foreach (ItemSO data in _itemList)
         {
 
-            if (data.Name == name)
+            if (data.ItemKey == name)
             {
                 return data;
             }

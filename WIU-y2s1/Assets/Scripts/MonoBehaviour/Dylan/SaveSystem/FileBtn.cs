@@ -20,7 +20,7 @@ public class FileBtn : MonoBehaviour
         {
             DataPersistenceManager.Instance.SetGameData();
             _gameData = DataPersistenceManager.Instance.GetGameData();
-            _textDisplay.text = $"Level: {_gameData._currentLevel + 1};  Playtime: ;";
+            _textDisplay.text = $"Level: {_gameData._currentLevel + 1};  Last Played: {_gameData._lastSave};";
         }
         else
         {
@@ -44,6 +44,6 @@ public class FileBtn : MonoBehaviour
         //File manager will create a path if does not exist so should be able to save the file.
         DataPersistenceManager.Instance.SaveGame();
         _gameData = DataPersistenceManager.Instance.GetGameData();
-        _textDisplay.text = $"Level: {_gameData._currentLevel + 1};  Playtime: ;";
+        _textDisplay.text = $"Level: {_gameData._currentLevel + 1};  Last Played: {_gameData._lastSave};";
     }
 }
