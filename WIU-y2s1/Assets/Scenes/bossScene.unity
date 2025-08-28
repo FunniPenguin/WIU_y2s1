@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8311325422529062125, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9178223507891463820, guid: 913707d36f42ad446aa97c3a58f2ed50, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -294,6 +298,7 @@ GameObject:
   - component: {fileID: 1858023713}
   - component: {fileID: 1858023712}
   - component: {fileID: 1858023714}
+  - component: {fileID: 1858023716}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -348,7 +353,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -9175439324669883218, guid: 50621ecd1ae71f84fb870d9bb57d521b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -368,8 +373,8 @@ Transform:
   m_GameObject: {fileID: 1858023708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.74, y: 0.56, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 5.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -409,8 +414,8 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
+  m_Size: {x: 0.3, y: 0.2}
+  m_Direction: 1
 --- !u!50 &1858023713
 Rigidbody2D:
   serializedVersion: 5
@@ -473,7 +478,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 0.2
 --- !u!114 &1858023715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,6 +493,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::boss
   projectilePrefab: {fileID: 5465569971994279418, guid: 4b7edbc5fc5f7db46ad1348f4e7b9e38, type: 3}
   health: 100
+--- !u!95 &1858023716
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858023708}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3439791bf2229ff48a2cc2e87465a061, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1869282644
 GameObject:
   m_ObjectHideFlags: 0

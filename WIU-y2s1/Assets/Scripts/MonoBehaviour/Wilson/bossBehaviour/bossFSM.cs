@@ -8,6 +8,8 @@ public class bossFSM : MonoBehaviour
     private GameObject boss;
     private Rigidbody2D rb; //boss Rigidbody2D.
 
+    private Animator animator;
+
     [SerializeField] private GameObject projectilePrefab;
 
     private CircleCollider2D attackCollider;
@@ -90,6 +92,7 @@ public class bossFSM : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         rb = boss.GetComponent<Rigidbody2D>();
         attackCollider = boss.GetComponent<CircleCollider2D>();
+        animator = boss.GetComponent<Animator>();
         doNotRefreshStatesFlag = false;
 
         //phaseState = phaseStateEnum.phaseTwo;
@@ -149,7 +152,7 @@ public class bossFSM : MonoBehaviour
                 if (attackSubState == attackSubStateEnum.charge)
                 {
                     movementTarget = player.transform.position;
-                    if (toPlayer.magnitude < 2.5f)
+                    if (toPlayer.magnitude < 3f)
                     {
                         attackSubState = attackSubStateEnum.attack;
                         _JUMP = Random.Range(0, 1) == 0;
@@ -158,6 +161,7 @@ public class bossFSM : MonoBehaviour
                 else if (attackSubState == attackSubStateEnum.attack)
                 {
                     attackCollider.enabled = true;
+                    animator.SetBool("isAttacking", true);
                     attackingTimer -= Time.deltaTime;
                     if (attackingTimer <= 0)
                     {
@@ -169,7 +173,8 @@ public class bossFSM : MonoBehaviour
                 else if (attackSubState == attackSubStateEnum.recuperate)
                 {
                     attackCollider.enabled = false;
-                    movementTarget = new Vector2(player.transform.position.x + (isPerimeterLEFT ? -perimeterDistance : perimeterDistance), player.transform.position.y);
+                    animator.SetBool("isAttacking", false);
+                    movementTarget = new Vector2(player.transform.position.x + (isPerimeterLEFT ? -perimeterDistance * 1f : perimeterDistance * 1f), player.transform.position.y);
                     _JUMP = true;
                     if (toPlayer.magnitude > 6f)
                     {
@@ -258,6 +263,7 @@ public class bossFSM : MonoBehaviour
                 }
                 else if (attackSubState == attackSubStateEnum.attack)
                 {
+                    animator.SetBool("isAttacking", true);
                     attackCollider.enabled = true;
                     attackingTimer -= Time.deltaTime;
                     if (attackingTimer <= 0)
@@ -269,6 +275,7 @@ public class bossFSM : MonoBehaviour
                 }
                 else if (attackSubState == attackSubStateEnum.recuperate)
                 {
+                    animator.SetBool("isAttacking", false);
                     attackCollider.enabled = false;
                     movementTarget = new Vector2(player.transform.position.x + (isPerimeterLEFT ? -perimeterDistance : perimeterDistance), player.transform.position.y);
                     _JUMP = true;
@@ -296,6 +303,7 @@ public class bossFSM : MonoBehaviour
         {
             _JUMP = false;
             RaycastHit2D groundChecker = Physics2D.Raycast(boss.transform.position, Vector2.down, 2f, LayerMask.GetMask("Ground"));
+            //RaycastHit2D playerChecker = Physics2D.Raycast(boss.transform.position, Vector2.down, 2f, LayerMask.GetMask("Default"));
             if (groundChecker.collider != null)
             {
                 rb.linearVelocityY = bossJump;
@@ -305,6 +313,17 @@ public class bossFSM : MonoBehaviour
         handleMovementInput();
         rb.linearVelocityX *= 0.99f;
         rb.linearVelocityY -= 10f * Time.deltaTime;
+
+        if (rb.linearVelocity.magnitude > 1f)
+        {
+            animator.SetBool("isMobile", true);
+        }
+        else
+        {
+            animator.SetBool("isMobile", false);
+        }
+
+        transform.localScale = toPlayer.x < 0 ? new Vector2(10, 10) : new Vector2(-10, 10);
     }
 
     private void handleMovementInput()
