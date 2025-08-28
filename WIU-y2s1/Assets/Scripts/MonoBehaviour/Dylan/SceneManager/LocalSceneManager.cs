@@ -22,4 +22,8 @@ public class LocalSceneManager : MonoBehaviour
     {
         GameSceneManager.Instance.SetEnablePauseMenu(enabled);
     }
+    public void StartNewGame()
+    {
+        DataPersistenceManager.Instance.NewGame();
+    }
 }

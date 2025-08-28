@@ -65,25 +65,10 @@ public class DataPersistenceManager : MonoBehaviour
     }
     public void NewGame()
     {
-        //Todo: Add a way to have multiple different playthroughs as current implementation only supports one playthrough
         _gameData = new GameData();
     }
     public void Load()
     {
-        ////try to load the file, if not then create a new game
-        //this._gameData = _fileManager.Load();
-        //if (_gameData == null)
-        //{
-        //    NewGame();
-        //}
-        //else
-        //{
-        //    Debug.Log("Loaded map game data");
-        //    foreach (KeyValuePair<string, bool> keyValuePair in _gameData.mapGameObjects)
-        //    {
-        //        Debug.Log($"Game object {keyValuePair.Key} has been loaded into data as {keyValuePair.Value}");
-        //    }
-        //}
         if (_gameData == null)
         {
             Debug.LogError("No game data loaded");
