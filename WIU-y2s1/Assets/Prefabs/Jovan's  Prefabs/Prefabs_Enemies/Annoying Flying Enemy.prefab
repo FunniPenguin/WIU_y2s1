@@ -33,8 +33,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.16999817, y: 0}
-  m_SizeDelta: {x: 27.55, y: 0}
+  m_AnchoredPosition: {x: -0.32, y: 0}
+  m_SizeDelta: {x: 7.86, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1636419117254186055
 GameObject:
@@ -73,7 +73,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 10, y: 35}
-  m_SizeDelta: {x: 75, y: 20}
+  m_SizeDelta: {x: 20, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2283877449166021613
 MonoBehaviour:
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbe283e8796048418bc1b8c36353258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusBar
-  offset: {x: 0, y: 2, z: 0}
+  offset: {x: 0, y: 1, z: 0}
   offsetPosition: 1
 --- !u!1 &6050226166134577041
 GameObject:
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3620086417154106182, guid: 85b4b6ae5b0903548bb3ff3871e520e9, type: 3}
+  m_Sprite: {fileID: -5189654929032258231, guid: 85b4b6ae5b0903548bb3ff3871e520e9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -675,7 +675,7 @@ MonoBehaviour:
   speed: 10
   jumpPower: 10
   isInvincible: 0
-  iFrameDuration: 0.5
+  iFrameDuration: 0.1
   uponDeath:
     m_PersistentCalls:
       m_Calls: []

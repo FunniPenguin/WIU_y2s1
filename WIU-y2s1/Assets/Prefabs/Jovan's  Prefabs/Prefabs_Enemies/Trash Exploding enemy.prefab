@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.34999847, y: 0}
+  m_SizeDelta: {x: -11.82, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7156449747195938806
 CanvasRenderer:
@@ -252,10 +252,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 20
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_AngularDamping: 0.1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -311,7 +311,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.45, y: 1.9}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &8160738912844481725
 MonoBehaviour:
@@ -331,7 +331,7 @@ MonoBehaviour:
   speed: 5
   jumpPower: 5
   isInvincible: 0
-  iFrameDuration: 0.5
+  iFrameDuration: 0.1
   uponDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -373,7 +373,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.35, y: -0.28}
-  m_SizeDelta: {x: 150, y: 100}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5894408601984876105
 Canvas:
@@ -471,8 +471,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.16999817, y: 0}
-  m_SizeDelta: {x: 27.55, y: 0}
+  m_AnchoredPosition: {x: 0.7, y: 0}
+  m_SizeDelta: {x: 22.25, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6375815418954661209
 GameObject:
@@ -586,7 +586,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 10, y: 35}
-  m_SizeDelta: {x: 75, y: 20}
+  m_SizeDelta: {x: 25, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2945014655268910204
 MonoBehaviour:
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbe283e8796048418bc1b8c36353258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusBar
-  offset: {x: 0, y: 2, z: 0}
+  offset: {x: 0, y: 1, z: 0}
   offsetPosition: 1
 --- !u!1 &9193639120518090859
 GameObject:
