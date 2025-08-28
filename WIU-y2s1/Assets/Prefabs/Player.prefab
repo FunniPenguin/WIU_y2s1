@@ -559,9 +559,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AgentWeapon
   weapon: {fileID: 0}
   inventoryData: {fileID: 11400000, guid: 96a8701a6d3ffd5449b455e16439eec4, type: 2}
-  parametersToModify:
-  - itemParameter: {fileID: 0}
-    value: 0
   itemCurrentState: []
 --- !u!114 &8660955210366952116
 MonoBehaviour:
@@ -580,6 +577,7 @@ MonoBehaviour:
   initialItems: []
   audioSource: {fileID: 0}
   dropClip: {fileID: 0}
+  itemList: {fileID: 11400000, guid: f7c63078fb2199e4abb751bbb0091612, type: 2}
 --- !u!1 &7681286833082237393
 GameObject:
   m_ObjectHideFlags: 0

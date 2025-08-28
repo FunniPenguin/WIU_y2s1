@@ -103,11 +103,7 @@ public class DataPersistenceManager : MonoBehaviour
             //Ref will pass the game data into the save data function by reference.
             dataPersistenceObj.SaveData(_gameData);
         }
-        //foreach(KeyValuePair<string, bool> keyValuePair in _gameData.mapGameObjects)
-        //{
-        //    //Debug.Log($"Game object {keyValuePair.Key} has been saved into data as {keyValuePair.Value}");
-        //}
-        //_gameData._currMapIndex = GameSceneManager.Instance.GetCurrentMapIndex();
+        _gameData._lastSave = System.DateTime.Now;
         _fileManager.Save(_gameData);
     }
     private List<IDataPersistence> FindAllDataPersistenceObjects()
