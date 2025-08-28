@@ -29,7 +29,6 @@ public class _PlayerController : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this);
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         _statistics = GetComponent<EntityStatistics>();

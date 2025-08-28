@@ -1167,7 +1167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &841755373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1180,8 +1180,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fd6cb52acc58b45a79d4767dc2e2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  EffectsSource: {fileID: 1484111216}
-  MusicSource: {fileID: 350816501}
+  audioMixer: {fileID: 0}
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  audioClips: []
+  sfxClips: []
+  masterVolume: 1
+  musicVolume: 1
+  sfxVolume: 1
 --- !u!4 &841755374
 Transform:
   m_ObjectHideFlags: 0
