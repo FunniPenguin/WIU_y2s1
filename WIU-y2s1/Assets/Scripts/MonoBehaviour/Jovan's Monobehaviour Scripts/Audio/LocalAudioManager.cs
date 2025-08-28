@@ -33,7 +33,7 @@ public class LocalAudioManager : MonoBehaviour
 
     public void PlayBossMusic()
     {
-        AudioManager.Instance.PlayMusic(6);
+        AudioManager.Instance.PlayBossMusic();
     }
 }
 // Made by Jovan Yeo Kaisheng

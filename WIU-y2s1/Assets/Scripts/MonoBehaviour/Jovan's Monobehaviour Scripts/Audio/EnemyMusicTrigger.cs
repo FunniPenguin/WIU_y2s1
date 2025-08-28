@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BossMusicTrigger : MonoBehaviour
+public class EnemyMusicTrigger : MonoBehaviour
 {
     [Header("Unity Events")]
     public UnityEvent onPlayerEnter;
