@@ -4,11 +4,6 @@ public class LocalAudioManager : MonoBehaviour
 {
 
     [SerializeField] private int StartMusic;
-
-    [SerializeField] private int BattleMusic;
-
-    [SerializeField] private int AdventureMusic;
-
     private void Start()
     {
         if (AudioManager.Instance != null)
