@@ -3,11 +3,10 @@ using UnityEngine.EventSystems;
 
 public class ProjectileMovement : MonoBehaviour
 {
-    public float direction = 1;
+    public Vector2 _moveDirection;
     public float _fireballSpeed = 5;
     public float _fireballDamage = 5;
 
-    private Vector2 _moveDirection;
     private float lifetime = 3;
     private float lifetimer = 0;
 
@@ -15,7 +14,6 @@ public class ProjectileMovement : MonoBehaviour
     void Update()
     {
         lifetimer += Time.deltaTime;
-        _moveDirection.Set(direction, 0);
 
         this.transform.Translate(_moveDirection * _fireballSpeed * Time.deltaTime);
 

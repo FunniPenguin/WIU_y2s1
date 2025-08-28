@@ -26,16 +26,10 @@ public class _fireballAbility : _AbilityScript
         // Direction vector = target position - origin position
         var turretAimDirection = (aimTargetPosition - (Vector2)projectileSpawnPoint).normalized;
 
-        // Get the signed z-rotation value (angle) of the turret between the direction vector and aim direction
-        //var turretZAngle = Vector2.SignedAngle(_spriteTransform.localScale.x >= 0 ? Vector2.right : Vector2.left, turretAimDirection);
-        //_turretTransform.rotation = Quaternion.Euler(new Vector3(0, 0, turretZAngle));
-
         //Spawning and setting fireball stuff
         spawnObject.SetActive(true);
         spawnObject.GetComponent<ProjectileMovement>()._fireballSpeed = _fireballSpeed;
         spawnObject.GetComponent<ProjectileMovement>()._fireballDamage = _fireballDamage;
-        spawnObject.GetComponent<ProjectileMovement>().direction = projectileSpawnGameObject.GetComponent<_PlayerController>()._lastSavedDirection;
-
-        Debug.Log(projectileSpawnGameObject.GetComponent<_PlayerController>()._lastSavedDirection);
+        spawnObject.GetComponent<ProjectileMovement>()._moveDirection = turretAimDirection;
     }
 }
