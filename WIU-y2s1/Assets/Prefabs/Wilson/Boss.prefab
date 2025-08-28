@@ -322,8 +322,8 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   damage: 10
-  speed: 5
-  jumpPower: 5
+  speed: 10
+  jumpPower: 10
   isInvincible: 0
   iFrameDuration: 0.1
   uponDeath:
