@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 [CreateAssetMenu(fileName = "_dashAbility", menuName = "Scriptable Objects/_dashAbility")]
@@ -10,8 +11,12 @@ public class _dashAbility : _AbilityScript
 
     private Vector2 _dashTrajectory;
 
+    // Added by Jovan Yeo Kaisheng
+    public UnityEvent onDash;
+
     public override void Ability()
     {
+        onDash?.Invoke();
         Dash(DashSpeed);
     }
 
