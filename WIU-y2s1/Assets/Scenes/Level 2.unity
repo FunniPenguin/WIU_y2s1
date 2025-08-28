@@ -1334,18 +1334,30 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 318661074}
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1435302533}
+    - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
@@ -1353,15 +1365,31 @@ PrefabInstance:
       value: SwitchActiveScene
       objectReference: {fileID: 0}
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayWinMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: LocalSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LocalAudioManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
       propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 614016036665144280, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
+      propertyPath: uponDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3374826116466345474, guid: 3a9e1aae57d7a26468c5b395f8a0b9bc, type: 3}
@@ -2215,7 +2243,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 50.897003, y: -1.7710998, z: -10}
-  m_LocalPosition: {x: 34.717003, y: -2.3210998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17717,7 +17744,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 61.347004, y: 2.6389, z: 0}
-  m_LocalPosition: {x: 45.167004, y: 2.0889, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
