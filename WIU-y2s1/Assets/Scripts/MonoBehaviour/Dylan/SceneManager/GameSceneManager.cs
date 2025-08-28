@@ -115,7 +115,11 @@ public class GameSceneManager : MonoBehaviour
     public void QuitGame()
     {
         //for ending the game, to be used in unity events
-        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
     }
     public int GetStartingLevelIndex()
     {

@@ -31,4 +31,8 @@ public class LocalSceneManager : MonoBehaviour
         DataPersistenceManager.Instance.NewLevel();
         GameSceneManager.Instance.LoadLevel(index);
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
