@@ -112,6 +112,28 @@ public class DataPersistenceManager : MonoBehaviour
 
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
+    public static string GenerateGUID()
+    {
+        int RandomInteger = Random.Range(1, 3);
+        char alphabet;
+        switch (RandomInteger)
+        {
+            case 1:
+                alphabet = 'A';
+                break;
+            case 2:
+                alphabet = 'B';
+                break;
+            case 3:
+                alphabet = 'C';
+                break;
+            default:
+                alphabet = 'A';
+                break;
+        }
+        int SevenDigit = Random.Range(1000000, 9999999);
+        return new string(alphabet + SevenDigit.ToString());
+    }
 }
 
 
