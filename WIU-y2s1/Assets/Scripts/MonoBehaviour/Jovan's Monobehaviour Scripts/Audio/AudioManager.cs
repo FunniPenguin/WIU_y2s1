@@ -78,8 +78,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-
-
     public void PlaySFX(int index)
     {
         if (index >= 0 && index < sfxClips.Count)
