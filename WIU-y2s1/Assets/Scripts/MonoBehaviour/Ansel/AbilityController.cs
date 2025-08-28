@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,7 +10,7 @@ public class AbilityController : MonoBehaviour
     public float cooldown = 0.5f;
     private float _timeLastHit = 0;
 
-    public _AbilityScript[] _abilitiesInStore;
+    public List<_AbilityScript> _abilitiesInStore;
 
     public void Start()
     {
@@ -25,15 +27,24 @@ public class AbilityController : MonoBehaviour
 
     public void switchAbility()
     {
-        for (int i = 0; i < _abilitiesInStore.Length; i++)
+        for (int i = 0; i < _abilitiesInStore.Count; i++)
         {
-            if (_activeAbility == _abilitiesInStore[i] && _abilitiesInStore[i + 1] != null)
+            if (_activeAbility == _abilitiesInStore[i])
             {
-                _activeAbility = _abilitiesInStore[i + 1];
+                if (_abilitiesInStore[i] != _abilitiesInStore.LastOrDefault())
+                {
+                    _activeAbility = _abilitiesInStore[i + 1];
+                    return;
+                }
+                else
+                {
+                    _activeAbility = _abilitiesInStore[0];
+                    return;
+                }
             }
-            else if (_abilitiesInStore[i + 1] == null)
+            else
             {
-                _activeAbility = _abilitiesInStore[0];
+
             }
         }
     }
