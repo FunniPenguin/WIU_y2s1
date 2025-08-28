@@ -16168,7 +16168,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1629305217}
-  - {fileID: 1738862818}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1584195541
@@ -16226,11 +16225,6 @@ RectTransform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4397072146236507454, guid: 7d41e3104b7b78e4e9f6de840b005a9a, type: 3}
   m_PrefabInstance: {fileID: 124026854}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1738862818 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7107308253263743980, guid: 61bfd537e84c7564494ef548ade8eea2, type: 3}
-  m_PrefabInstance: {fileID: 2073735786}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1790574188
 GameObject:
@@ -17136,7 +17130,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1545385836}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 542960353093749823, guid: 61bfd537e84c7564494ef548ade8eea2, type: 3}
       propertyPath: m_AnchorMax.y
@@ -19128,6 +19122,7 @@ SceneRoots:
   - {fileID: 625102862}
   - {fileID: 492358436}
   - {fileID: 1584195542}
+  - {fileID: 2073735786}
   - {fileID: 1545385836}
   - {fileID: 1790574191}
   - {fileID: 1122735229}
