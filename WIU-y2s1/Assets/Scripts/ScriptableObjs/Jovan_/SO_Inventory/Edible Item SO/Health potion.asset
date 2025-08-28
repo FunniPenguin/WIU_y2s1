@@ -19,7 +19,8 @@ MonoBehaviour:
   <Description>k__BackingField: ' Increases Health'
   <ItemImage>k__BackingField: {fileID: -7045236925571761119, guid: a8e79e97647054d45959ee5d9360c18e, type: 3}
   <DefaultParameterList>k__BackingField: []
+  ActionName: Use
+  actionSFX: {fileID: 8300000, guid: 66baa852be33b6448a6d747a41e0de05, type: 3}
   modifiersData:
   - statModifer: {fileID: 11400000, guid: 4e9e24fc1d5eb5d49883d1e34a80976f, type: 2}
     value: 10
-  <actionSFX>k__BackingField: {fileID: 8300000, guid: 66baa852be33b6448a6d747a41e0de05, type: 3}
