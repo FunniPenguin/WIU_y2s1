@@ -56,9 +56,10 @@ public class GameSceneManager : MonoBehaviour
     public void LoadLevel(int LevelIndex)
     {
         UnloadMenu();
-        SceneManager.LoadScene(_loadSceneIndex, LoadSceneMode.Additive);
-        StartCoroutine(LoadAsyncScene(LevelIndex));
-        SceneManager.UnloadSceneAsync(_loadSceneIndex);
+        //SceneManager.LoadScene(_loadSceneIndex, LoadSceneMode.Additive);
+        //StartCoroutine(LoadAsyncScene(LevelIndex));
+        //SceneManager.UnloadSceneAsync(_loadSceneIndex);
+        SceneManager.LoadScene(LevelIndex);
     }
     public void LoadMenu(int index)
     {
@@ -143,20 +144,6 @@ public class GameSceneManager : MonoBehaviour
             yield return null;
         }
         ToggleSceneEventSystem(true);
-    }
-    private IEnumerator LoadAsyncScene(int SceneIndex)
-    {
-
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneIndex, LoadSceneMode.Single);
-
-        // Wait until the asynchronous scene fully loads
-        while (!asyncLoad.isDone)
-        {
-            Slider slider = FindFirstObjectByType<Slider>();
-            if (slider != null)
-                slider.value = asyncLoad.progress;
-            yield return null;
-        }
     }
     private IEnumerator SwapMenu(int index)
     {

@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class NPCwaypointWander : MonoBehaviour
 {
-    [SerializeField] private Vector2 waypointStation1 = Vector2.zero;
-    [SerializeField] private Vector2 waypointStation2 = Vector2.zero;
+    //Changes made by Dylan: Removed serialising this vector 2 as it was hard to edit for each prefab instance in unity editor
+    private Vector2 waypointStation1 = Vector2.zero;
+    private Vector2 waypointStation2 = Vector2.zero;
 
     [SerializeField] private bool shouldFlipSideSprite;
+
+    //Changes made by Dylan: added a transform serialisefield so that its easier to assign the waypoints positions. Also did this as I have no time to modify wilson's code
+    [SerializeField] Transform Waypoint1;
+    [SerializeField] Transform Waypoint2;
 
     private GameObject player; //player in scene (please ensure your player is tagged "Player").
     private Rigidbody2D rb;
@@ -25,13 +30,15 @@ public class NPCwaypointWander : MonoBehaviour
 
     private float NPCspeed = 0f; //stat for the NPC. Do not initialise anything here, do it under Start().
 
-    private void Start()
+    private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         wanderState = Random.Range(1, 4);
         NPCspeed = 1f;
+        waypointStation1 = Waypoint1.transform.position;
+        waypointStation2 = Waypoint2.transform.position;
     }
 
     private void FixedUpdate()

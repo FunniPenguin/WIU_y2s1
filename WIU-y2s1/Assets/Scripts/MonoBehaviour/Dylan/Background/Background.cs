@@ -52,8 +52,8 @@ public class Background : MonoBehaviour
         _distance = _camera.position.x - _cameraStartPosition.x;
         for (int i = 0; i < _backgrounds.Length; i++)
         {
-            float speed = (_bgSpeeds[i] / 100)* _parallaxSpeed * Time.deltaTime;
-            _materials[i].SetTextureOffset("_MainTex", new Vector2(_distance, speed));
+            float speed = (_bgSpeeds[i])* _parallaxSpeed * Time.deltaTime;
+            _materials[i].SetTextureOffset("_MainTex", new Vector2(_distance, speed / 10000));
         }
     }
 }
