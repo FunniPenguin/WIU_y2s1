@@ -961,3 +961,4 @@ MonoBehaviour:
   targets:
   - Enemy
   - Destructible
+  - Boss

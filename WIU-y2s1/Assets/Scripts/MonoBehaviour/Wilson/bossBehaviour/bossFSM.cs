@@ -16,9 +16,12 @@ public class bossFSM : MonoBehaviour
 
     private Vector2 toPlayer = Vector2.zero;
 
-    public float health = 0f; //do not initialise anything here, do it under Start().
     private float bossSpeed = 0f;
     private float bossJump = 0f;
+
+    private EntityStatistics stats;  // Added by Jovan Yeo Kaisheng
+
+    // Remove phased2 health -- Jovan Yeo Kaisheng
 
     //phase 1.1 variables start
 
@@ -80,36 +83,43 @@ public class bossFSM : MonoBehaviour
     }
     private phaseStateEnum phaseState = phaseStateEnum.phaseOne;
 
-    private int phaseTwoHealthTrigger = 50;
     private bool doNotRefreshStatesFlag = false;
 
     private void Start()
     {
-        health = 100f;
-        bossSpeed = 3f * Time.deltaTime;
+        // Modified by Jovan Yeo Kaisheng
+        bossSpeed = 1f * Time.deltaTime; 
         bossJump = 10f;
         boss = GameObject.FindGameObjectWithTag("Boss");
         player = GameObject.FindGameObjectWithTag("Player");
+
+
         rb = boss.GetComponent<Rigidbody2D>();
         attackCollider = boss.GetComponent<CircleCollider2D>();
         animator = boss.GetComponent<Animator>();
+
+        stats = boss.GetComponent<EntityStatistics>(); // Added by Jovan Yeo Kaisheng
+
+        
         doNotRefreshStatesFlag = false;
 
         //phaseState = phaseStateEnum.phaseTwo;
         //subState = subStateEnum.prime2;
         //attackSubState = attackSubStateEnum.charge;
     }
-
     private void Update()
     {
         //Debug.Log(attackSubStateAmount);
 
-        if (health <= phaseTwoHealthTrigger && !doNotRefreshStatesFlag)
+        if (stats != null && stats.maxHealth > 0)
         {
-            phaseState = phaseStateEnum.phaseTwo;
-            subState = subStateEnum.prime2;
-            attackSubState = attackSubStateEnum.charge;
-            doNotRefreshStatesFlag = true;
+            if (stats != null && stats.GetHealthRatio() <= 0.5f && !doNotRefreshStatesFlag)
+            {
+                phaseState = phaseStateEnum.phaseTwo;
+                subState = subStateEnum.prime2;
+                attackSubState = attackSubStateEnum.charge;
+                doNotRefreshStatesFlag = true;
+            }
         }
 
         toPlayer = player.transform.position - boss.transform.position;
