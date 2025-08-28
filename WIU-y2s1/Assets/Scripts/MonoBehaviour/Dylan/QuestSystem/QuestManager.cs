@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using System;
 
-public class QuestManager : MonoBehaviour, IDataPersistence
+public class QuestManager : MonoBehaviour//, IDataPersistence
 {
     public UnityEvent _allGameQuestsCompleted;
     //Start of singleton
@@ -57,48 +57,48 @@ public class QuestManager : MonoBehaviour, IDataPersistence
             _allGameQuestsCompleted.Invoke();
         }
     }
-    public void SaveData(GameData data)
-    {
-        foreach (QuestData questData in _questList)
-        {
-            if (data.questData.ContainsKey(questData.GetGUID()))
-            {
-                data.questData.Remove(questData.GetGUID());
-            }
-            data.questData.Add(questData.GetGUID(), questData.GetObjectiveProgress());
-        }
-        data._activeQuestGUID = _activeQuest.GetGUID();
-    }
-    public void LoadData(GameData data)
-    {
-        //load all the quest data
-        foreach (KeyValuePair<string, int> entry in data.questData)
-        {
-            QuestData LoadedQuest = _questContainer.FindQuest(entry.Key);
-            if (LoadedQuest != null)
-            {
-                Debug.Log($"Adding {entry.Key} and {entry.Value} into questlist");
-                _questList.Add(LoadedQuest);
-                //LoadedQuest.UpdateObjectiveCount(entry.Value);
-            }
-        }
-        //Ensure that in a new save file all the quests are loaded
-        if (_questList.Count < _questContainer.GetQuestList().Length)
-        {
-            foreach (QuestData quest in _questContainer.GetQuestList())
-            {
-                if (!_questList.Contains(quest))
-                {
-                    _questList.Add(quest);
-                }
-            }
-        }
-        //Set the active quest to a default value first before checking if there was a saved active quest
-        _activeQuest = _questList[0];
-        if (data._activeQuestGUID != "")
-        {
-            QuestData LoadActiveQuest = _questContainer.FindQuest(data._activeQuestGUID);
-            if (LoadActiveQuest != null) { _activeQuest = LoadActiveQuest; }
-        }
-    }
+    //public void SaveData(GameData data)
+    //{
+    //    foreach (QuestData questData in _questList)
+    //    {
+    //        if (data.questData.ContainsKey(questData.GetGUID()))
+    //        {
+    //            data.questData.Remove(questData.GetGUID());
+    //        }
+    //        data.questData.Add(questData.GetGUID(), questData.GetObjectiveProgress());
+    //    }
+    //    data._activeQuestGUID = _activeQuest.GetGUID();
+    //}
+    //public void LoadData(GameData data)
+    //{
+    //    //load all the quest data
+    //    foreach (KeyValuePair<string, int> entry in data.questData)
+    //    {
+    //        QuestData LoadedQuest = _questContainer.FindQuest(entry.Key);
+    //        if (LoadedQuest != null)
+    //        {
+    //            Debug.Log($"Adding {entry.Key} and {entry.Value} into questlist");
+    //            _questList.Add(LoadedQuest);
+    //            //LoadedQuest.UpdateObjectiveCount(entry.Value);
+    //        }
+    //    }
+    //    //Ensure that in a new save file all the quests are loaded
+    //    if (_questList.Count < _questContainer.GetQuestList().Length)
+    //    {
+    //        foreach (QuestData quest in _questContainer.GetQuestList())
+    //        {
+    //            if (!_questList.Contains(quest))
+    //            {
+    //                _questList.Add(quest);
+    //            }
+    //        }
+    //    }
+    //    //Set the active quest to a default value first before checking if there was a saved active quest
+    //    _activeQuest = _questList[0];
+    //    if (data._activeQuestGUID != "")
+    //    {
+    //        QuestData LoadActiveQuest = _questContainer.FindQuest(data._activeQuestGUID);
+    //        if (LoadActiveQuest != null) { _activeQuest = LoadActiveQuest; }
+    //    }
+    //}
 }

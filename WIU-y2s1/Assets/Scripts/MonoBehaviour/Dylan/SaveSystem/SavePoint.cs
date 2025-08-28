@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using System;
-using UnityEditor.Overlays;
-using Unity.VisualScripting;
 
 public class SavePoint : MonoBehaviour, IDataPersistence
 {

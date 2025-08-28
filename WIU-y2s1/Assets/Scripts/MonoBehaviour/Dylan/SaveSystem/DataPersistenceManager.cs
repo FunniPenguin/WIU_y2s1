@@ -1,7 +1,6 @@
 using _Inventory.Model;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 //Making the class a singleton class
