@@ -39,6 +39,9 @@ public class AudioManager : MonoBehaviour
     {
         if (index >= 0 && index < audioClips.Count)
         {
+            if (lastPlayedIndex == index && musicSource.isPlaying)
+                return;
+
             lastPlayedIndex = index;
             musicSource.clip = audioClips[index];
             musicSource.Play();
@@ -63,11 +66,16 @@ public class AudioManager : MonoBehaviour
     {
         if (audioClips.Count < 6) return;
 
-        int randomIndex = Random.Range(4, 6); // 4 or 5
+        int randomIndex;
         do
         {
             randomIndex = Random.Range(4, 6); // 4 or 5
-        } while (randomIndex == lastPlayedIndex); // avoid repeating same track
+        } while (randomIndex == lastPlayedIndex);
+
+        if (lastPlayedIndex == randomIndex && musicSource.isPlaying)
+            return;
+
+        PlayMusic(randomIndex);
     }
 
     public void PlayLoseMusic()
@@ -75,6 +83,13 @@ public class AudioManager : MonoBehaviour
         if (audioClips.Count > 8)
         {
             PlayMusic(8);
+        }
+    }
+    public void PlayBossMusic()
+    {
+        if (audioClips.Count > 6)
+        {
+            PlayMusic(6);
         }
     }
 
