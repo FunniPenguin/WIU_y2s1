@@ -109,6 +109,9 @@ public class bossFSM : MonoBehaviour
     }
     private void Update()
     {
+        //Added by Dylan Yap to ensure boss does not update outside of player's vision
+        if (Vector2.Distance(transform.position, player.transform.position) > 40) return;
+
         //Debug.Log(attackSubStateAmount);
 
         if (stats != null && stats.maxHealth > 0)
