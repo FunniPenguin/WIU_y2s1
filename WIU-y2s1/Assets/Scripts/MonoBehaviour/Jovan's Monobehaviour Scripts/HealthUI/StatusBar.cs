@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class StatusBar : MonoBehaviour
 {
     private Slider slider;
-    private Transform parentTransform;
+    private Transform targetTransform;
     [SerializeField] private Vector3 offset = Vector3.zero;
     [SerializeField] private bool offsetPosition = true;
     void Awake()
@@ -12,14 +12,20 @@ public class StatusBar : MonoBehaviour
         slider = GetComponent<Slider>();
         if (slider == null)
             Debug.LogError("StatusBar on " + gameObject.name + " is missing a Slider component!");
-
-        parentTransform = transform.root;
     }
     private void Update()
     {
+
+        if (targetTransform == null) return;
+
         if (offsetPosition) { 
-            transform.position = parentTransform.position + offset;
+            transform.position = targetTransform.position + offset;
         }
+    }
+
+    public void Initialize(Transform target)
+    {
+        targetTransform = target;
     }
 
     public void UpdateStatusBar(float CurrentValue, float MaxValue)
@@ -29,3 +35,4 @@ public class StatusBar : MonoBehaviour
         slider.value = CurrentValue / MaxValue;
     }
 }
+// Added By Jovan Yeo Kaisheng
