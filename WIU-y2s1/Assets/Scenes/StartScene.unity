@@ -401,7 +401,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2370,7 +2370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4336194818389446258, guid: 74733711f96f51d4c96d6231f6cbcf7c, type: 3}
       propertyPath: _saveSceneIndex
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4336194818389446258, guid: 74733711f96f51d4c96d6231f6cbcf7c, type: 3}
       propertyPath: _startingLevelIndex
@@ -2382,11 +2382,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4336194818389446258, guid: 74733711f96f51d4c96d6231f6cbcf7c, type: 3}
       propertyPath: _levelBuildIndexes.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4336194818389446258, guid: 74733711f96f51d4c96d6231f6cbcf7c, type: 3}
       propertyPath: '_levelBuildIndexes.Array.data[0]'
-      value: 4
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4336194818389446258, guid: 74733711f96f51d4c96d6231f6cbcf7c, type: 3}
+      propertyPath: '_levelBuildIndexes.Array.data[1]'
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4677161622919697149, guid: 74733711f96f51d4c96d6231f6cbcf7c, type: 3}
       propertyPath: m_LocalPosition.x

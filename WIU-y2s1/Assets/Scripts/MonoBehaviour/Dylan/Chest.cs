@@ -2,10 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Chest : MonoBehaviour
+public class Chest : MonoBehaviour, IDataPersistence
 {
     public UnityEvent _chestOpened;
-    private string _id;
     private bool _currSavePoint;
     GameObject _player;
     [SerializeField] float _distanceToInteract = 1.0f;
@@ -33,20 +32,19 @@ public class Chest : MonoBehaviour
     }
     public void SaveData(GameData data)
     {
-        if (data.savePoints.ContainsKey(id))
-        { data.savePoints.Remove(id); }
-        data.savePoints.Add(id, _currSavePoint);
+        if (data.mapGameObjects.ContainsKey(id))
+        {
+            data.mapGameObjects.Remove(id);
+        }
+        data.mapGameObjects.Add(id, gameObject.activeInHierarchy);
     }
     public void LoadData(GameData data)
     {
-        if (data.savePoints.TryGetValue(id, out bool isSavePoint))
-            _currSavePoint = isSavePoint;
-        if (_currSavePoint)
-        {
-            _player.transform.position = transform.position;
-            //So that when saving the game only will have one save point marked as true
-            _currSavePoint = false;
-        }
+        bool isActive = true;
+        if (data.mapGameObjects.TryGetValue(id, out isActive))
+            gameObject.SetActive(isActive);
+        else
+            gameObject.SetActive(true);
     }
     IEnumerator UseChest()
     {
@@ -56,9 +54,7 @@ public class Chest : MonoBehaviour
         {
             Vector2 ItemPosition = new Vector2(transform.position.x, transform.position.y + 1);
             GameObject Item = Instantiate(prefab, ItemPosition, this.transform.rotation);
-            Debug.Log(Item);
             Item.SetActive(true);
-            Debug.Log(Item.transform.position);
         }
         this.gameObject.SetActive(false);
         yield return null;
