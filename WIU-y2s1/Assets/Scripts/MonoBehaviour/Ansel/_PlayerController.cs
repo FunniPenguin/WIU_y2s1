@@ -10,7 +10,7 @@ public class _PlayerController : MonoBehaviour
     private Vector2 moveDirection;
 
     public float speed;
-    public float jumpHeight;
+    public float jumpHeight = 10;
 
     [Header("Ground Check")]
     public Transform groundCheckPosition;
@@ -27,10 +27,9 @@ public class _PlayerController : MonoBehaviour
     public bool IsClimbing { get; set; }
     public float _lastSavedDirection = 0;
 
-    private Vector2 _finalVelocity, _movementVelocity, _impulseVelocity;
-
     void Awake()
     {
+        DontDestroyOnLoad(this);
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         _statistics = GetComponent<EntityStatistics>();
@@ -60,19 +59,18 @@ public class _PlayerController : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        //Todo: change the linear velovity to movement velocity in the player script only
-        //Todo: check if current linear vel is greater than limit. if true then negate new movement vel
-        //Todo: calculate clamp value for movement velocity by taking current vel and clamp val diff, if the min
-        //Todo: Final force calculation would be final vel += movement vel + impulse + gravity
         Gravity();
         GroundCheck();
+    }
 
-        if (GetComponent<HealthSystem>().healthData.maxHealth <= 0)
-        {
-            _statistics.uponDeath.Invoke();
-        }
+    void FixedUpdate()
+    {
+        //if (GetComponent<HealthSystem>(). <= 0) 
+        //{
+        //    _statistics.uponDeath.Invoke();
+        //}
 
         if (!animator.GetBool("IsGrounded") && body.linearVelocityY < 0)
         {
@@ -104,7 +102,6 @@ public class _PlayerController : MonoBehaviour
             body.gravityScale = baseGravity;
         }
     }
-
     //OnMove function
     public void OnMove(InputAction.CallbackContext ctx)
     {
@@ -141,7 +138,7 @@ public class _PlayerController : MonoBehaviour
         }
     }
 
-    public void OnJump(InputAction.CallbackContext ctx)
+    public void OnJump(InputAction.CallbackContext ctx) 
     {
         if (ctx.performed)
         {
@@ -163,7 +160,4 @@ public class _PlayerController : MonoBehaviour
         Gizmos.color = Color.white;
         if (groundCheckPosition) Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
     }
-
-
-
 }
