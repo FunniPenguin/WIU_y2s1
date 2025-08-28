@@ -37,7 +37,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        musicSource.loop = false;
+        //musicSource.loop = false;
 
         ApplyVolumes();
     }
