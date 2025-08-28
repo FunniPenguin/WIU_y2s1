@@ -20827,7 +20827,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3609737777797296187, guid: 7f3d1d643974cac4d9dabcb6bd6a227f, type: 3}
       propertyPath: StartMusic
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5940474049123553992, guid: 7f3d1d643974cac4d9dabcb6bd6a227f, type: 3}
       propertyPath: m_Name
