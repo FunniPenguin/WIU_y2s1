@@ -12,6 +12,7 @@ public class Chest : MonoBehaviour
     [SerializeField] string id = "";
     [SerializeField] GameObject[] _prefabList;
     private Animator _animator;
+    private bool _used = false;
     private void Awake()
     {
         _player = FindFirstObjectByType<_PlayerController>().gameObject;
@@ -19,12 +20,14 @@ public class Chest : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E))
+        if ((Input.GetKeyUp(KeyCode.E)) && !(_used))
         {
             var player = FindAnyObjectByType<_PlayerController>();
             if (Vector3.Distance(player.transform.position, transform.position) <= _distanceToInteract)
             {
-                _animator.Play("ChestOpen");
+                _used = true;
+                StartCoroutine(UseChest());
+                _chestOpened.Invoke();
             }
         }
     }
@@ -45,13 +48,19 @@ public class Chest : MonoBehaviour
             _currSavePoint = false;
         }
     }
-    public void OpenChest()
+    IEnumerator UseChest()
     {
+        _animator.Play("ChestOpen");
+        yield return new WaitForSeconds(1);
         foreach (GameObject prefab in _prefabList)
         {
-            Instantiate(prefab);
-            prefab.SetActive(true);
+            Vector2 ItemPosition = new Vector2(transform.position.x, transform.position.y + 1);
+            GameObject Item = Instantiate(prefab, ItemPosition, this.transform.rotation);
+            Debug.Log(Item);
+            Item.SetActive(true);
+            Debug.Log(Item.transform.position);
         }
-        _chestOpened.Invoke();
+        this.gameObject.SetActive(false);
+        yield return null;
     }
 }
